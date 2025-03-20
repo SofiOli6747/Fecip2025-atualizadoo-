@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Peralta&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Peralta&family=Sarala:wght@400;700&display=swap');
+
+
+:root{
+    --verde: rgb(0, 153, 153)
+}
+
+body{
+    background-color: rgb(235, 242, 248);
+}
+h2{
+    position: relative;
+    top:-20px;
+}
+
+p{
+    margin: -5px;
+}
+
+ul{
+    position: relative;
+    left: -40px;
+    top: -5px;
+    display: flex;
+    list-style-type: none;
+
+
+}
+.logo{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 15px;
+}
+.farma{
+    font-family: "Peralta", serif;
+    text-decoration: none;
+    color: rgb(197, 130, 130);
+    position: absolute;
+
+}
+.busca{
+    font-family: "Peralta", serif;
+    text-decoration: none;
+    color: rgb(197, 130, 130);
+    position: absolute;
+    top: 30px;
+}
+.titulo{
+    font-size: 35px;
+    position: absolute;
+    top: 20px;
+    left: 100px;
+
+}
+
+
+.typebox{
+    background-color: rgb(211, 219, 219);
+    padding: 10px;
+    border: none;
+    border-radius: 40px;
+    height: 40px;
+    position: absolute;
+    top: 40px;
+    left: 300px;
+}
+
+.typebox::placeholder{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.b-cadastro{
+    background-color: #cee3c5;
+    border: none;
+    border-radius: 40px;
+    width: 250px;
+    height: 70px;
+    position: absolute;
+    top: 20px;
+    left: 1050px;
+}
+.b-cadastro:hover{
+    background-color: #acc6ac;
+}
+
+.cadastro-txt{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 43px;
+    left: 1115px;
+}
+
+.icon-cadastro{
+    width: 70px;
+    height: 40px;
+    position: absolute;
+    top: 35px;
+    left: 1050px;
+
+}
+
+.b-salvos{
+    background-color:  #cee3c5;
+    border: none;
+    border-radius: 40px;
+    width: 180px;
+    height: 70px;
+    position: absolute;
+    top: 20px;
+    left: 1320px;
+    
+}
+.b-salvos:hover{
+    background-color:#acc6ac;
+}
+
+.icon-salvos{
+    width: 70px;
+    height: 55px;
+    position: absolute;
+    top: 28px;
+    left: 1320px;
+}
+
+.salvos-txt{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 43px;
+    left: 1385px;
+}
+
+
+.Inicio{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 60px;
+    text-decoration: none;
+    color: white;
+}
+.Categorias{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 150px;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+.fundo-navbar{
+    display: flex;
+    padding: 30px;
+    width: 1455px;
+    position: absolute;
+    top: 120px;
+    left: 1px;
+    background-color:var(--verde);
+}
+
+.fundo-header{
+    display: flex;
+    padding: 65px;
+    width: 500px;
+    position: absolute;
+    top: 1px;
+    left: 1000px;
+    background-color: rgb(240, 232, 232);
+}
+@keyframes slideup{
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.rodape{
+    display: flex;
+    padding: 50px;
+    width: 1420px;
+    position: absolute;
+    top: 1005px;
+    left: 1px;
+    background-color:var(--verde);
+}
+.nosso-site-txt{
+    color: white;
+    position: absolute;
+    top: 1020px;
+    left: 40px;
+}
+.logo-instagram{
+    width: 60px;
+    height: 30px;
+    position: absolute;
+    top: 1050px;
+    left: 10px;
+}
+.link_instagram{
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    top: 1030px;
+    left: 100px;
+
+}
+.contato-txt{
+    color: white;
+    position: absolute;
+    top: 1020px;
+    left: 200px;
+
+}
+.email-contato{
+    color: white;
+    position: absolute;
+    top: 1040px;
+    left: 200px;
+
+}
