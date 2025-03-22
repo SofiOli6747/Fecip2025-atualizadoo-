@@ -8,7 +8,8 @@
     <title>FarmaBusca - encontre os melhores preços</title>
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="assets/logo farma busca.png" type="image/x-icon">
-    <script type="text/javascript" src="darkmode.js" defer></script>
+
+    <script src="script.js" defer></script>
 </head>
 <style>
     body{
@@ -35,7 +36,7 @@
             </div> 
             <!--área dos botões cadastro e salvos-->
             <div>
-                <input type="button" class="b-cadastro" id="cadastro" size="70">
+                <input type="button" class="b-cadastro" id="botao-cadastro" size="70">
                 
                 <img src="assets/userpf.png" alt="icon de cadastro"  class="icon-cadastro">
                 
@@ -70,7 +71,64 @@
 
     <!--conteúdo (parte do meio)-->
     <main>
-    
+        <!--tela de cadastro e login-->
+        <section>
+            <div class="blur-bg-overlay" id="blur-bg">
+            </div>
+            <div class="form-login" id="form-loginn">
+                <div class="bg-login"></div>
+                <div class="bg-login2"></div>
+                <button class="close-btn" id="close-btn">X</button>
+                <div class="tela-login">
+                    <div class="form-content">
+                        <h2>LOGIN</h2>
+                        <form action="#">
+                            <div class="input-field">
+                                <input type="text" required>
+                                <label>Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" required>
+                                <label>Senha</label>
+                            </div>
+                            <a href="#" class="esqueceu-senha">Esqueceu a senha?</a>
+                            <button type="submit">Logar</button>
+                        </form>
+                        <div class="botao-link-cadastrar">
+                            <label>Não tem uma conta?</label> 
+                            <a href="#" onclick="toggleForms()" id="cadastro-link">Cadastre-se</a>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            <div class="form-cadastro" id="form-cadastro">
+                <div class="bg-login"></div>
+                <div class="bg-login2"></div>
+                <span class="close-btn material-symbols-rounded">X</span>
+                <div class="tela-cadastro">
+                    <div class="form-content">
+                        <h2>CADASTRO</h2>
+                        <form action="#">
+                            <div class="input-field">
+                                <input type="text" required>
+                                <label>Coloque seu Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" required>
+                                <label>Criar senha</label>
+                            </div>
+                            <button type="submit">Logar</button>
+                        </form>
+                        <div class="botao-link-cadastrar">
+                            <label>Já tem uma conta?</label> 
+                            <a href="#" onclick="toggleForms()" id="login-link">Entre</a>
+                        </div>
+                    </div>
+                </div>    
+            </div>            
+
+        </section>
+  
     </main>
     <!--rodapé (parte final do site)-->
     <footer>
@@ -81,11 +139,11 @@
 
             <section>
 
-                <div class="nosso-site-txt">
+                <div class="nossa-rede-txt">
                     <span>Nossa rede</span>
                 </div>
                 <div>
-                    <img src="assets/logo_instagram.png" alt="logo do instagram" class="logo-instagram">
+                    
                 </div>
                 <div class="contato-txt">
                     <span>Contato:</span>
@@ -93,9 +151,15 @@
                 <div class="email-contato">
                     <span>farameterj@gmail.com</span>
                 </div>
+                <div class="txt-farmabusca-rodape">
+                    <label>FarmaBusca 2025</label>
+                </div>
                 <ul>
                     <li>
-                        <a href="//" class="link_instagram"> Instagram </a>
+                        <a href="//" class="link_instagram"> Instagram 
+                            <img src="assets/logo_instagram.png" alt="logo do instagram" class="logo-instagram">
+                        </a>
+                            
                     </li>
                 </ul>  
                 
@@ -103,6 +167,6 @@
         </section>
 
     </footer>
-    
+ 
 </body>
 </html>
