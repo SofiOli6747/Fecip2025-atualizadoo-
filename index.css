@@ -2,6 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Peralta&family=Sarala:wght@400;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Gidole&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Peralta&family=Sarala:wght@400;700&display=swap');
+
 
 :root{
     --verde: rgb(0, 153, 153)
@@ -174,12 +176,313 @@ ul{
     left: 1000px;
     background-color: rgb(240, 232, 232);
 }
+
+
+
+
+
+
+.blur-bg-overlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    pointer-events: none;
+    backdrop-filter: blur(2px);
+    transition: 0.1s ease;
+}
+
+.form-login{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 500px;
+    width: 100%;
+    height: 400px;
+    background: white;
+    border-radius: 30px;
+    transform: translate(-50%, -100%);
+    animation: slideup 0.2s linear forwards;
+
+}
 @keyframes slideup{
     100%{
         opacity: 1;
-        transform: translateX(0px);
+        transform: translate(-50%, -50%);
     }
 }
+
+
+.bg-login{
+    padding: 50px;
+    width: 400px;
+    position: absolute;
+    top: -1px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(197, 130, 130);
+}
+.bg-login2{
+    padding: 20px;
+    width: 460px;
+    position: absolute;
+    top: 75px;
+    border: none;
+    background-color: white;
+}
+
+
+.form-login .close-btn {
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 10px;
+    left: 470px;
+    border: none;
+    background-color:  rgb(197, 130, 130);
+    color: dimgray;
+    cursor: pointer;
+}
+
+.form-login .tela-login {
+    display: flex;
+}
+
+.tela-login h2{
+    font-family: "Gidole", sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+
+.tela-login .form-content {
+    width: 100%;
+    padding: 35px;
+
+}
+
+form .input-field{
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+form .input-field input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -20px;
+    outline: none;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.input-field input:focus{
+    border-color:rgb(0, 149, 255);
+}
+
+
+form .input-field label{
+    position: absolute;
+    top: 5%;
+    left: 15px;
+    color: darkgray;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.input-field input:is(:focus, :valid) ~ label{
+    color: rgb(0, 149, 255);
+    font-size: 0.75rem;
+    transform: translateY(-120%);
+}
+
+.tela-login a:hover {
+    text-decoration: underline;
+}
+
+.esqueceu-senha{
+    text-decoration: none;
+    position: relative;
+    top: 10px;
+
+}
+.botao-link-cadastrar{
+    position: relative;
+    top: 55px;
+    
+}
+form button {
+    width: 100%;
+    position: relative;
+    top: 35px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 0;
+    cursor: pointer;
+    color: white;
+    background: rgb(83, 155, 232);
+}
+
+
+
+
+
+
+
+.form-cadastro{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 500px;
+    width: 100%;
+    height: 400px;
+    background: white;
+    border-radius: 30px;
+    transform: translate(-50%, -100%);
+    animation: slideup 0.2s linear forwards;
+}
+
+@keyframes slideup{
+    100%{
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.bg-login{
+    padding: 50px;
+    width: 400px;
+    position: absolute;
+    top: -1px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(197, 130, 130);
+}
+.bg-login2{
+    padding: 20px;
+    width: 460px;
+    position: absolute;
+    top: 75px;
+    border: none;
+    background-color: white;
+}
+
+
+.form-cadastro .close-btn {
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 10px;
+    left: 470px;
+    color: dimgray;
+    cursor: pointer;
+}
+
+.form-cadastro .tela-cadastro {
+    display: flex;
+}
+
+.tela-cadastro h2{
+    font-family: "Gidole", sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+
+.tela-cadastro .form-content {
+    width: 100%;
+    padding: 35px;
+
+}
+
+form .input-field{
+    font-family: "Sarala", sans-serif;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+form .input-field input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -20px;
+    outline: none;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.input-field input:focus{
+    border-color:rgb(0, 149, 255);
+}
+
+
+form .input-field label{
+    position: absolute;
+    top: 5%;
+    left: 15px;
+    color: darkgray;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.input-field input:is(:focus, :valid) ~ label{
+    color: rgb(0, 149, 255);
+    font-size: 0.75rem;
+    transform: translateY(-120%);
+}
+
+.tela-cadastro a:hover {
+    text-decoration: underline;
+}
+
+.botao-link-cadastrar{
+    position: relative;
+    top: 55px;
+    
+}
+
+form button {
+    width: 100%;
+    position: relative;
+    top: 35px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 0;
+    cursor: pointer;
+    color: white;
+    background: rgb(83, 155, 232);
+}
+
+
+@media (max-width> 500px){
+        .form-login{
+            width: 95%;
+        }
+        .form-box .form-content{
+            padding: 30px 20px;
+        }
+}
+
+
+
+
+
+
+
+
 
 .rodape{
     display: flex;
@@ -190,7 +493,8 @@ ul{
     left: 1px;
     background-color:var(--verde);
 }
-.nosso-site-txt{
+.nossa-rede-txt{
+    font-family: "Sarala", sans-serif;
     color: white;
     position: absolute;
     top: 1020px;
@@ -200,8 +504,8 @@ ul{
     width: 60px;
     height: 30px;
     position: absolute;
-    top: 1050px;
-    left: 10px;
+    top: -5px;
+    left: -55px;
 }
 .link_instagram{
     text-decoration: none;
@@ -212,16 +516,25 @@ ul{
 
 }
 .contato-txt{
+    font-family: "Sarala", sans-serif;
     color: white;
     position: absolute;
-    top: 1020px;
+    top: 1030px;
     left: 200px;
 
 }
 .email-contato{
+    font-family: "Sarala", sans-serif;
     color: white;
     position: absolute;
-    top: 1040px;
+    top: 1050px;
     left: 200px;
 
+}
+.txt-farmabusca-rodape{
+    font-family: "Sarala", sans-serif;
+    color: white;
+    position: absolute;
+    top: 1050px;
+    left: 1360px;
 }
