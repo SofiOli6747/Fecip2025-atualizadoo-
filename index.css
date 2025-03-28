@@ -476,8 +476,23 @@ form button {
         }
 }
 
+.btn-gsenha{
+    position:absolute;
+    left: 380px;
+    top: 230px;
+}
+
+.btn-gsenha:hover{
+    color: rgb(115, 158, 72);
+}
 
 
+.senha-gerada{
+    display: flex;
+    position: absolute;
+    top: 210px;
+    left: 270px;
+}
 
 
 
