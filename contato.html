@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-<!--"cabeça" do site-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,16 +9,8 @@
 
     <script src="script.js" defer></script>
 </head>
-<style>
-    body{
-        width: 100px;
-    }
-</style>
-<!--corpo do site--> 
-<body>  
-    <!--cabeçalho (parte de cima do site)-->
+<body>
     <header>
-
         <div class="fundo-navbar">  
         </div>
         <section>
@@ -66,9 +56,9 @@
 
                     <a href="//" class="lojas-navbar"> Lojas </a>
 
-                    <a href="como-funciona.html" class="Como-funciona-navbar"> Como funciona </a>
+                    <a href="como-funciona.html" class="Como-funciona-navbar2"> Como funciona </a>
 
-                    <a href="contato.html" class="Contato-navbar"> Contato </a>
+                    <a href="contato.html" class="Contato-navbar2"> Contato </a>
                 </li>
             </ul>
            
@@ -78,9 +68,26 @@
 
     </header>
 
-    <!--conteúdo (parte do meio)-->
     <main>
-        <!--tela de cadastro e login-->
+        
+        <section>
+            <div class="txt-contato">
+                <h2>Dê o seu feedback ou entre em contato conosco pelo nosso email: <a href="#">farameterj@gmail.com</a> ou pelo formulário:</h2>
+            </div>
+            <div class="formulario-contato">
+                <div class="box-form">
+                    <label class="nome-label">Nome *</label>
+                    <input type="text" class="typebox-nome" required>
+                    <label class="email-label">Email *</label>
+                    <input type="email" class="typebox-email" required>
+                    <label class="telefone-label"> Telefone *</label>
+                    <input type="number" class="typebox-telefone" required>
+                    <button class="btn-contato">Enviar</button>
+                    <textarea class="typebox-feedback" name="" id="feedback" placeholder="Digite aqui seu Feedback"></textarea>
+                </div>
+            </div>
+        </section>
+
         <section>
             <div class="blur-bg-overlay" id="blur-bg">
             </div>
@@ -118,12 +125,12 @@
                     <div class="form-content">
                         <h2>CADASTRO</h2>
                         <form action="#">
-                            <div class="input-field" id="input-field">
+                            <div class="input-field">
                                 <input type="text" required>
                                 <label>Coloque seu Email</label>
                             </div>
                             <div class="input-field">
-                                <input type="password" id="inputPassword" required>
+                                <input type="password" required>
                                 <label>Criar senha</label>
                             </div>
                             <button type="submit">Logar</button>
@@ -132,17 +139,12 @@
                             <label>Já tem uma conta?</label> 
                             <a href="#" onclick="toggleForms()" id="login-link">Entre</a>
                         </div>
-                        <button class="btn-gsenha" id="generate-password">gerar senha</button>
-                        <div class="senha-gerada" id="generated-password">
-                            <h4></h4>
-                        </div>
                     </div>
                 </div>    
             </div>            
 
         </section>
 
-        <!--aba categorias-->
         <section>
             <div class="form-categorias" id="form-categoria">
                 <div class="tela-categorias">
@@ -153,9 +155,9 @@
 
                         <a href="#" class="lojas-aba"> Lojas </a>
 
-                        <a href="como-funciona.html" class="Como-funciona-aba"> Como funciona </a>
+                        <a href="#" class="Como-funciona-aba"> Como funciona </a>
 
-                        <a href="contato.html" class="Contato-aba"> Contato </a>
+                        <a href="#" class="Contato-aba"> Contato </a>
                         
                     </div>
                 </div>
@@ -164,44 +166,6 @@
         </section>
 
     </main>
-    <!--rodapé (parte final do site)-->
-    <footer>
-        <section>
-
-            <div class="rodape-bg">
-            </div>
-
-            <section>
-                <div class="rodape-txt">
-                    <div class="nossa-rede-txt">
-                        <span>Nossa rede</span>
-                    </div>
-                    <div class="contato-txt">
-                        <span>Contato:</span>
-                    </div>
-                    <div class="email-contato">
-                        <span>farameterj@gmail.com</span>
-                    </div>
-                    <div class="txt-farmabusca-rodape">
-                        <label>FarmaBusca2025</label>
-                    </div>
-                    <ul>
-                        <li>
-                            <a href="#" class="link_instagram"> Instagram 
-                                <img src="assets/logo_instagram.png" alt="logo do instagram" class="logo-instagram">
-                            </a>
-                                
-                        </li>
-                    </ul>
-                </div>
-
-                </ul>  
-               <!--<img src="assets/cobra_decoracao.png" alt="" class="snake-decoration">-->
-                
-            </section>
-        </section>
-
-    </footer>
- 
+    
 </body>
 </html>

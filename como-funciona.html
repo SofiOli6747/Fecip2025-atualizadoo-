@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
-<html lang="pt-br">
-<!--"cabeça" do site-->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,16 +9,8 @@
 
     <script src="script.js" defer></script>
 </head>
-<style>
-    body{
-        width: 100px;
-    }
-</style>
-<!--corpo do site--> 
-<body>  
-    <!--cabeçalho (parte de cima do site)-->
+<body>
     <header>
-
         <div class="fundo-navbar">  
         </div>
         <section>
@@ -66,9 +56,9 @@
 
                     <a href="//" class="lojas-navbar"> Lojas </a>
 
-                    <a href="como-funciona.html" class="Como-funciona-navbar"> Como funciona </a>
+                    <a href="como-funciona.html" class="Como-funciona-navbar2"> Como funciona </a>
 
-                    <a href="contato.html" class="Contato-navbar"> Contato </a>
+                    <a href="contato.html" class="Contato-navbar2"> Contato </a>
                 </li>
             </ul>
            
@@ -77,10 +67,21 @@
 
 
     </header>
-
-    <!--conteúdo (parte do meio)-->
     <main>
-        <!--tela de cadastro e login-->
+        <section>
+            <div class="bg-decoration2"></div>
+            <div class="bg-decoration"></div>
+            
+            <div class="titulo-pg3">
+                <h1>Informações sobre o Farma Busca</h1>
+            </div>
+            <div class="paragrafos-pg3">
+                <p>Aqui você irá encontrar os melhores preços de medicamentos e os remédios mais indicados para seus sintomas</p>
+                <p>Pesquise a melhor oferta de produtos </p>
+            </div>
+        </section>
+
+
         <section>
             <div class="blur-bg-overlay" id="blur-bg">
             </div>
@@ -118,12 +119,12 @@
                     <div class="form-content">
                         <h2>CADASTRO</h2>
                         <form action="#">
-                            <div class="input-field" id="input-field">
+                            <div class="input-field">
                                 <input type="text" required>
                                 <label>Coloque seu Email</label>
                             </div>
                             <div class="input-field">
-                                <input type="password" id="inputPassword" required>
+                                <input type="password" required>
                                 <label>Criar senha</label>
                             </div>
                             <button type="submit">Logar</button>
@@ -131,10 +132,6 @@
                         <div class="botao-link-cadastrar">
                             <label>Já tem uma conta?</label> 
                             <a href="#" onclick="toggleForms()" id="login-link">Entre</a>
-                        </div>
-                        <button class="btn-gsenha" id="generate-password">gerar senha</button>
-                        <div class="senha-gerada" id="generated-password">
-                            <h4></h4>
                         </div>
                     </div>
                 </div>    
@@ -153,18 +150,16 @@
 
                         <a href="#" class="lojas-aba"> Lojas </a>
 
-                        <a href="como-funciona.html" class="Como-funciona-aba"> Como funciona </a>
+                        <a href="#" class="Como-funciona-aba"> Como funciona </a>
 
-                        <a href="contato.html" class="Contato-aba"> Contato </a>
+                        <a href="#" class="Contato-aba"> Contato </a>
                         
                     </div>
                 </div>
             </div>
 
         </section>
-
     </main>
-    <!--rodapé (parte final do site)-->
     <footer>
         <section>
 
@@ -196,12 +191,10 @@
                 </div>
 
                 </ul>  
-               <!--<img src="assets/cobra_decoracao.png" alt="" class="snake-decoration">-->
+                <!--<img src="assets/cobra_decoracao.png" alt="" class="snake-decoration">-->
                 
             </section>
         </section>
-
     </footer>
- 
 </body>
 </html>

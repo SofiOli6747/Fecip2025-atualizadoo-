@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Peralta&family=Sarala:wght@400;700&display=swap');
+
+
+.txt-contato{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 200px;
+    left: 140px;
+    color:rgb(116, 111, 111);
+}
+
+
+.box-form{
+    display: flex;
+    position: absolute;
+    top: 280px;
+    left:380px;
+    max-width: 700px;
+    width: 100%;
+    height: 700px;
+    border: 2px solid;
+    border-color: rgb(240, 188, 145);
+    background: white;
+    
+}
+
+.typebox-nome{
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border-color:rgb(240, 188, 145) ;
+}
+
+.typebox-nome input:focus{
+    border-color: blue;
+}
+
+
+.nome-label{
+    font-family: "Sarala", sans-serif;
+    color:rgb(153, 147, 147);
+    position: absolute;
+    top: 40px;
+    left: 15px;
+}
+
+.typebox-email{
+    position: absolute;
+    top: 70px;
+    left: 375px;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border-color:rgb(240, 188, 145) ;
+}
+
+.email-label{
+    font-family: "Sarala", sans-serif;
+    color:rgb(153, 147, 147);
+    position: absolute;
+    top: 40px;
+    left: 370px;
+}
+
+.typebox-telefone{
+    position: absolute;
+    top: 200px;
+    left: 20px;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border-color:rgb(240, 188, 145) ;
+}
+
+.telefone-label{
+    font-family: "Sarala", sans-serif;
+    color:rgb(153, 147, 147);
+    position: absolute;
+    top: 170px;
+    left: 20px;
+}
+
+.btn-contato{
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color: rgb(81, 177, 245) ;
+    border: none;
+    position: absolute;
+    top: 620px;
+    left: 20px;
+}
+.btn-contato:hover{
+    background-color: rgb(0, 149, 255);
+    cursor: pointer;
+}
+
+
+.typebox-feedback{
+    width: 650px;
+    height: 320px;
+    position: absolute;
+    top: 280px;
+    left: 18px;
+    border-color: rgb(174, 176, 177);
+}
+
+
