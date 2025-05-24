@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FarmaBusca - Contato</title>
+    <title>FarmaBusca - Medicamentos</title>
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="assets/logo farma busca.png" type="image/x-icon">
 
@@ -11,6 +11,7 @@
 </head>
 <body>
     <header>
+
         <div class="fundo-navbar">  
         </div>
         <section>
@@ -56,38 +57,40 @@
 
                     <a href="//" class="lojas-navbar"> Lojas </a>
 
-                    <a href="como-funciona.html" class="Como-funciona-navbar2"> Como funciona </a>
+                    <a href="como-funciona.html" class="Como-funciona-navbar3"> Como funciona </a>
 
-                    <a href="contato.html" class="Contato-navbar2"> Contato </a>
+                    <a href="contato.html" class="Contato-navbar3"> Contato </a>
                 </li>
             </ul>
            
         </nav>
         
 
-
     </header>
 
     <main>
-        
-        <section>
-            <div class="txt-contato">
-                <h2>Dê o seu feedback ou entre em contato conosco pelo nosso email: <a href="#">farameterj@gmail.com</a> ou pelo formulário:</h2>
-            </div>
-            <div class="formulario-contato">
-                <div class="box-form">
-                    <label class="nome-label">Nome *</label>
-                    <input type="text" class="typebox-nome" required>
-                    <label class="email-label">Email *</label>
-                    <input type="email" class="typebox-email" required>
-                    <label class="telefone-label"> Telefone *</label>
-                    <input type="number" class="typebox-telefone" required>
-                    <button class="btn-contato">Enviar</button>
-                    <textarea class="typebox-feedback" name="" id="feedback" placeholder="Digite aqui seu Feedback"></textarea>
-                </div>
-            </div>
-        </section>
 
+        <img class="papel" src="assets/papelrasgado.png" alt="">
+        <div class="bg-titulo"></div>
+        <h2 class="pg4-txt">Aqui você verá a lista de medicamentos com todas as informações.</h2>
+        <h1 class="pg4-título">Tabela de Medicamentos</h1>
+
+        
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Nome do Medicamento</th>
+                    <th>Categoria</th>
+                    <th>Marca</th>
+                    <th>Preço</th>
+                    <th>Farmácia</th>
+                    <th>Prescrição médica</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
         <section>
             <div class="blur-bg-overlay" id="blur-bg">
             </div>
@@ -125,12 +128,12 @@
                     <div class="form-content">
                         <h2>CADASTRO</h2>
                         <form action="#">
-                            <div class="input-field">
+                            <div class="input-field" id="input-field">
                                 <input type="text" required>
                                 <label>Coloque seu Email</label>
                             </div>
                             <div class="input-field">
-                                <input type="password" required>
+                                <input type="password" id="inputPassword" required>
                                 <label>Criar senha</label>
                             </div>
                             <button type="submit">Logar</button>
@@ -139,33 +142,54 @@
                             <label>Já tem uma conta?</label> 
                             <a href="#" onclick="toggleForms()" id="login-link">Entre</a>
                         </div>
+                        <button class="btn-gsenha" id="generate-password">gerar senha</button>
+                        <div class="senha-gerada" id="generated-password">
+                            <h4></h4>
+                        </div>
                     </div>
                 </div>    
             </div>            
 
         </section>
 
-        <section>
-            <div class="form-categorias" id="form-categoria">
-                <div class="tela-categorias">
-                    <div class="form-content2">
-                        <a href="index.html" class="Inicio2" id="Inicio"> Início </a>
-
-                        <a href="#" class="Medicamentos-aba"> Medicamentos </a>
-
-                        <a href="#" class="lojas-aba"> Lojas </a>
-
-                        <a href="#" class="Como-funciona-aba"> Como funciona </a>
-
-                        <a href="#" class="Contato-aba"> Contato </a>
-                        
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
     </main>
     
+    <footer>
+        <section>
+
+            <div class="rodape-bg">
+            </div>
+
+            <section>
+                <div class="rodape-txt">
+                    <div class="nossa-rede-txt">
+                        <span>Nossa rede</span>
+                    </div>
+                    <div class="contato-txt">
+                        <span>Contato:</span>
+                    </div>
+                    <div class="email-contato">
+                        <span>farameterj@gmail.com</span>
+                    </div>
+                    <div class="txt-farmabusca-rodape">
+                        <label>FarmaBusca2025</label>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="#" class="link_instagram"> Instagram 
+                                <img src="assets/logo_instagram.png" alt="logo do instagram" class="logo-instagram">
+                            </a>
+                                
+                        </li>
+                    </ul>
+                </div>
+
+                </ul>  
+               <!--<img src="assets/cobra_decoracao.png" alt="" class="snake-decoration">-->
+                
+            </section>
+        </section>
+
+    </footer>
 </body>
 </html>

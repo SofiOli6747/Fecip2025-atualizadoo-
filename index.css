@@ -4,6 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Gidole&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Peralta&family=Sarala:wght@400;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Gidole&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Peralta&family=Sarala:wght@400;700&display=swap');
 
 :root{
     --verde: rgb(0, 153, 153)
@@ -27,6 +28,8 @@ ul{
     top: -5px;
     display: flex;
     list-style-type: none;
+
+
 
 
 /*header e navbar*/
@@ -151,6 +154,178 @@ ul{
 }
 
 
+
+/*main*/
+
+
+
+
+
+.bem_vindo{
+    font-family: "Sarala", sans-serif;
+    font-size: 30px;
+    position: absolute;
+    top: 180px;
+    left: 500px;
+    color: rgb(85, 85, 85);
+}
+
+.box1{
+    position: absolute;
+    top: 300px;
+    left: 500px;
+    padding: 90px;
+    border: solid 2px gray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: aliceblue;
+
+}
+
+@keyframes aumentar{
+    100%{
+        padding: 100px;
+    }
+}
+.box1:hover{
+    animation: aumentar 0.1s linear forwards;
+    font-size: large;
+    
+
+}
+.box1:hover img{
+    width: 170px;
+    cursor: pointer;
+}
+.box1:hover span{
+    top: 150px;
+}
+
+
+.txtbox1{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    left: 38px;
+    top: 140px;
+
+}
+
+.medicamentos_img{
+    width: 150px;
+    position: absolute;
+    top: 1px;
+    left: 35px;
+}
+
+
+.box2{
+    position: absolute;
+    top: 300px;
+    left: 750px;
+    padding: 90px;
+    border: solid 2px gray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: aliceblue;
+
+}
+
+.box2:hover{
+    animation: aumentar 0.1s linear forwards;
+}
+
+.box2:hover img{
+    width: 280px;
+    height: 280px;
+    cursor: pointer;
+}
+
+.box2:hover span{
+    top: 160px;
+    left: 79px;
+    font-size: 20px;
+}
+
+
+.txtbox2{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 145px;
+    left: 73px;
+}
+
+.lojas_img{
+    position: absolute;
+    top: -55px;
+    left: -38px;
+    width: 260px;
+    height: 260px;
+}
+
+
+
+.box3{
+    position: absolute;
+    top: 540px;
+    left: 630px;
+    padding: 90px;
+    border: solid 2px gray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: aliceblue;
+
+}
+
+.box3:hover{
+    animation: aumentar 0.1s linear forwards;
+}
+
+.box3:hover img{
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+}
+
+.box3:hover span{
+    top: 150px;
+    left: 60px;
+    font-size: 20px;
+}
+
+
+.txtbox3{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 140px;
+    left: 59px;
+
+}
+
+
+.historico_img{
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+/*main*/
+
+
+
+
+
+
 .Inicio{
     font-family: "Sarala", sans-serif;
     position: absolute;
@@ -202,6 +377,10 @@ ul{
     color:khaki;
     font-size: large;
 }
+
+
+
+
 .Como-funciona-navbar{
     font-family: "Sarala", sans-serif;
     position: absolute;
@@ -218,10 +397,30 @@ ul{
     text-decoration: none;
     color: white;
 }
+.Como-funciona-navbar3{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 500px;
+    text-decoration: none;
+    color: white;
+}
+
 .Como-funciona-navbar:hover{
     color:khaki;
     font-size: large;
 }
+.Como-funciona-navba2:hover{
+    color:khaki;
+    font-size: large;
+}
+
+.Como-funciona-navbar3:hover{
+    color:khaki;
+    font-size: large;
+}
+
+
 .Contato-navbar{
     font-family: "Sarala", sans-serif;
     position: absolute;
@@ -230,6 +429,7 @@ ul{
     text-decoration: none;
     color: white;
 }
+
 .Contato-navbar2{
     font-family: "Sarala", sans-serif;
     position: absolute;
@@ -238,7 +438,39 @@ ul{
     text-decoration: none;
     color: white;
 }
+
+.Contato-navbar3{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 640px;
+    text-decoration: none;
+    color: white;
+}
 .Contato-navbar:hover{
+    color:khaki;
+    font-size: large;
+}
+.Contato-navbar2:hover{
+    color:khaki;
+    font-size: large;
+}
+.Contato-navbar3:hover{
+    color:khaki;
+    font-size: large;
+}
+
+
+.trocarperfil-navbar{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 115px;
+    left: 1450px;
+    text-decoration: none;
+    color: white;
+}
+
+.trocarperfil-navbar:hover{
     color:khaki;
     font-size: large;
 }
@@ -264,6 +496,12 @@ ul{
     left: 1000px;
     background-color: rgb(240, 232, 232);
 }
+
+
+
+
+
+
 
 
 
@@ -609,7 +847,7 @@ form button {
     left: 1px;
     max-width: 150px;
     width: 100%;
-    height: 500px;
+    height: 520px;
     background: white;
     transform: translateX(-100%);
     animation: slidein 0.5s forwards;
@@ -677,7 +915,13 @@ form button {
     text-decoration: none;
 }
 
-
+.trocarperfil-aba{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 470px;
+    left: 33px;
+    text-decoration: none;
+}
 
 
 
@@ -693,7 +937,7 @@ form button {
     padding: 50px;
     width: 1415px;
     position: absolute;
-    top:1000px;
+    top:900px;
     left: -1px;
     background-color:var(--verde);
 }
@@ -701,7 +945,7 @@ form button {
     font-family: "Sarala", sans-serif;
     color: white;
     position: absolute;
-    top: 1020px;
+    top: 920px;
     left: 55px;
 }
 .logo-instagram{
@@ -715,15 +959,20 @@ form button {
     text-decoration: none;
     color: white;
     position: absolute;
-    top: 1030px;
+    top: 930px;
     left: 100px;
 
 }
+
+.link_instagram:hover{
+    color: rgb(111, 0, 255);
+}
+
 .contato-txt{
     font-family: "Sarala", sans-serif;
     color: white;
     position: absolute;
-    top: 1020px;
+    top: 920px;
     left: 200px;
 
 }
@@ -731,7 +980,7 @@ form button {
     font-family: "Sarala", sans-serif;
     color: white;
     position: absolute;
-    top: 1040px;
+    top: 940px;
     left: 200px;
 
 }
@@ -739,7 +988,7 @@ form button {
     font-family: "Sarala", sans-serif;
     color: white;
     position: absolute;
-    top: 1045px;
+    top: 945px;
     left: 1340px;
 }
 
@@ -776,7 +1025,7 @@ form button {
     width: 100%;
     height: 700px;
     border: 2px solid;
-    border-color: rgb(240, 188, 145);
+    border-color: rgb(197, 130, 130);
     background: white;
     
 }
@@ -788,7 +1037,7 @@ form button {
     width: 300px;
     height: 40px;
     border-radius: 5px;
-    border-color:rgb(240, 188, 145) ;
+    border-color:rgb(197, 130, 130);
 }
 
 .typebox-nome input:focus{
@@ -811,7 +1060,7 @@ form button {
     width: 300px;
     height: 40px;
     border-radius: 5px;
-    border-color:rgb(240, 188, 145) ;
+    border-color:rgb(197, 130, 130);
 }
 
 .email-label{
@@ -829,7 +1078,7 @@ form button {
     width: 300px;
     height: 40px;
     border-radius: 5px;
-    border-color:rgb(240, 188, 145) ;
+    border-color:rgb(197, 130, 130);
 }
 
 .telefone-label{
@@ -905,11 +1154,146 @@ form button {
     top: 190px;
     left: 350px;
     color: white;
+    
 }
+.titulo-pg3_1{
+    font-family: "Peralta", serif;
+    position: absolute;
+    top: 192px;
+    left: 350px;
+    color:  rgb(197, 130, 130);;
+    
+}
+
+
 
 .paragrafos-pg3{
     font-family: "Sarala", sans-serif;
     position: absolute;
     top: 350px;
     left: 10px;
+}
+
+
+
+
+
+
+
+
+/* page medicamentos */
+
+
+
+
+
+.pricing-table {
+    position: absolute;
+    top: 400px;
+    left: 1px;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.pricing-table th, .pricing-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.pricing-table th {
+    background-color: var(--verde);
+    color: white;
+}
+
+.pricing-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.pricing-table tr:hover {
+    background-color: #ddd;
+}
+
+
+
+.pg4-txt{
+    font-family: "Cedarville Cursive", cursive;
+    font-size: 15px;
+    color: dimgray;
+    position: absolute;
+    top: 190px;
+    left: 470px;
+}
+
+.pg4-título{
+    font-family: "Sarala", sans-serif;
+    font-size: 40px;
+    color: rgb(102, 180, 174);
+    position: absolute;
+    top: 320px;
+    left: 470px;
+}
+
+.bg-titulo{
+    width: 500px;
+    height: 60px;
+    background-color: rgb(223, 231, 238);
+    position: absolute;
+    top: 350px;
+    left: 455px;
+}
+
+.papel{
+    width: 700px;
+    height: 100px;
+    position: absolute;
+    top: 165px;
+    left: 350px;
+}
+
+
+
+
+/* page histórico */
+
+.pg5-txt{
+    font-family: "Cedarville Cursive", cursive;
+    font-size: 15px;
+    color: dimgray;
+    position: absolute;
+    top: 190px;
+    left: 550px;
+}
+
+.pg5-título{
+    font-family: "Sarala", sans-serif;
+    font-size: 40px;
+    color: rgb(102, 180, 174);
+    position: absolute;
+    top: 320px;
+    left: 500px;
+}
+
+
+
+/* page lojas */
+
+.pg6-txt{
+    font-family: "Cedarville Cursive", cursive;
+    font-size: 15px;
+    color: dimgray;
+    position: absolute;
+    top: 190px;
+    left: 500px;
+}
+
+.pg6-título{
+    font-family: "Sarala", sans-serif;
+    font-size: 40px;
+    color: rgb(102, 180, 174);
+    position: absolute;
+    top: 320px;
+    left: 650px;
 }
