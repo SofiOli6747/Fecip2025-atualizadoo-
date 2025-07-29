@@ -30,8 +30,11 @@ ul{
     list-style-type: none;
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
 /*header e navbar*/
 
 }
@@ -377,10 +380,13 @@ ul{
     color:khaki;
     font-size: large;
 }
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
 .Como-funciona-navbar{
     font-family: "Sarala", sans-serif;
     position: absolute;
@@ -397,6 +403,7 @@ ul{
     text-decoration: none;
     color: white;
 }
+<<<<<<< HEAD
 .Como-funciona-navbar3{
     font-family: "Sarala", sans-serif;
     position: absolute;
@@ -406,10 +413,13 @@ ul{
     color: white;
 }
 
+=======
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
 .Como-funciona-navbar:hover{
     color:khaki;
     font-size: large;
 }
+<<<<<<< HEAD
 .Como-funciona-navba2:hover{
     color:khaki;
     font-size: large;
@@ -421,6 +431,8 @@ ul{
 }
 
 
+=======
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
 .Contato-navbar{
     font-family: "Sarala", sans-serif;
     position: absolute;
@@ -429,7 +441,10 @@ ul{
     text-decoration: none;
     color: white;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
 .Contato-navbar2{
     font-family: "Sarala", sans-serif;
     position: absolute;
@@ -438,6 +453,7 @@ ul{
     text-decoration: none;
     color: white;
 }
+<<<<<<< HEAD
 
 .Contato-navbar3{
     font-family: "Sarala", sans-serif;
@@ -447,10 +463,13 @@ ul{
     text-decoration: none;
     color: white;
 }
+=======
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
 .Contato-navbar:hover{
     color:khaki;
     font-size: large;
 }
+<<<<<<< HEAD
 .Contato-navbar2:hover{
     color:khaki;
     font-size: large;
@@ -474,6 +493,8 @@ ul{
     color:khaki;
     font-size: large;
 }
+=======
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
 
 
 
@@ -499,6 +520,7 @@ ul{
 
 
 
+/*tela login*/
 
 
 
@@ -847,7 +869,11 @@ form button {
     left: 1px;
     max-width: 150px;
     width: 100%;
+<<<<<<< HEAD
     height: 520px;
+=======
+    height: 500px;
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
     background: white;
     transform: translateX(-100%);
     animation: slidein 0.5s forwards;
@@ -915,6 +941,7 @@ form button {
     text-decoration: none;
 }
 
+<<<<<<< HEAD
 .trocarperfil-aba{
     font-family: "Sarala", sans-serif;
     position: absolute;
@@ -922,6 +949,9 @@ form button {
     left: 33px;
     text-decoration: none;
 }
+=======
+
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
 
 
 
@@ -937,7 +967,11 @@ form button {
     padding: 50px;
     width: 1415px;
     position: absolute;
+<<<<<<< HEAD
     top:900px;
+=======
+    top:1000px;
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
     left: -1px;
     background-color:var(--verde);
 }
@@ -945,7 +979,11 @@ form button {
     font-family: "Sarala", sans-serif;
     color: white;
     position: absolute;
+<<<<<<< HEAD
     top: 920px;
+=======
+    top: 1020px;
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
     left: 55px;
 }
 .logo-instagram{
@@ -972,7 +1010,11 @@ form button {
     font-family: "Sarala", sans-serif;
     color: white;
     position: absolute;
+<<<<<<< HEAD
     top: 920px;
+=======
+    top: 1020px;
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
     left: 200px;
 
 }
@@ -980,7 +1022,11 @@ form button {
     font-family: "Sarala", sans-serif;
     color: white;
     position: absolute;
+<<<<<<< HEAD
     top: 940px;
+=======
+    top: 1040px;
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
     left: 200px;
 
 }
@@ -988,7 +1034,11 @@ form button {
     font-family: "Sarala", sans-serif;
     color: white;
     position: absolute;
+<<<<<<< HEAD
     top: 945px;
+=======
+    top: 1045px;
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
     left: 1340px;
 }
 
@@ -1025,7 +1075,11 @@ form button {
     width: 100%;
     height: 700px;
     border: 2px solid;
+<<<<<<< HEAD
     border-color: rgb(197, 130, 130);
+=======
+    border-color: rgb(240, 188, 145);
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
     background: white;
     
 }
@@ -1037,7 +1091,11 @@ form button {
     width: 300px;
     height: 40px;
     border-radius: 5px;
+<<<<<<< HEAD
     border-color:rgb(197, 130, 130);
+=======
+    border-color:rgb(240, 188, 145) ;
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
 }
 
 .typebox-nome input:focus{
@@ -1060,7 +1118,11 @@ form button {
     width: 300px;
     height: 40px;
     border-radius: 5px;
+<<<<<<< HEAD
     border-color:rgb(197, 130, 130);
+=======
+    border-color:rgb(240, 188, 145) ;
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
 }
 
 .email-label{
@@ -1078,7 +1140,11 @@ form button {
     width: 300px;
     height: 40px;
     border-radius: 5px;
+<<<<<<< HEAD
     border-color:rgb(197, 130, 130);
+=======
+    border-color:rgb(240, 188, 145) ;
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
 }
 
 .telefone-label{
@@ -1154,6 +1220,7 @@ form button {
     top: 190px;
     left: 350px;
     color: white;
+<<<<<<< HEAD
     
 }
 .titulo-pg3_1{
@@ -1166,12 +1233,16 @@ form button {
 }
 
 
+=======
+}
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
 
 .paragrafos-pg3{
     font-family: "Sarala", sans-serif;
     position: absolute;
     top: 350px;
     left: 10px;
+<<<<<<< HEAD
 }
 
 
@@ -1296,4 +1367,6 @@ form button {
     position: absolute;
     top: 320px;
     left: 650px;
+=======
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
 }

@@ -137,6 +137,7 @@ copyPasswordButton.addEventListener("click", (e) => {
 });
 
 //---------
+<<<<<<< HEAD
 
 // códigos para quando for clicado em cada uma das opções do início(tela do cliente)
 
@@ -161,3 +162,5 @@ function selecionarCliente(params) {
 }
 
 
+=======
+>>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
