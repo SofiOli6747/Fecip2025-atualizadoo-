@@ -137,7 +137,6 @@ copyPasswordButton.addEventListener("click", (e) => {
 });
 
 //---------
-<<<<<<< HEAD
 
 // códigos para quando for clicado em cada uma das opções do início(tela do cliente)
 
@@ -158,9 +157,9 @@ function selecionarlojas(params) {
 //código para encaminhar o usuário para sua respectiva tela
 
 function selecionarCliente(params) {
-  window.location.href = "index.html";
+  window.location.href = "cliente.html";
 }
 
-
-=======
->>>>>>> da17652c4087a73b826c64b77f326ad8dc91a770
+function selecionarMedico(params) {
+  window.location.href = "pagina medico/medico.html";
+}

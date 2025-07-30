@@ -95,11 +95,11 @@ ul{
     background-color: #cee3c5;
     border: none;
     border-radius: 40px;
-    width: 250px;
+    width: 150px;
     height: 70px;
     position: absolute;
     top: 20px;
-    left: 1050px;
+    left: 1300px;
 }
 .b-cadastro:hover{
     background-color: #acc6ac;
@@ -110,7 +110,7 @@ ul{
     font-family: "Sarala", sans-serif;
     position: absolute;
     top: 43px;
-    left: 1115px;
+    left: 1375px;
 }
 
 .icon-cadastro{
@@ -118,39 +118,8 @@ ul{
     height: 40px;
     position: absolute;
     top: 35px;
-    left: 1050px;
+    left: 1305px;
 
-}
-
-.b-salvos{
-    background-color:  #cee3c5;
-    border: none;
-    border-radius: 40px;
-    width: 180px;
-    height: 70px;
-    position: absolute;
-    top: 20px;
-    left: 1320px;
-    
-}
-.b-salvos:hover{
-    background-color:#acc6ac;
-    cursor: pointer;
-}
-
-.icon-salvos{
-    width: 70px;
-    height: 55px;
-    position: absolute;
-    top: 28px;
-    left: 1320px;
-}
-
-.salvos-txt{
-    font-family: "Sarala", sans-serif;
-    position: absolute;
-    top: 43px;
-    left: 1385px;
 }
 
 
@@ -355,8 +324,8 @@ ul{
 .Medicamentos-navbar{
     font-family: "Sarala", sans-serif;
     position: absolute;
-    top: 125px;
-    left: 270px;
+    top: 115px;
+    left: 150px;
     text-decoration: none;
     color: white;
 
@@ -369,7 +338,7 @@ ul{
     font-family: "Sarala", sans-serif;
     position: absolute;
     top: 125px;
-    left: 420px;
+    left: 150px;
     text-decoration: none;
     color: white;
 }
@@ -529,7 +498,7 @@ ul{
     left: 50%;
     max-width: 500px;
     width: 100%;
-    height: 400px;
+    height: 250px;
     background: white;
     border-radius: 30px;
     transform: translate(-50%, -100%);
@@ -644,10 +613,10 @@ form .input-field label{
     top: 55px;
     
 }
-form button {
+.btn-sair {
     width: 100%;
     position: relative;
-    top: 35px;
+    top: -5px;
     outline: none;
     border: none;
     font-size: 1rem;
@@ -658,6 +627,27 @@ form button {
     background: rgb(83, 155, 232);
 }
 
+.btn-voltar { 
+    width: 100%;
+    position: relative;
+    top: -20px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 0;
+    cursor: pointer;
+    color: white;
+    background: rgb(83, 155, 232);
+}
+
+.btn-voltar:hover{
+    background: rgb(49, 119, 195);
+}
+
+.btn-sair:hover{
+    background: rgb(49, 119, 195);
+}
 
 .gerar-senha-btn{
     position: absolute;

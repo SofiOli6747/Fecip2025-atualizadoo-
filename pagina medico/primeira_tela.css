@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Peralta&family=Sarala:wght@400;700&display=swap');
+
+
+body{
+    background: linear-gradient(to right, #4B93AD, #64c385);   
+}
+
+h1{
+    background: linear-gradient(to right, #4B93AD, #64c385);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+.pilulas_img{
+    opacity: 70%;
+    width: 90%;
+    position: absolute;
+    top: 0px;
+    left: 1px;
+}
+
+.box-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 500px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    transform: translate(-50%, -100%);
+    animation: slideup 0.5s linear forwards;
+}
+
+@keyframes slideup{
+    100%{
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.h1{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 50px;
+    left: 450px;
+}
+
+.h3{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 120px;
+    left: 530px;
+}
+
+
+
+@keyframes aumentar{
+    100%{
+        padding: 60px;
+    }
+}
+
+.btn_cliente{
+    cursor: pointer;
+    border-radius: 10px;
+    border-color: rgb(197, 130, 130);
+    font-family: "Sarala", sans-serif;
+    font-size: 20px;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 200px;
+    left: 550px;
+    background-color: aliceblue;
+    
+}   
+
+.btn_cliente:hover{
+    background-color: rgb(233, 233, 233);
+    
+}
+
+
+
+.btn_medico{
+    cursor: pointer;
+    border-radius: 10px;
+    border-color:rgb(197, 130, 130);
+    font-family: "Sarala", sans-serif;
+    font-size: 20px;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 350px;
+    left: 550px;
+    background-color: aliceblue;
+}   
+
+.btn_medico:hover{
+    background-color: rgb(233, 233, 233);
+    
+}
+
