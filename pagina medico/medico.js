@@ -22,7 +22,7 @@ document.getElementById("close-btn2").addEventListener('click', function(){
 //código para encaminhar o usuário para sua respectiva tela
 
 function selecionarCliente(params) {
-  window.location.href = "cliente.html";
+  window.location.href = "cliente copy.html";
 }
 
 function selecionarMedico(params) {

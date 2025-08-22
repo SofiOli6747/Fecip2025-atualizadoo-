@@ -1,103 +1,427 @@
 @import url('https://fonts.googleapis.com/css2?family=Peralta&family=Sarala:wght@400;700&display=swap');
 
-
-body{
-    background: linear-gradient(to right, #4B93AD, #64c385);   
+* {
+    box-sizing: border-box;
 }
 
-h1{
-    background: linear-gradient(to right, #4B93AD, #64c385);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
+/* BODY E BACKGROUND */
+
+body {
+    background: linear-gradient(to right, #4B93AD, #64c385);  
+    font-family: 'Sarala', Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
 }
 
-.pilulas_img{
-    opacity: 70%;
-    width: 90%;
-    position: absolute;
-    top: 0px;
-    left: 1px;
-}
-
-.box-container{
+/* Efeito de partículas flutuantes */
+body::before {
+    content: '';
     position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 800px;
-    height: 500px;
-    background-color: aliceblue;
-    border-radius: 10px;
-    transform: translate(-50%, -100%);
-    animation: slideup 0.5s linear forwards;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.3) 0%, transparent 50%);
+    z-index: -1;
+    animation: float 20s ease-in-out infinite;
 }
 
-@keyframes slideup{
-    100%{
+/* ANIMAÇÕES GLOBAIS */
+
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    33% { 
+        transform: translateY(-20px) rotate(2deg); 
+    }
+    66% { 
+        transform: translateY(10px) rotate(-1deg); 
+    }
+}
+
+@keyframes glow {
+    from { 
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)); 
+    }
+    to { 
+        filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)); 
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+    }
+    50% { 
+        transform: scale(1.05) rotate(1deg); 
+    }
+}
+
+@keyframes shimmer {
+    0%, 100% { 
+        opacity: 0.5; 
+    }
+    50% { 
+        opacity: 0.8; 
+    }
+}
+
+@keyframes slideUpBounce {
+    100% {
         opacity: 1;
         transform: translate(-50%, -50%);
     }
 }
 
-.h1{
-    font-family: "Sarala", sans-serif;
-    position: absolute;
-    top: 50px;
-    left: 450px;
-}
-
-.h3{
-    font-family: "Sarala", sans-serif;
-    position: absolute;
-    top: 120px;
-    left: 530px;
-}
-
-
-
-@keyframes aumentar{
-    100%{
-        padding: 60px;
+@keyframes titleGlow {
+    from { 
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); 
+    }
+    to { 
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)); 
     }
 }
 
-.btn_cliente{
-    cursor: pointer;
-    border-radius: 10px;
-    border-color: rgb(197, 130, 130);
-    font-family: "Sarala", sans-serif;
-    font-size: 20px;
-    width: 120px;
-    height: 120px;
-    position: absolute;
-    top: 200px;
-    left: 550px;
-    background-color: aliceblue;
-    
-}   
-
-.btn_cliente:hover{
-    background-color: rgb(233, 233, 233);
-    
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.3);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
 }
 
-
-
-.btn_medico{
-    cursor: pointer;
-    border-radius: 10px;
-    border-color:rgb(197, 130, 130);
-    font-family: "Sarala", sans-serif;
-    font-size: 20px;
-    width: 120px;
-    height: 120px;
-    position: absolute;
-    top: 350px;
-    left: 550px;
-    background-color: aliceblue;
-}   
-
-.btn_medico:hover{
-    background-color: rgb(233, 233, 233);
-    
+@keyframes ripple {
+    to {
+        transform: scale(8);
+        opacity: 0;
+    }
 }
 
+/* TIPOGRAFIA */
+
+h1 {
+    font-family: 'Peralta', serif;
+    font-size: 3.5rem;
+    text-align: center;
+    margin-top: 40px;
+    background: linear-gradient(to right, #4B93AD, #64c385, rgba(255, 107, 107, 0.8));  
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+    letter-spacing: 3px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Sarala', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.h1 {
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.4rem;
+    background: linear-gradient(to right, #4B93AD, #64c385);  
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 5px 4px white;
+    font-weight: 700;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+.h3 {
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-weight: 400;
+}
+
+/* CONTAINER PRINCIPAL */
+
+.box-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 900px;
+    max-width: 95vw;
+    height: 580px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(30px);
+    border-radius: 30px;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -100%);
+    animation: slideUpBounce 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+.box-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1), rgba(69, 183, 209, 0.1));
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+/* BOTÕES */
+
+.btn_cliente, .btn_medico {
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    font-family: "Sarala", sans-serif;
+    font-size: 1.3rem;
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    left: 50%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(20px);
+    color: white;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    font-weight: 700;
+    letter-spacing: 1px;
+    overflow: hidden;
+    position: relative;
+}
+
+.btn_cliente::before, .btn_medico::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+.btn_cliente:hover::before, .btn_medico:hover::before {
+    left: 100%;
+}
+
+/* Posicionamento dos botões */
+.btn_cliente {
+    top: 220px;
+    left: 300px;
+    transform: translateX(-120px);
+    animation: bounceIn 0.8s ease-out 1s both;
+}
+
+.btn_medico {
+    top: 220px;
+    transform: translateX(60px);
+    animation: bounceIn 0.8s ease-out 1.2s both;
+}
+
+/* Estados de hover dos botões */
+.btn_cliente:hover, .btn_medico:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(57, 255, 159, 0.8));
+    transform: translateX(-120px) scale(1.1) translateY(-5px);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn_medico:hover {
+    transform: translateX(60px) scale(1.1) translateY(-5px);
+}
+
+/* Estados de active dos botões */
+.btn_cliente:active, .btn_medico:active {
+    transform: translateX(-120px) scale(1.05) translateY(-2px);
+}
+
+.btn_medico:active {
+    transform: translateX(60px) scale(1.05) translateY(-2px);
+}
+
+/* ÁREA DE RESULTADOS */
+
+#resultados {
+    margin: 50px auto;
+    max-width: 560px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 35px 40px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideInFromBottom 0.8s ease-out;
+}
+
+.farmacia {
+    padding: 18px 20px;
+    margin: 8px 0;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.farmacia::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+.farmacia:hover::before {
+    left: 100%;
+}
+
+.farmacia:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    color: white;
+}
+
+/* IMAGENS */
+
+.pilulas_img {
+    opacity: 0.6;
+    width: 100%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.2));
+}
+
+/* SCROLLBAR PERSONALIZADA */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    border-radius: 10px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #ff5252, #26c6da);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+    /* Tipografia responsiva */
+    h1 { 
+        font-size: 2.5rem; 
+    }
+    
+    h2 { 
+        font-size: 1.8rem; 
+    }
+    
+    .h1 { 
+        font-size: 2.2rem; 
+    }
+    
+    /* Botões responsivos */
+    .btn_cliente, .btn_medico {
+        width: 140px;
+        height: 140px;
+        font-size: 1.1rem;
+    }
+    
+    .btn_cliente {
+        transform: translateX(-100px);
+    }
+    
+    .btn_medico {
+        transform: translateX(40px);
+    }
+    
+    .btn_cliente:hover {
+        transform: translateX(-100px) scale(1.1) translateY(-5px);
+    }
+    
+    .btn_medico:hover {
+        transform: translateX(40px) scale(1.1) translateY(-5px);
+    }
+    
+    .btn_cliente:active {
+        transform: translateX(-100px) scale(1.05) translateY(-2px);
+    }
+    
+    .btn_medico:active {
+        transform: translateX(40px) scale(1.05) translateY(-2px);
+    }
+}

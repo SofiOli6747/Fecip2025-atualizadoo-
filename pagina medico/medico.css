@@ -10,6 +10,19 @@
     --verde: rgb(0, 153, 153)
 }
 
+.overlay{
+    display: grid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 900px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(116, 167, 255, 0.2)); 
+
+}
+
+
+
 body{
     background-color: rgb(235, 242, 248);
 }
@@ -299,7 +312,7 @@ ul{
     font-family: "Sarala", sans-serif;
     position: absolute;
     top: 125px;
-    left: 60px;
+    left: 640px;    
     text-decoration: none;
     color: white;
 }
@@ -338,7 +351,7 @@ ul{
     font-family: "Sarala", sans-serif;
     position: absolute;
     top: 125px;
-    left: 150px;
+    left: 780px;
     text-decoration: none;
     color: white;
 }
@@ -452,7 +465,7 @@ ul{
     position: absolute;
     top: 120px;
     left: 1px;
-    background-color:var(--verde);
+    background: linear-gradient(to right, #4B93AD, #64c385); 
 }
 
 .fundo-header{
@@ -929,7 +942,7 @@ form button {
     position: absolute;
     top:900px;
     left: -1px;
-    background-color:var(--verde);
+    background: linear-gradient(to right, #4B93AD, #64c385); 
 }
 .nossa-rede-txt{
     font-family: "Sarala", sans-serif;
@@ -1287,3 +1300,8 @@ form button {
     top: 320px;
     left: 650px;
 }
+
+
+
+
+

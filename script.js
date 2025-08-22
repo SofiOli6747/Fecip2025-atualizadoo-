@@ -163,3 +163,45 @@ function selecionarCliente(params) {
 function selecionarMedico(params) {
   window.location.href = "pagina medico/medico.html";
 }
+
+
+//----------
+
+function buscar(params) {
+  window.location.href = "medicamentos.html";
+}
+
+
+document.getElementById("procurarInput").addEventListener("keyup", function () {
+  const termo = this.value;
+
+  fetch(`/buscar?termo=${termo}`)
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById("results");
+      container.innerHTML = ""; // limpa resultados anteriores
+
+      data.forEach(item => {
+        const div = document.createElement("div");
+        div.innerHTML = `<strong>${item.nome}</strong> - ${item.descricao}`;
+        container.appendChild(div);
+      });
+    });
+});
+
+
+document.querySelector("#botaoBuscar").addEventListener("click", async () => {
+  const termo = document.querySelector("#procurarInput").value;
+  const resposta = await fetch(`/buscar?termo=${termo}`);
+  const dados = await resposta.json();
+
+  const container = document.getElementById("results");
+  container.innerHTML = "";
+
+  dados.forEach(item => {
+    const div = document.createElement("div");
+    div.innerHTML = `<strong>${item.nome}</strong> - ${item.descricao}`;
+    container.appendChild(div);
+  });
+});
+

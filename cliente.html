@@ -18,6 +18,7 @@
 </style>
 <!--corpo do site--> 
 <body>  
+    <div class="overlay"></div>
     <!--cabeçalho (parte de cima do site)-->
     <header>
 
@@ -31,9 +32,13 @@
                 <a href="cliente.html" class="busca"> Busca </a>
                <!-- <img src="assets/simbolofarmacia.png" alt="simbolo da farmacia" class="simbolo-farmacia"> -->
             </div>
-            <!--ára de busca-->
+            <!--área de busca-->
+            <div class="borda_tpbox">
+            </div>
             <div>
-                <input type="search" class="typebox" id="txtbox" size="70" placeholder="O que está buscando?"> 
+                <input type="text" class="typebox" id="procurarInput" size="70" placeholder="O que está buscando?"> 
+                <input type="search" class="typebox2" id="procurarInput2" size="100" placeholder="O que está sentindo?  Digite aqui."> 
+                <button type="submit" class="pesquisar_btn" id="botaoBuscar" size="500">Buscar</button>
             </div>
             
             <!--área dos botões cadastro e salvos-->
@@ -103,7 +108,7 @@
             <img class="historico_img" src="assets/historico-removebg-preview.png" alt="">
         </div>
 
-
+        <div id="results" class="resultss"></div>
 
         <!--tela de cadastro e login-->
         <section>
@@ -192,8 +197,7 @@
 
         </section>
 
-
-
+        
 
 
     </main>
