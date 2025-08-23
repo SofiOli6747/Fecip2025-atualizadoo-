@@ -8,8 +8,10 @@
     <link rel="icon" href="assets/logo farma busca.png" type="image/x-icon">
 
     <script src="script.js" defer></script>
+    
 </head>
 <body>
+    <div id="resultadoContainer"></div>
     <header>
 
         <div class="fundo-navbar">  
@@ -24,7 +26,8 @@
             </div>
             <!--ára de busca-->
             <div>
-                <input type="search" class="typebox" id="txtbox" size="70" placeholder="O que está buscando?"> 
+                <input type="search" class="typebox" id="searchInput" size="70" placeholder="O que está buscando?"> 
+                <button type="submit" class="pesquisar_btn" id="botaoBuscar" size="500">Buscar</button>
             </div>
             
             <!--área dos botões cadastro e salvos-->
@@ -90,6 +93,9 @@
             <tbody>
 
             </tbody>
+
+            
+
         </table>
         <section>
             <div class="blur-bg-overlay" id="blur-bg">
@@ -191,5 +197,6 @@
         </section>
 
     </footer>
+   <script src="resultados_med.js" defer></script>
 </body>
 </html>

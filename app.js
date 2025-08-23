@@ -1,27 +1,17 @@
-import express from 'express';
-import pkg from 'pg';
-const { Pool } = pkg;
+import express from "express";
+import cors from "cors";
+import client from "./db.js";
+
 
 const app = express();
-const port = 3000;
-
-import cors from "cors";
 app.use(cors());
+app.use(express.json());
 
-// Conexão com o banco
-const db = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "farmabusca",
-  password: "6747",
-  port: 5432,
-});
-
-app.get("/buscar", async (req, res) => {
+app.get("/medicamento", async (req, res) => {
   const termo = req.query.termo;
   try {
-    const resultados = await db.query(
-      "SELECT nome FROM medicamento WHERE nome ILIKE $1",
+    const resultados = await client.query(
+      "SELECT * FROM medicamento WHERE nome ILIKE $1",
       [`%${termo}%`]
     ); 
     res.json(resultados.rows);
@@ -31,8 +21,21 @@ app.get("/buscar", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
+app.get("/autocomplete", async (req, res) => {
+  const termo = req.query.termo;
+  try {
+    const resultado = await client.query(
+      "SELECT nome FROM medicamento WHERE nome ILIKE $1",
+      [`%${termo}%`]
+    ); 
+    res.json(resultado.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Erro ao buscar dados");
+  }
 });
 
-console.log("Termo recebido:", termo);
+app.listen(5500, () => {
+  console.log('Servidor rodando na porta 5500');
+});
+

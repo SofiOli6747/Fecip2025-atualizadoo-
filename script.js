@@ -125,22 +125,13 @@ document.getElementById("close-btn2").addEventListener('click', function(){
 })
 
 
-openCloseGeneratorButton.addEventListener("click", () => {
-  generatePasswordContainer.classList.toggle("hide");
-});
 
-copyPasswordButton.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  const password = generatedPasswordElement.querySelector("h4").innerText;
-
-});
 
 //---------
 
 // códigos para quando for clicado em cada uma das opções do início(tela do cliente)
 
-function selecionarMed(params) {
+function selecionarMed() {
   window.location.href = "medicamentos.html";
 }
 function selecionarHist(params) {
@@ -166,42 +157,36 @@ function selecionarMedico(params) {
 
 
 //----------
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const termo = params.get("termo");
 
-function buscar(params) {
-  window.location.href = "medicamentos.html";
-}
 
+  document.getElementById('searchInput').addEventListener('input', async function () {
+    const query = this.value;
+    if (query.length < 2) return;
 
-document.getElementById("procurarInput").addEventListener("keyup", function () {
-  const termo = this.value;
+    const res = await fetch(`http://localhost:5500/autocomplete?termo=${termo}`);
+    const suggestions = await res.json();
 
-  fetch(`/buscar?termo=${termo}`)
-    .then(res => res.json())
-    .then(data => {
-      const container = document.getElementById("results");
-      container.innerHTML = ""; // limpa resultados anteriores
-
-      data.forEach(item => {
-        const div = document.createElement("div");
-        div.innerHTML = `<strong>${item.nome}</strong> - ${item.descricao}`;
-        container.appendChild(div);
-      });
+    const list = document.getElementById('sugestoes');
+    list.innerHTML = '';
+    suggestions.forEach(item => {
+      const div = document.createElement('div');
+      div.textContent = item.nome;
+      div.onclick = () => {
+        document.getElementById('searchInput').value = item.nome;
+        list.innerHTML = '';
+      };
+      list.appendChild(div);
     });
-});
-
-
-document.querySelector("#botaoBuscar").addEventListener("click", async () => {
-  const termo = document.querySelector("#procurarInput").value;
-  const resposta = await fetch(`/buscar?termo=${termo}`);
-  const dados = await resposta.json();
-
-  const container = document.getElementById("results");
-  container.innerHTML = "";
-
-  dados.forEach(item => {
-    const div = document.createElement("div");
-    div.innerHTML = `<strong>${item.nome}</strong> - ${item.descricao}`;
-    container.appendChild(div);
   });
 });
+
+
+document.getElementById("botaoBuscar").addEventListener("click", () => {
+  const termo = document.getElementById("searchInput").value;
+  window.location.href = `medicamentos.html?termo=${encodeURIComponent(termo)}`;
+});
+
 
