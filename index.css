@@ -14,6 +14,7 @@
 
 body{
     background-color: rgb(235, 242, 248);
+    overflow-y: auto;
 }
 
 .overlay{
@@ -1247,20 +1248,24 @@ form button {
     margin: 20px 0;
     font-size: 18px;
     text-align: left;
+    overflow-y: auto;
 }
 
 .pricing-table th, .pricing-table td {
     padding: 12px;
     border: 1px solid #ddd;
+    overflow-y: auto;
 }
 
 .pricing-table th {
     background-color: var(--verde);
     color: white;
+    overflow-y: auto;
 }
 
 .pricing-table tr:nth-child(even) {
     background-color: #f2f2f2;
+    overflow-y: auto;
 }
 
 .pricing-table tr:hover {
@@ -1350,15 +1355,71 @@ form button {
 }
 
 .pesquisar_btn{
+    border-style: groove;
+    border-color: #ddd;
     position: absolute;
     left: 850px;
     top: 50px;
 }
 
-.resultss{
-    padding: 100px;
+.pesquisar_btn:hover{
+    cursor: pointer;
+    color: rgb(18, 174, 112);
+}
+
+
+.menu {
     position: absolute;
-    top: 500px;
-    left: 100px;
-    color: black;
+    display: none;
+    border: solid 50px;
+    border-color: #bbc07f;
+}
+
+.grupoOpcao {
+
+    margin-bottom: 10px;
+}
+
+.grupoOpcao h4 {
+ 
+    margin: 0;
+    padding: 5px;
+    background-color: #000000;
+    font-size: 14px;
+    border: 50px solid #bc1010;
+    text-transform: uppercase;
+}
+
+.grupoOpcao div {
+    padding: 100px;
+    cursor: pointer;
+    display: block;
+}
+
+.grupoOpcao div:hover {
+    background-color: #f9f9f9;
+}
+
+
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+.receita-sim {
+  color: rgb(63, 163, 43);
+}
+
+.receita-nao {
+  color: rgb(255, 4, 0);
+}
+
+.filtroC{
+    position: absolute;
+    top: 390px;
+}
+
+.filtretxt{
+    position: absolute;
+    top: 370px;
 }

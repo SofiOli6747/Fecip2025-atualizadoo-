@@ -133,6 +133,7 @@ document.getElementById("close-btn2").addEventListener('click', function(){
 
 function selecionarMed() {
   window.location.href = "medicamentos.html";
+
 }
 function selecionarHist(params) {
   window.location.href = "historico.html";
@@ -140,7 +141,6 @@ function selecionarHist(params) {
 function selecionarlojas(params) {
   window.location.href = "lojas.html";
 }
-
 
 
 //---------
@@ -157,36 +157,83 @@ function selecionarMedico(params) {
 
 
 //----------
-document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  const termo = params.get("termo");
-
-
+function mostrarMenu(){
   document.getElementById('searchInput').addEventListener('input', async function () {
-    const query = this.value;
-    if (query.length < 2) return;
+    
+    const params = new URLSearchParams(window.location.search);
+    const termo = params.get("termo");
 
+    const query = this.value.toLowerCase();
+
+    const inputTexto = document.getElementById('searchInput');
+    const menuOpcoes = document.getElementById('autocomplete-menu');
+    const letraDigitada = inputTexto.value.toLowerCase();
+
+  // Filtra as opções que começam com a letra digitada
     const res = await fetch(`http://localhost:5500/autocomplete?termo=${termo}`);
     const suggestions = await res.json();
+    const opcoesFiltradas = suggestions.filter(opcao => opcao.toLowerCase().startsWith(letraDigitada));
 
-    const list = document.getElementById('sugestoes');
-    list.innerHTML = '';
-    suggestions.forEach(item => {
-      const div = document.createElement('div');
-      div.textContent = item.nome;
-      div.onclick = () => {
-        document.getElementById('searchInput').value = item.nome;
-        list.innerHTML = '';
-      };
-      list.appendChild(div);
+  // Agrupar as opções por inicial
+    const grupos = {};
+
+  // Organiza as opções filtradas por inicial
+    opcoesFiltradas.forEach(opcao => {
+        const inicial = opcao[0].toLowerCase();
+        if (!grupos[inicial]) {
+          grupos[inicial] = [];
+        }
+        grupos[inicial].push(opcao);
     });
-  });
-});
 
+    opcoesFiltradas.forEach(opcao => {
+      let highlighted = "";
+      for (let char of opcao) {
+        if (query.includes(char.toLowerCase()) ) {
+          highlighted += char;
+        }
+      }
+    });
+
+  // Se houver opções filtradas, exibe o menu, caso contrário, esconde
+    if (letraDigitada.length > 0 && opcoesFiltradas.length > 0) {
+        menuOpcoes.innerHTML = ''; // Limpa o menu antes de adicionar as novas opções
+      
+        menuOpcoes.style.display = 'block';  // Mostra o menu
+
+      // Cria grupos de opções com base na inicial
+        Object.keys(grupos).forEach(inicial => {
+            const grupoDiv = document.createElement('div');
+            grupoDiv.classList.add('grupoOpcao');
+
+          // Adiciona as opções do grupo
+            grupos[inicial].forEach(opcao => {
+                const opcaoDiv = document.createElement('div');
+                opcaoDiv.textContent = opcao;
+                
+
+              // Adiciona evento de clique na opção para fechar o menu
+                opcaoDiv.onclick = () => {
+                  opcaoSelecionada = opcao;
+                  inputTexto.value = opcao; // Preenche o input com a opção selecionada
+                  menuOpcoes.style.display = 'none'; // Fecha o menu
+              };
+
+
+              grupoDiv.appendChild(opcaoDiv);
+            });
+
+          // Adiciona o grupo de opções ao menu
+            menuOpcoes.appendChild(grupoDiv);
+        });
+    } else {
+        menuOpcoes.style.display = 'none';  // Esconde o menu
+    }
+  });
+};
 
 document.getElementById("botaoBuscar").addEventListener("click", () => {
   const termo = document.getElementById("searchInput").value;
   window.location.href = `medicamentos.html?termo=${encodeURIComponent(termo)}`;
 });
-
 

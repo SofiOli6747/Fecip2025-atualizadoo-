@@ -21,6 +21,7 @@ app.get("/medicamento", async (req, res) => {
   }
 });
 
+
 app.get("/autocomplete", async (req, res) => {
   const termo = req.query.termo;
   try {
@@ -34,6 +35,8 @@ app.get("/autocomplete", async (req, res) => {
     res.status(500).send("Erro ao buscar dados");
   }
 });
+
+
 
 app.listen(5500, () => {
   console.log('Servidor rodando na porta 5500');

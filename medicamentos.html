@@ -78,6 +78,16 @@
         <h2 class="pg4-txt">Aqui você verá a lista de medicamentos com todas as informações.</h2>
         <h1 class="pg4-título">Tabela de Medicamentos</h1>
 
+        <div>
+            <label class="filtretxt">Filtre por:</label>
+            <select name="filtro" id="select-filtro" class="filtroC">
+                <option value="">Todas</option>
+                <option value="preco">Preço</option>
+                <option value="marca">Marca</option>
+                <option value="categoria">Categoria</option>
+                <option value="receita">Prescrição Médica</option>
+            </select>
+        </div>
         
         <table class="pricing-table">
             <thead>
@@ -85,7 +95,7 @@
                     <th>Nome do Medicamento</th>
                     <th>Categoria</th>
                     <th>Marca</th>
-                    <th>Preço</th>
+                    <th>Preço Médio</th>
                     <th>Farmácia</th>
                     <th>Prescrição médica</th>
                 </tr>
@@ -160,41 +170,7 @@
 
     </main>
     
-    <footer>
-        <section>
-
-            <div class="rodape-bg">
-            </div>
-
-            <section>
-                <div class="rodape-txt">
-                    <div class="nossa-rede-txt">
-                        <span>Nossa rede</span>
-                    </div>
-                    <div class="contato-txt">
-                        <span>Contato:</span>
-                    </div>
-                    <div class="email-contato">
-                        <span>farameterj@gmail.com</span>
-                    </div>
-                    <div class="txt-farmabusca-rodape">
-                        <label>FarmaBusca2025</label>
-                    </div>
-                    <ul>
-                        <li>
-                            <a href="#" class="link_instagram"> Instagram 
-                                <img src="assets/logo_instagram.png" alt="logo do instagram" class="logo-instagram">
-                            </a>
-                                
-                        </li>
-                    </ul>
-                </div>
-
-                </ul>  
-               <!--<img src="assets/cobra_decoracao.png" alt="" class="snake-decoration">-->
-                
-            </section>
-        </section>
+    <footer>        
 
     </footer>
    <script src="resultados_med.js" defer></script>

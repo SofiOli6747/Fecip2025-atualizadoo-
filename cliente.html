@@ -37,14 +37,15 @@
             <div class="borda_tpbox">
             </div>
             <div>
-                <input type="search" class="typebox" id="searchInput" size="70" placeholder="O que está buscando?"> 
-                <input type="search" class="typebox2" id="procurarInput2" size="100" placeholder="O que está sentindo?  Digite aqui."> 
+                <input type="search" onkeyup="mostrarMenu()" class="typebox" id="searchInput" size="70" placeholder="O que está buscando?" autocomplete="off"> 
+                <input type="search" class="typebox2" id="sintomaInput" size="100" placeholder="O que está sentindo?  Digite aqui."> 
                 <datalist id="sugestoes"></datalist>
+                <div id="autocomplete-menu" class="menu"></div>
                 <button type="submit" class="pesquisar_btn" id="botaoBuscar" size="500">Buscar</button>
                 
             </div>
             
-            <div id="resultado"></div>
+            <!--<div id="resultado"></div>-->
 
             <!--área dos botões cadastro e salvos-->
             <div>
