@@ -170,7 +170,7 @@ function mostrarMenu(){
     const letraDigitada = inputTexto.value.toLowerCase();
 
   // Filtra as opções que começam com a letra digitada
-    const res = await fetch(`http://localhost:5500/autocomplete?termo=${termo}`);
+    const res = await fetch(`http://localhost:3000/autocomplete?termo=${termo}`);
     const suggestions = await res.json();
     const opcoesFiltradas = suggestions.filter(opcao => opcao.toLowerCase().startsWith(letraDigitada));
 
@@ -237,3 +237,7 @@ document.getElementById("botaoBuscar").addEventListener("click", () => {
   window.location.href = `medicamentos.html?termo=${encodeURIComponent(termo)}`;
 });
 
+document.getElementById("botaoBuscar2").addEventListener("click", () => {
+  const sintoma = document.getElementById("sintomaInput").value;
+  window.location.href = `medicamentos-sintomas.html?sintoma=${encodeURIComponent(sintoma)}`;
+});

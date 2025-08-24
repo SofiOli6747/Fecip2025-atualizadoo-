@@ -1367,6 +1367,19 @@ form button {
     color: rgb(18, 174, 112);
 }
 
+.pesquisar_btn2{
+    border-style: groove;
+    border-color: #ddd;
+    position: absolute;
+    left: 1130px;
+    top: 810px;
+}
+
+.pesquisar_btn2:hover{
+    cursor: pointer;
+    color: rgb(18, 174, 112);
+}
+
 
 .menu {
     position: absolute;
@@ -1419,7 +1432,55 @@ form button {
     top: 390px;
 }
 
+.filtroMC{
+    position: absolute;
+    top: 390px;
+    left: 100px;
+}
+
+.filtroPC{
+    position: absolute;
+    top: 390px;
+    left: 200px;
+}
+
+.filtroCC{
+    position: absolute;
+    top: 390px;
+    left: 320px;
+}
+
+
+
+
+
+
 .filtretxt{
     position: absolute;
+    top: 350px;
+}
+
+
+.todastxt{
+    position: absolute;
     top: 370px;
+    left: 10px;
+}
+
+.marcatxt{
+    position: absolute;
+    top: 370px;
+    left: 100px;
+}
+
+.precotxt{
+    position: absolute;
+    top: 370px;
+    left: 200px;
+}
+
+.categtxt{
+    position: absolute;
+    top: 370px;
+    left: 300px;
 }

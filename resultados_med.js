@@ -13,10 +13,10 @@ function destacarLetras(texto, termo) {
     .join("");
 }
 
-// Se houver termo, busca filtrada; senão, busca todos os medicamentos
+
 const url = termo
-  ? `http://localhost:5500/medicamento?termo=${encodeURIComponent(termo)}`
-  : `http://localhost:5500/medicamento`;
+  ? `http://localhost:3000/medicamento?termo=${encodeURIComponent(termo)}`
+  : `http://localhost:3000/medicamento`;
 
 fetch(url)
   .then(res => res.json())
@@ -54,4 +54,90 @@ fetch(url)
     const tableBody = document.querySelector(".pricing-table tbody");
     tableBody.innerHTML = `<tr><td colspan="6">Erro ao carregar os dados.</td></tr>`;
   });
+
+
+
+
+
+  function filtrarPorMarca() {
+    const marcaSelecionada = document.getElementById("select-marca").value;
+    const url = marcaSelecionada
+    ? `http://localhost:3000/medicamento?marca=${encodeURIComponent(marcaSelecionada)}`
+    : `http://localhost:3000/medicamento`;
+    
+    fetch(url)
+    .then(res => res.json())
+    .then(dados => {
+        const tableBody = document.querySelector(".pricing-table tbody");
+        tableBody.innerHTML = "";
+
+        if (dados.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="4">Nenhum medicamento encontrado para a marca "${marcaSelecionada}".</td></tr>`;
+            return;
+        }
+
+        dados.forEach(m => {
+            const linha = document.createElement("tr");
+            linha.innerHTML = `
+            <td>${m.nome}</td>
+            <td>${m.marca}</td>
+            <td>R$ ${parseFloat(m.preco).toFixed(2)}</td>
+            <td>
+                <span class="${m.receita_medica === 'sim' ? 'receita-sim' : 'receita-nao'}">
+                 ${m.receita_medica}
+                </span>
+            </td>
+            `;
+         tableBody.appendChild(linha);
+        });
+        })
+     .catch(err => {
+        console.error("Erro ao buscar medicamentos:", err);
+        const tableBody = document.querySelector(".pricing-table tbody");
+        tableBody.innerHTML = `<tr><td colspan="4">Erro ao carregar os dados.</td></tr>`;
+        });
+}
+
+
+
+function filtrarPorCategoria() {
+    const categoriaSelecionada = document.getElementById("select-categoria").value;
+    const url = categoriaSelecionada
+    ? `http://localhost:3000/medicamento?categoria=${encodeURIComponent(categoriaSelecionada)}`
+    : `http://localhost:3000/medicamento`;
+    
+    fetch(url)
+    .then(res => res.json())
+    .then(dados => {
+        const tableBody = document.querySelector(".pricing-table tbody");
+        tableBody.innerHTML = "";
+
+        if (dados.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="4">Nenhum medicamento encontrado para a marca "${categoriaSelecionada}".</td></tr>`;
+            return;
+        }
+
+        dados.forEach(m => {
+            const linha = document.createElement("tr");
+            linha.innerHTML = `
+            <td>${m.nome}</td>
+            <td>${m.marca}</td>
+            <td>R$ ${parseFloat(m.preco).toFixed(2)}</td>
+            <td>
+                <span class="${m.receita_medica === 'sim' ? 'receita-sim' : 'receita-nao'}">
+                 ${m.receita_medica}
+                </span>
+            </td>
+            `;
+         tableBody.appendChild(linha);
+        });
+        })
+     .catch(err => {
+        console.error("Erro ao buscar medicamentos:", err);
+        const tableBody = document.querySelector(".pricing-table tbody");
+        tableBody.innerHTML = `<tr><td colspan="4">Erro ao carregar os dados.</td></tr>`;
+        });
+}
+
+
 

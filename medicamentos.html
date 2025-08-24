@@ -80,13 +80,28 @@
 
         <div>
             <label class="filtretxt">Filtre por:</label>
-            <select name="filtro" id="select-filtro" class="filtroC">
+            <label class="precotxt">Preço</label>
+            <label class="marcatxt">Marca</label>
+            <label class="categtxt">Categoria</label>
+            <label class="todastxt">Todas</label>
+            <select name="filtrotodas" id="select-filtro" class="filtroC" >
                 <option value="">Todas</option>
-                <option value="preco">Preço</option>
-                <option value="marca">Marca</option>
-                <option value="categoria">Categoria</option>
-                <option value="receita">Prescrição Médica</option>
             </select>
+             <select name="filtromarca" id="select-marca" class="filtroMC" onchange="filtrarPorMarca()">
+                <option value="">Todas</option>
+                <option value="Sanofi">Sanofi</option>
+                <option value="GSK">GSK</option>
+            </select>
+            <select name="filtropreco" id="select-preco" class="filtroPC" onchange="filtrarPorPreco()">
+                <option value="">Todas</option>
+                <option value=10-20>10,00-20,00</option>
+                <option value=20-30>20,00-30,00</option>
+            </select>
+            <select name="filtrocateg" id="select-categoria" class="filtroCC" onchange="filtrarPorCategoria()">
+                <option value="">Todas</option>
+                <option value="Analgésico">Analgésico</option>
+            </select>
+            
         </div>
         
         <table class="pricing-table">

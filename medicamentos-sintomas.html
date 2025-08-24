@@ -1,26 +1,17 @@
 <!DOCTYPE html>
-
-<html lang="pt-br">
-<!--"cabeça" do site-->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FarmaBusca - encontre os melhores preços</title>
+    <title>FarmaBusca - Medicamentos-sintomas</title>
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="assets/logo farma busca.png" type="image/x-icon">
 
     <script src="script.js" defer></script>
-</head>
-<style>
-    body{
-        width: 100px;
-    }
-</style>
-<!--corpo do site--> 
-<body>  
     
-    <div class="overlay"></div>
-    <!--cabeçalho (parte de cima do site)-->
+</head>
+<body>
+    <div id="resultadoContainer"></div>
     <header>
 
         <div class="fundo-navbar">  
@@ -33,21 +24,12 @@
                 <a href="cliente.html" class="busca"> Busca </a>
                <!-- <img src="assets/simbolofarmacia.png" alt="simbolo da farmacia" class="simbolo-farmacia"> -->
             </div>
-            <!--área de busca-->
-            <div class="borda_tpbox">
-            </div>
+            <!--ára de busca-->
             <div>
-                <input type="search" onkeyup="mostrarMenu()" class="typebox" id="searchInput" size="70" placeholder="O que está buscando?" autocomplete="off"> 
-                <input type="search" class="typebox2" id="sintomaInput" size="100" placeholder="O que está sentindo?  Digite aqui."> 
-                <datalist id="sugestoes"></datalist>
-                <div id="autocomplete-menu" class="menu"></div>
+                <input type="search" class="typebox" id="searchInput" size="70" placeholder="O que está buscando?"> 
                 <button type="submit" class="pesquisar_btn" id="botaoBuscar" size="500">Buscar</button>
-                <button type="submit" class="pesquisar_btn2" id="botaoBuscar2" size="500">Buscar</button>
-                
             </div>
             
-            <!--<div id="resultado"></div>-->
-
             <!--área dos botões cadastro e salvos-->
             <div>
                 <input type="button" class="b-cadastro" id="botao-cadastro" size="70">
@@ -78,47 +60,40 @@
 
                     <a href="lojas.html" class="lojas-navbar"> Lojas </a>
 
-                    <a href="como-funciona.html" class="Como-funciona-navbar"> Como funciona </a>
+                    <a href="como-funciona.html" class="Como-funciona-navbar3"> Como funciona </a>
 
-                    <a href="contato.html" class="Contato-navbar"> Contato </a>
-
-                    <a href="index.html" class="trocarperfil-navbar">Trocar Perfil</a>
+                    <a href="contato.html" class="Contato-navbar3"> Contato </a>
                 </li>
             </ul>
            
         </nav>
         
 
-
     </header>
 
-    <!--conteúdo (parte do meio)-->
     <main>
-         <div id="results" class="resultss"></div>
 
-        <div class="bem_vindo">
-            <h3>Bem-vindo ao FarmaBusca</h3>
-        </div>
-        <div class="box1" id="box1" onclick="selecionarMed()">
-            <span class="txtbox1" id="txtbox1">Medicamentos</span>
-            <img class="medicamentos_img" src="assets/medicamentos.png" alt="">
-        </div>
-    
+        <img class="papel" src="assets/papelrasgado.png" alt="">
+        <div class="bg-titulo"></div>
+        <h2 class="pg4-txt">Aqui você verá a lista de medicamentos comuns para seus sintomas.</h2>
+        <h1 class="pg4-título">Tabela de Medicamentos e Causas</h1>
 
-        <div class="box2" onclick="selecionarlojas()">
-            <span class="txtbox2" >Lojas</span>
-            <img class="lojas_img" src="assets/shop-icon-black-white_755164-15634-removebg-preview.png" alt="">
-        </div>
-        
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Causas</th>
+                    <th>Nome do Medicamento</th>
+                    <th>Marca</th>
+                    <th>Preço Médio</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+
             
-        <div class="box3" onclick="selecionarHist()">
-            <span class="txtbox3" >Histórico</span>
-            <img class="historico_img" src="assets/historico-removebg-preview.png" alt="">
-        </div>
 
-       
-
-        <!--tela de cadastro e login-->
+        </table>
         <section>
             <div class="blur-bg-overlay" id="blur-bg">
             </div>
@@ -180,73 +155,11 @@
 
         </section>
 
-
-
-        <!--aba categorias-->
-        <section>
-            <div class="form-categorias" id="form-categoria">
-                <div class="tela-categorias">
-                    <div class="form-content2">
-                        <a href="cliente.html" class="Inicio2" id="Inicio"> Início </a>
-
-                        <a href="medicamentos.html" class="Medicamentos-aba"> Medicamentos </a>
-
-                        <a href="lojas.html" class="lojas-aba"> Lojas </a>
-
-                        <a href="como-funciona.html" class="Como-funciona-aba"> Como funciona </a>
-
-                        <a href="contato.html" class="Contato-aba"> Contato </a>
-
-                        <a href="primeira_tela.html" class="trocarperfil-aba"> Trocar Perfil </a>
-                        
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        
-
-
     </main>
-    <!--rodapé (parte final do site)-->
-    <footer>
-        <section>
-
-            <div class="rodape-bg">
-            </div>
-
-            <section>
-                <div class="rodape-txt">
-                    <div class="nossa-rede-txt">
-                        <span>Nossa rede:</span>
-                    </div>
-                    <div class="contato-txt">
-                        <span>Contato:</span>
-                    </div>
-                    <div class="email-contato">
-                        <span>farameterj@gmail.com</span>
-                    </div>
-                    <div class="txt-farmabusca-rodape">
-                        <label>FarmaBusca2025</label>
-                    </div>
-                    <ul>
-                        <li>
-                            <a href="#" class="link_instagram"> Instagram 
-                                <img src="assets/logo_instagram.png" alt="logo do instagram" class="logo-instagram">
-                            </a>
-                                
-                        </li>
-                    </ul>
-                </div>
-
-                </ul>  
-               <!--<img src="assets/cobra_decoracao.png" alt="" class="snake-decoration">-->
-                
-            </section>
-        </section>
+    
+    <footer>        
 
     </footer>
- 
+   <script src="resultados_sintomas.js" defer></script>
 </body>
 </html>
