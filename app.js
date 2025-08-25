@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/medicamento", async (req, res) => {
+app.get("/medicamento/termo", async (req, res) => {
   const termo = req.query.termo;
   try {
     const resultados = await client.query(
@@ -21,12 +21,26 @@ app.get("/medicamento", async (req, res) => {
   }
 });
 
-app.get("/marcas", async (req, res) => {
+app.get("/medicamento/marca", async (req, res) => {
   const marca = req.query.marca;
   try {
     const resultados = await client.query(
-      "SELECT * FROM medicamento WHERE marca = $1",
+      "SELECT * FROM medicamento WHERE marca ILIKE $1",
       [`%${marca}%`]
+    ); 
+    res.json(resultados.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Erro ao buscar dados");
+  }
+});
+
+app.get("/medicamento/categoria", async (req, res) => {
+  const categoria = req.query.categoria;
+  try {
+    const resultados = await client.query(
+      "SELECT * FROM medicamento WHERE categoria ILIKE $1",
+      [`%${categoria}%`]
     ); 
     res.json(resultados.rows);
   } catch (err) {
@@ -56,20 +70,24 @@ app.get("/medicamentos-sintoma", async (req, res) => {
   const sintoma = req.query.sintoma;
   try {
     const resultados = await client.query(
-      `SELECT DISTINCT m.nome, m.marca, m.preco
-       FROM medicamento m
-       JOIN sintomas_medicamentos mc ON m.id_medicamento = mc.id_medicamento
-       JOIN causas_comuns c ON mc.id_causa = c.id_causa
-       JOIN sintomas_causas sc ON c.id_causa = sc.id_causa
-       JOIN sintomas s ON sc.id_sintoma = s.id_sintoma
-       WHERE LOWER(s.nome) LIKE LOWER($1)`,
+      `SELECT 
+  s.nome AS sintoma,
+  STRING_AGG(DISTINCT c.nome_causa, ', ') AS causas_comuns,
+  STRING_AGG(DISTINCT m.nome, ', ') AS medicamentos
+FROM sintomas_medicamentos sm
+JOIN sintomas s ON sm.id_sintoma = s.id_sintoma
+JOIN medicamento m ON sm.id_medicamento = m.id_medicamento
+JOIN sintomas_causas sc ON s.id_sintoma = sc.id_sintoma
+JOIN causas_comuns c ON sc.id_causa = c.id_causa
+WHERE LOWER(s.nome) LIKE LOWER($1)
+GROUP BY s.nome`,
       [`%${sintoma}%`]
     ); 
     res.json(resultados.rows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Erro ao buscar dados");
-  }
+  }catch (err) {
+    console.error('Erro ao buscar dados:', err.message);
+    res.status(500).send('Erro interno no servidor');
+}
 });
 
 

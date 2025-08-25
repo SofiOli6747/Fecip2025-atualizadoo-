@@ -15,8 +15,8 @@ function destacarLetras(texto, termo) {
 
 
 const url = termo
-  ? `http://localhost:3000/medicamento?termo=${encodeURIComponent(termo)}`
-  : `http://localhost:3000/medicamento`;
+  ? `http://localhost:3000/medicamento/termo?termo=${encodeURIComponent(termo)}`
+  : `http://localhost:3000/medicamento/termo`;
 
 fetch(url)
   .then(res => res.json())
@@ -62,8 +62,10 @@ fetch(url)
   function filtrarPorMarca() {
     const marcaSelecionada = document.getElementById("select-marca").value;
     const url = marcaSelecionada
-    ? `http://localhost:3000/medicamento?marca=${encodeURIComponent(marcaSelecionada)}`
-    : `http://localhost:3000/medicamento`;
+    ? `http://localhost:3000/medicamento/marca?marca=${encodeURIComponent(marcaSelecionada)}`
+    : `http://localhost:3000/medicamento/termo`;
+
+    console.log(marcaSelecionada);
     
     fetch(url)
     .then(res => res.json())
@@ -80,6 +82,7 @@ fetch(url)
             const linha = document.createElement("tr");
             linha.innerHTML = `
             <td>${m.nome}</td>
+            <td>${m.categoria}</td>
             <td>${m.marca}</td>
             <td>R$ ${parseFloat(m.preco).toFixed(2)}</td>
             <td>
@@ -103,8 +106,8 @@ fetch(url)
 function filtrarPorCategoria() {
     const categoriaSelecionada = document.getElementById("select-categoria").value;
     const url = categoriaSelecionada
-    ? `http://localhost:3000/medicamento?categoria=${encodeURIComponent(categoriaSelecionada)}`
-    : `http://localhost:3000/medicamento`;
+    ? `http://localhost:3000/medicamento/categoria?categoria=${encodeURIComponent(categoriaSelecionada)}`
+    : `http://localhost:3000/medicamento/termo`;
     
     fetch(url)
     .then(res => res.json())

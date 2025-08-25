@@ -3,7 +3,7 @@ const sintoma = queryParams.get("sintoma");
 
 // Se houver termo, busca filtrada; senão, busca todos os medicamentos
 
-fetch(`http://localhost:5500/medicamentos-sintoma?sintoma=${sintoma}`)
+fetch(`http://localhost:3000/medicamentos-sintoma?sintoma=${sintoma}`)
   .then(res => res.json())
   .then(dados => {
     const tableBody = document.querySelector(".pricing-table tbody");
@@ -15,26 +15,23 @@ fetch(`http://localhost:5500/medicamentos-sintoma?sintoma=${sintoma}`)
       tableBody.appendChild(linha);
       return;
     }
+      dados.forEach(item => {
+        const linha = document.createElement('tr');
+        linha.innerHTML = `
+        <td>${item.sintoma}</td> 
+        <td>${item.causas_comuns}</td> 
+        <td>${item.medicamentos}</td>
+         `;
+        tableBody.appendChild(linha);
+      });
 
-    dados.forEach(m => {
-      const linha = document.createElement("tr");
-      linha.innerHTML = `
-        <td>${m.sintomas_causas}</td>
-        <td>${m.nome}</td>
-        <td>${m.marca}</td>
-        <td>R$ ${parseFloat(m.preco).toFixed(2)}</td>
-      `;
-      tableBody.appendChild(linha);
-    });
-
+  console.log(dados);
   })
   .catch(err => {
     console.error("Erro ao buscar dados:", err);
     const tableBody = document.querySelector(".pricing-table tbody");
     tableBody.innerHTML = `<tr><td colspan="6">Erro ao carregar os dados.</td></tr>`;
   });
-
-
 
 
 

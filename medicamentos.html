@@ -83,14 +83,16 @@
             <label class="precotxt">Preço</label>
             <label class="marcatxt">Marca</label>
             <label class="categtxt">Categoria</label>
-            <label class="todastxt">Todas</label>
-            <select name="filtrotodas" id="select-filtro" class="filtroC" >
-                <option value="">Todas</option>
-            </select>
+
              <select name="filtromarca" id="select-marca" class="filtroMC" onchange="filtrarPorMarca()">
                 <option value="">Todas</option>
                 <option value="Sanofi">Sanofi</option>
                 <option value="GSK">GSK</option>
+                <option value="EMS">EMS</option>
+                <option value="Eurofarma">Eurofarma</option>
+                <option value="Bayer">Bayer</option>
+                <option value="Neo Química">Neo Química</option>
+                <option value="Teuto">Teuto</option>
             </select>
             <select name="filtropreco" id="select-preco" class="filtroPC" onchange="filtrarPorPreco()">
                 <option value="">Todas</option>
@@ -100,6 +102,12 @@
             <select name="filtrocateg" id="select-categoria" class="filtroCC" onchange="filtrarPorCategoria()">
                 <option value="">Todas</option>
                 <option value="Analgésico">Analgésico</option>
+                <option value="Hormonal">Hormonal</option>
+                <option value="Antialérgico">Antialérgico</option>
+                <option value="Ansiolítico">Ansiolítico</option>
+                <option value="Antiviral">Antiviral</option>
+                <option value="Antibacteriano">Antibacteriano</option>
+                <option value="Antidepressivo">Antidepressivo</option>
             </select>
             
         </div>

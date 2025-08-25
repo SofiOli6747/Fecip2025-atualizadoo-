@@ -1280,7 +1280,7 @@ form button {
     color: dimgray;
     position: absolute;
     top: 190px;
-    left: 470px;
+    left: 500px;
 }
 
 .pg4-título{
@@ -1293,7 +1293,7 @@ form button {
 }
 
 .bg-titulo{
-    width: 500px;
+    width: 600px;
     height: 60px;
     background-color: rgb(223, 231, 238);
     position: absolute;
@@ -1457,7 +1457,7 @@ form button {
 
 .filtretxt{
     position: absolute;
-    top: 350px;
+    top: 370px;
 }
 
 
