@@ -3,7 +3,7 @@ const sintoma = queryParams.get("sintoma");
 
 // Se houver termo, busca filtrada; senão, busca todos os medicamentos
 
-fetch(`http://localhost:3000/medicamentos-sintoma?sintoma=${sintoma}`)
+fetch(`http://localhost:3000/sintomas_medicamentos/sintoma?sintoma=${sintoma}`)
   .then(res => res.json())
   .then(dados => {
     const tableBody = document.querySelector(".pricing-table tbody");

@@ -13,7 +13,7 @@ function destacarLetras(texto, termo) {
     .join("");
 }
 
-//exibir todos os resultados na página de medicamentos equivalentes a letra/palavra digitada na barra de pesquisa
+
 const url = termo
   ? `http://localhost:3000/medicamento/termo?termo=${encodeURIComponent(termo)}`
   : `http://localhost:3000/medicamento/termo`;
@@ -56,14 +56,14 @@ fetch(url)
   });
 
 
-//filtros para o resultado das pesquisas 
+
 
 
   function filtrarPorMarca() {
     const marcaSelecionada = document.getElementById("select-marca").value;
     const url = marcaSelecionada
-    ? `http://localhost:3000/medicamento/marca?marca=${encodeURIComponent(marcaSelecionada)}` //se a marca selecionada for X ele retornará todos medicamentos relacionados a marca X
-    : `http://localhost:3000/medicamento/termo`; //senão ele retorna todos os medicamentos
+    ? `http://localhost:3000/medicamento/marca?marca=${encodeURIComponent(marcaSelecionada)}`
+    : `http://localhost:3000/medicamento/termo`;
 
     console.log(marcaSelecionada);
     
@@ -150,7 +150,7 @@ function filtrarPorPreco() {
       let url;
 
       if (precoSelecionada === "todas") {
-        url = "http://localhost:3000/medicamento/termo"; // endpoint que retorna todos
+        url = "http://localhost:3000/medicamento/todas"; // endpoint que retorna todos
       } else {
         const [min, max] = precoSelecionada.split("-").map(Number);
         url = `http://localhost:3000/medicamento/preco?min=${min}&max=${max}`;
@@ -161,7 +161,6 @@ function filtrarPorPreco() {
     fetch(url)
     .then(res => res.json())
     .then(dados => {
-        console.log(dados);
         const tableBody = document.querySelector(".pricing-table tbody");
         tableBody.innerHTML = "";
 

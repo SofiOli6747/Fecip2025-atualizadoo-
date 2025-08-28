@@ -8,6 +8,20 @@ app.use(cors());
 app.use(express.json());
 
 
+app.get("/medicamento/todas", async (req, res) => {
+  const todas = req.query.todas;
+  try {
+    const resultados = await client.query(
+      "SELECT * FROM medicamento",
+      [`%${todas}%`]
+    ); 
+    res.json(resultados.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Erro ao buscar dados");
+  }
+});
+
 app.get("/medicamento/termo", async (req, res) => {
   const termo = req.query.termo;
   try {
@@ -92,10 +106,10 @@ app.get("/sintomas_medicamentos/sintoma", async (req, res) => {
   STRING_AGG(DISTINCT c.nome_causa, ', ') AS causas_comuns,
   STRING_AGG(DISTINCT m.nome, ', ') AS medicamentos
 FROM sintomas_medicamentos sm
-LEFT JOIN sintomas s ON sm.id_sintoma = s.id_sintoma
-LEFT JOIN medicamento m ON sm.id_medicamento = m.id_medicamento
-LEFT JOIN sintomas_causas sc ON s.id_sintoma = sc.id_sintoma
-LEFT JOIN causas_comuns c ON sc.id_causa = c.id_causa
+JOIN sintomas s ON sm.id_sintoma = s.id_sintoma
+JOIN medicamento m ON sm.id_medicamento = m.id_medicamento
+JOIN sintomas_causas sc ON s.id_sintoma = sc.id_sintoma
+JOIN causas_comuns c ON sc.id_causa = c.id_causa
 WHERE LOWER(s.nome) LIKE LOWER($1)
 GROUP BY s.nome`,
       [`%${sintoma}%`]

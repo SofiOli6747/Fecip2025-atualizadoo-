@@ -1293,7 +1293,7 @@ form button {
 }
 
 .bg-titulo{
-    width: 600px;
+    width: 500px;
     height: 60px;
     background-color: rgb(223, 231, 238);
     position: absolute;
@@ -1355,7 +1355,8 @@ form button {
 }
 
 .pesquisar_btn{
-    border-style: groove;
+    border-radius: 10px;
+    border-style:double;
     border-color: #ddd;
     position: absolute;
     left: 850px;
@@ -1368,6 +1369,7 @@ form button {
 }
 
 .pesquisar_btn2{
+    border-radius: 10px;
     border-style: groove;
     border-color: #ddd;
     position: absolute;
@@ -1441,13 +1443,13 @@ form button {
 .filtroPC{
     position: absolute;
     top: 390px;
-    left: 200px;
+    left: 205px;
 }
 
 .filtroCC{
     position: absolute;
     top: 390px;
-    left: 320px;
+    left: 300px;
 }
 
 

@@ -1348,3 +1348,33 @@ form button {
     top: 320px;
     left: 650px;
 }
+
+.pesquisar_btn{
+    border-radius: 10px;
+    border-style:double;
+    border-color: #ddd;
+    position: absolute;
+    left: 850px;
+    top: 50px;
+}
+
+.pesquisar_btn:hover{
+    cursor: pointer;
+    color: rgb(18, 174, 112);
+}
+
+
+
+
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+.receita-sim {
+  color: rgb(63, 163, 43);
+}
+
+.receita-nao {
+  color: rgb(255, 4, 0);
+}

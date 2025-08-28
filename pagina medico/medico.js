@@ -28,3 +28,21 @@ function selecionarCliente(params) {
 function selecionarMedico(params) {
   window.location.href = "medico.html";
 }
+
+
+
+function selecionarMed(params) {
+  window.location.href = "medicamentos.html";
+}
+function selecionarHist(params) {
+  window.location.href = "historico.html";
+}
+function selecionarlojas(params) {
+  window.location.href = "lojas.html";
+}
+
+
+document.getElementById("botaoBuscar").addEventListener("click", () => {
+  const termo = document.getElementById("searchInput").value;
+  window.location.href = `medicamentos.html?termo=${encodeURIComponent(termo)}`;
+});

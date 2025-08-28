@@ -27,7 +27,7 @@
             <!--ára de busca-->
             <div>
                 <input type="search" class="typebox" id="searchInput" size="70" placeholder="O que está buscando?"> 
-                <button type="submit" class="pesquisar_btn" id="botaoBuscar" size="500">Buscar</button>
+                <button type="submit" class="pesquisar_btn" id="botaoBuscar" size="500">Buscar🔍</button>
             </div>
             
             <!--área dos botões cadastro e salvos-->
@@ -78,6 +78,7 @@
         <h2 class="pg4-txt">Aqui você verá a lista de medicamentos com todas as informações.</h2>
         <h1 class="pg4-título">Tabela de Medicamentos</h1>
 
+        <!--filtros medicamentos-->
         <div>
             <label class="filtretxt">Filtre por:</label>
             <label class="precotxt">Preço</label>
@@ -95,9 +96,13 @@
                 <option value="Teuto">Teuto</option>
             </select>
             <select name="filtropreco" id="select-preco" class="filtroPC" onchange="filtrarPorPreco()">
-                <option value="">Todas</option>
+                <option value="todas">Todas</option>
+                <option value=0-10>0-10,00</option>
                 <option value=10-20>10,00-20,00</option>
                 <option value=20-30>20,00-30,00</option>
+                <option value=50-80>50,00-80,00</option>
+                <option value=100-200>100,00-200,00</option>
+                <option value=500-1000>500,00-1000,00</option>
             </select>
             <select name="filtrocateg" id="select-categoria" class="filtroCC" onchange="filtrarPorCategoria()">
                 <option value="">Todas</option>
@@ -121,6 +126,7 @@
                     <th>Preço Médio</th>
                     <th>Farmácia</th>
                     <th>Prescrição médica</th>
+                    <th>Salvos</th>
                 </tr>
             </thead>
             <tbody>
