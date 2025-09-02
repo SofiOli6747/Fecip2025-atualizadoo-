@@ -232,6 +232,10 @@ function mostrarMenu(){
   });
 };
 
+
+
+
+
 document.getElementById("botaoBuscar").addEventListener("click", () => {
   const termo = document.getElementById("searchInput").value;
   window.location.href = `medicamentos.html?termo=${encodeURIComponent(termo)}`;
@@ -241,3 +245,93 @@ document.getElementById("botaoBuscar2").addEventListener("click", () => {
   const sintoma = document.getElementById("sintomaInput").value;
   window.location.href = `medicamentos-sintomas.html?sintoma=${encodeURIComponent(sintoma)}`;
 });
+
+
+
+
+
+
+async function buscarFarmaciasPorEndereco() {
+  const endereco = document.getElementById("endereco").value;
+  if (!endereco) {
+    alert("Por favor, digite um endereço.");
+    return;
+  }
+
+  try {
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ address: endereco }, (resultados, status) => {
+      if (status === "OK" && resultados[0]) {
+        const localizacao = resultados[0].geometry.location;
+        buscarFarmacias(localizacao.lat(), localizacao.lng());
+      } else {
+        alert("Endereço não encontrado. Tente outro.");
+      }
+    });
+  } catch (erro) {
+    console.error("Erro na geocodificação:", erro);
+  }
+}
+
+
+  function calcularDistancia(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Raio da Terra em km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c; // Distância em km
+  }
+
+
+function buscarFarmacias(latitude, longitude) {
+  const tableBody = document.querySelector(".pricing-table tbody");
+  tableBody.innerHTML = "";
+
+  const localizacao = new google.maps.LatLng(latitude, longitude);
+  const mapa = new google.maps.Map(document.createElement("div")); // mapa invisível
+  const service = new google.maps.places.PlacesService(mapa);
+
+  const request = {
+    location: localizacao,
+    radius: 2000,
+    keyword: "farmácia"
+  };
+
+  service.nearbySearch(request, (resultados, status) => {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      const destinos = resultados.map(r => r.geometry.location);
+
+      const distanceService = new google.maps.DistanceMatrixService();
+      distanceService.getDistanceMatrix({
+        origins: [localizacao],
+        destinations: destinos,
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC
+      }, (response, statusDistancia) => {
+        if (statusDistancia === "OK") {
+          resultados.forEach((resultado, i) => {
+            const nome = resultado.name || "Nome não disponível";
+            const endereco = resultado.vicinity || "Endereço não disponível";
+            const distanciaTexto = response.rows[0].elements[i].distance?.text || "Distância não disponível";
+
+            const linha = document.createElement("tr");
+            linha.innerHTML = `
+              <td>💊 <strong>Farmácia:</strong> ${nome}</td>
+              <td>📍 <strong>Endereço:</strong> ${endereco}</td>
+              <td>📏 <strong>Distância:</strong> ${distanciaTexto}</td>
+            `;
+            tableBody.appendChild(linha);
+          });
+        } else {
+          console.error("❌ Erro ao calcular distâncias:", statusDistancia);
+        }
+      });
+    } else {
+      console.error("❌ Erro ao buscar farmácias:", status);
+    }
+  });
+}

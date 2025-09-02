@@ -2,8 +2,9 @@ const queryParams = new URLSearchParams(window.location.search);
 const termo = queryParams.get("termo");
 
 function destacarLetras(texto, termo) {
-  const letrasBusca = termo.toLowerCase().split("");
-  return texto
+  if(termo){
+    const letrasBusca = termo.toLowerCase().split("");
+    return texto
     .split("")
     .map(letra => {
       return letrasBusca.includes(letra.toLowerCase())
@@ -11,6 +12,9 @@ function destacarLetras(texto, termo) {
         : letra;
     })
     .join("");
+  }else{
+      return texto
+  }
 }
 
 //exibir todos os resultados na página de medicamentos equivalentes a letra/palavra digitada na barra de pesquisa
@@ -109,6 +113,9 @@ function filtrarPorCategoria() {
     ? `http://localhost:3000/medicamento/categoria?categoria=${encodeURIComponent(categoriaSelecionada)}`
     : `http://localhost:3000/medicamento/termo`;
     
+    
+    
+
     fetch(url)
     .then(res => res.json())
     .then(dados => {
@@ -148,7 +155,7 @@ function filtrarPorCategoria() {
 function filtrarPorPreco() {
     const precoSelecionada = document.getElementById("select-preco").value;
       let url;
-
+    
       if (precoSelecionada === "todas") {
         url = "http://localhost:3000/medicamento/termo"; // endpoint que retorna todos
       } else {
@@ -156,7 +163,7 @@ function filtrarPorPreco() {
         url = `http://localhost:3000/medicamento/preco?min=${min}&max=${max}`;
       }
 
-
+      console.log(precoSelecionada);
     
     fetch(url)
     .then(res => res.json())

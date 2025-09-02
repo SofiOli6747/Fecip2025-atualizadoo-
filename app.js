@@ -11,10 +11,15 @@ app.use(express.json());
 app.get("/medicamento/termo", async (req, res) => {
   const termo = req.query.termo;
   try {
-    const resultados = await client.query(
-      "SELECT * FROM medicamento WHERE nome ILIKE $1",
-      [`%${termo}%`]
-    ); 
+    let resultados;
+    if(termo){
+      resultados = await client.query(
+        "SELECT * FROM medicamento WHERE nome ILIKE $1",
+        [`%${termo}%`]
+      ); 
+    } else {
+      resultados = await client.query("SELECT * FROM medicamento");
+    }
     res.json(resultados.rows);
   } catch (err) {
     console.error(err);

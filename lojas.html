@@ -7,7 +7,16 @@
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="assets/logo farma busca.png" type="image/x-icon">
 
-    <script src="script.js" defer></script>
+    <script>
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: -22.9068, lng: -43.1729 },
+                zoom: 14,
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU3RrvNe-CoAepILwrP_YZfOFxf1SXcUE&loading=async&libraries=places&callback=initMap" async defer></script>
+    <script src="script.js" async defer></script>
 </head>
 <body>
     <header>
@@ -55,7 +64,7 @@
 
                     <a href="medicamentos.html" class="Medicamentos-navbar"> Medicamentos </a>
 
-                    <a href="//" class="lojas-navbar"> Lojas </a>
+                    <a href="//" class="lojas-navbar"> Farmácias </a>
 
                     <a href="como-funciona.html" class="Como-funciona-navbar3"> Como funciona </a>
 
@@ -72,8 +81,31 @@
 
         <img class="papel" src="assets/papelrasgado.png" alt="">
         <div class="bg-titulo"></div>
-        <h2 class="pg6-txt">Aqui você verá lojas os melhores preços e promoções para você.</h2>
-        <h1 class="pg6-título">Lojas</h1>
+        <h2 class="pg6-txt">Aqui você verá as lojas mais próximas de você.</h2>
+        <h1 class="pg6-título">Farmácias</h1>
+
+        <button class="btn-sfarmacia" id="search-farmacia" onclick="buscarFarmaciasPorEndereco()">Pesquisar Farmácias</button>
+        <div id="listaFarmacias"></div>
+        <div id="map" style="display: none;"></div>
+        <input type="search" id="endereco" class="typebox3" size="70" placeholder="Digite sua localização">
+
+
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>🧪 Farmácia(s) encontrada(s)</th>
+                    <th>📍 Endereço</th>
+                    <th>🚶 Distância</th>
+                    <th>Salvos</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+
+            
+
+        </table>
 
         
         <section>
@@ -140,41 +172,6 @@
     </main>
     
     <footer>
-        <section>
-
-            <div class="rodape-bg">
-            </div>
-
-            <section>
-                <div class="rodape-txt">
-                    <div class="nossa-rede-txt">
-                        <span>Nossa rede</span>
-                    </div>
-                    <div class="contato-txt">
-                        <span>Contato:</span>
-                    </div>
-                    <div class="email-contato">
-                        <span>farameterj@gmail.com</span>
-                    </div>
-                    <div class="txt-farmabusca-rodape">
-                        <label>FarmaBusca2025</label>
-                    </div>
-                    <ul>
-                        <li>
-                            <a href="#" class="link_instagram"> Instagram 
-                                <img src="assets/logo_instagram.png" alt="logo do instagram" class="logo-instagram">
-                            </a>
-                                
-                        </li>
-                    </ul>
-                </div>
-
-                </ul>  
-               <!--<img src="assets/cobra_decoracao.png" alt="" class="snake-decoration">-->
-                
-            </section>
-        </section>
-
     </footer>
 </body>
 </html>

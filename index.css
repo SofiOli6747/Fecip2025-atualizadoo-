@@ -259,7 +259,7 @@ ul{
 
 .box2:hover span{
     top: 160px;
-    left: 79px;
+    left: 60px;
     font-size: 20px;
 }
 
@@ -268,7 +268,7 @@ ul{
     font-family: "Sarala", sans-serif;
     position: absolute;
     top: 145px;
-    left: 73px;
+    left: 55px;
 }
 
 .lojas_img{
@@ -414,7 +414,7 @@ ul{
     font-family: "Sarala", sans-serif;
     position: absolute;
     top: 125px;
-    left: 680px;
+    left: 660px;
     text-decoration: none;
     color: white;
     text-shadow: 0.5px 1px black;
@@ -949,7 +949,7 @@ form button {
     font-family: "Sarala", sans-serif;
     position: absolute;
     top: 220px;
-    left: 50px;
+    left: 40px;
     text-decoration: none
 }
 .Como-funciona-aba{
@@ -1342,7 +1342,7 @@ form button {
     color: dimgray;
     position: absolute;
     top: 190px;
-    left: 500px;
+    left: 540px;
 }
 
 .pg6-título{
@@ -1351,8 +1351,41 @@ form button {
     color: rgb(102, 180, 174);
     position: absolute;
     top: 320px;
-    left: 650px;
+    left: 625px;
 }
+
+
+.btn-sfarmacia{
+    border-radius: 10px;
+    border-style:double;
+    border-color: #ddd;
+    position: absolute;
+    top: 270px;
+    left: 930px;
+}
+
+.btn-sfarmacia:hover{
+    cursor: pointer;
+    color: rgb(18, 174, 112);
+}
+
+.typebox3{
+    background-color: rgb(211, 219, 219);
+    padding: 10px;
+    border: none;
+    border-radius: 40px;
+    height: 40px;
+    position: absolute;
+    top: 260px;
+    left: 390px;
+}
+
+
+
+
+
+
+
 
 .pesquisar_btn{
     border-radius: 10px;
@@ -1449,7 +1482,7 @@ form button {
 .filtroCC{
     position: absolute;
     top: 390px;
-    left: 300px;
+    left: 330px;
 }
 
 
@@ -1484,5 +1517,15 @@ form button {
 .categtxt{
     position: absolute;
     top: 370px;
-    left: 300px;
+    left: 330px;
+}
+
+
+.bg-titulo2{
+    width: 610px;
+    height: 60px;
+    background-color: rgb(223, 231, 238);
+    position: absolute;
+    top: 350px;
+    left: 455px;
 }
