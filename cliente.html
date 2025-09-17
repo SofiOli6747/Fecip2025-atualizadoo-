@@ -121,65 +121,69 @@
         <!--tela de cadastro e login-->
         <section>
             <div class="blur-bg-overlay" id="blur-bg">
-            </div>
-            <div class="form-login" id="form-loginn">
-                <div class="bg-login"></div>
-                <div class="bg-login2"></div>
-                <button class="close-btn" id="close-btn">X</button>
-                <div class="tela-login">
-                    <div class="form-content">
-                        <h2>LOGIN</h2>
-                        <form action="#">
-                            <div class="input-field">
-                                <input type="text" required>
-                                <label>Email</label>
-                            </div>
-                            <div class="input-field">
-                                <input type="password" required>
-                                <label>Senha</label>
-                            </div>
-                            <a href="#" class="esqueceu-senha">Esqueceu a senha?</a>
-                            <button type="submit">Logar</button>
-                        </form>
-                        <div class="botao-link-cadastrar">
-                            <label>Não tem uma conta?</label> 
-                            <a href="#" onclick="toggleForms()" id="cadastro-link">Cadastre-se</a>
+                <!-- Login -->
+        <div class="form-login" id="form-loginn">
+            <div class="bg-login"></div>
+            <div class="bg-login2"></div>
+            <button class="close-btn" id="close-btn">X</button>
+            <div class="tela-login">
+                <div class="form-content">
+                    <h2>LOGIN</h2>
+                    <form id="login-form">
+                        <div class="input-field">
+                            <input type="text" id="login-email" name="email" required>
+                            <label>Email</label>
                         </div>
+                        <div class="input-field">
+                            <input type="password" id="login-senha" name="password" required>
+                            <label>Senha</label>
+                        </div>
+                        <a href="#" class="esqueceu-senha">Esqueceu a senha?</a>
+                        <button type="submit">Logar</button>
+                    </form>
+                    <div class="botao-link-cadastrar">
+                        <label>Não tem uma conta?</label>
+                        <a href="#" onclick="toggleForms()" id="cadastro-link">Cadastre-se</a>
                     </div>
                 </div>
-            </div>    
-            <div class="form-cadastro" id="form-cadastro">
-                <div class="bg-login"></div>
-                <div class="bg-login2"></div>
-                <button class="close-btn2" id="close-btn2">X</button>
-                <div class="tela-cadastro">
-                    <div class="form-content">
-                        <h2>CADASTRO</h2>
-                        <form action="#">
-                            <div class="input-field" id="input-field">
-                                <input type="text" required>
-                                <label>Coloque seu Email</label>
-                            </div>
-                            <div class="input-field">
-                                <input type="password" id="inputPassword" required>
-                                <label>Criar senha</label>
-                            </div>
-                            <button type="submit">Logar</button>
-                        </form>
-                        <div class="botao-link-cadastrar">
-                            <label>Já tem uma conta?</label> 
-                            <a href="#" onclick="toggleForms()" id="login-link">Entre</a>
+            </div>
+        </div>
+    
+        <!-- Cadastro -->
+        <div class="form-cadastro" id="form-cadastro">
+            <div class="bg-login"></div>
+            <div class="bg-login2"></div>
+            <button class="close-btn2" id="close-btn2">X</button>
+            <div class="tela-cadastro">
+                <div class="form-content">
+                    <h2>CADASTRO</h2>
+                    <form id="cadastro-form">
+                        <div class="input-field" id="input-field">
+                            <input type="text" id="cadastro-nome" name="username" required>
+                            <label>Nome</label>
                         </div>
-                        <button class="btn-gsenha" id="generate-password">gerar senha</button>
-                        <div class="senha-gerada" id="generated-password">
-                            <h4></h4>
+                        <div class="input-field">
+                            <input type="text" id="cadastro-email" name="email" required>
+                            <label>Coloque seu Email</label>
                         </div>
+                        <div class="input-field">
+                            <input type="password" id="cadastro-senha" name="password" required>
+                            <label>Criar senha</label>
+                        </div>
+                        <button type="submit">Cadastrar</button>
+                    </form>
+                    <div class="botao-link-cadastrar">
+                        <label>Já tem uma conta?</label>
+                        <a href="#" onclick="toggleForms()" id="login-link">Entre</a>
                     </div>
-                </div>    
-            </div>            
-
-        </section>
-
+                    <button class="btn-gsenha" id="generate-password">gerar senha</button>
+                    <div class="senha-gerada" id="generated-password">
+                        <h4></h4>
+                        <script src="script.js"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <!--aba categorias-->
