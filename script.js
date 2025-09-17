@@ -34,7 +34,90 @@ function toggleForms() {
     }
 }
 
+// Integração com a API
 
+// Cadastro
+const cadastroForm = document.querySelector("#cadastro-form");
+
+cadastroForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const username = cadastroForm.querySelector("input[name='username']").value;
+  const email = cadastroForm.querySelector("input[name='email']").value;
+  const password = cadastroForm.querySelector("input[name='password']").value;
+
+  try {
+    const response = await fetch("http://localhost:3000/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, email, password }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Cadastro realizado com sucesso!");
+    } else {
+      alert("Erro: " + data.message);
+    }
+  } catch (err) {
+    alert("Erro ao conectar com a API");
+  }
+});
+
+// Login
+const loginForm = document.querySelector("#login-form");
+
+loginForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = loginForm.querySelector("input[name='email']").value;
+  const password = loginForm.querySelector("input[name='password']").value;
+
+  try {
+    const response = await fetch("http://localhost:3000/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      localStorage.setItem("token", data.token); // guarda o token
+      alert("Login realizado!! Bem-vindo, " + data.user.username);
+    } else {
+      alert(data.message);
+    }
+  } catch (err) {
+    alert("Erro ao conectar com a API");
+  }
+});
+
+// Perfil
+async function carregarPerfil() {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    alert("Você precisa estar logado");
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:3000/api/profile", {
+      headers: { Authorization: "Bearer " + token },
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Perfil:\nUsuário: " + data.username + "\nEmail: " + data.email);
+    } else {
+      alert(data.message);
+    }
+  } catch (err) {
+    alert("Erro ao conectar com a API");
+  }
+}
 
 //codigo pra abrir e fechar aba de categorias
 
