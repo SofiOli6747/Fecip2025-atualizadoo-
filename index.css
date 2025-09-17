@@ -1,0 +1,1531 @@
+@import url('https://fonts.googleapis.com/css2?family=Peralta&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Peralta&family=Sarala:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Gidole&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Peralta&family=Sarala:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Gidole&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Peralta&family=Sarala:wght@400;700&display=swap');
+
+/* background: linear-gradient(to right, #4B93AD, #64c385); */
+
+:root{
+    --verde: rgb(0, 153, 153)
+}
+
+body{
+    background-color: rgb(235, 242, 248);
+    overflow-y: auto;
+}
+
+.overlay{
+    display: grid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 900px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 213, 116, 0.2)); 
+
+}
+
+
+h2{
+    position: relative;
+    top:-20px;
+}
+
+p{
+    margin: -5px;
+}
+
+ul{
+    position: relative;
+    left: -40px;
+    top: -5px;
+    display: flex;
+    list-style-type: none;
+
+
+
+
+/*header e navbar*/
+
+}
+.logo{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 15px;
+}
+.farma{
+    font-family: "Peralta", serif;
+    text-decoration: none;
+    color: rgb(197, 130, 130);
+    position: absolute;
+
+}
+.busca{
+    font-family: "Peralta", serif;
+    text-decoration: none;
+    color: rgb(197, 130, 130);
+    position: absolute;
+    top: 30px;
+}
+.titulo{
+    font-size: 35px;
+    position: absolute;
+    top: 20px;
+    left: 100px;
+
+}
+
+.simbolo-farmacia{
+    width: 50PX;
+    height: 35px;
+    position: absolute;
+    top: 35px;
+    left: 110px;
+    opacity: 90%;
+}
+
+
+.typebox{
+    background-color: rgb(211, 219, 219);
+    padding: 10px;
+    border: none;
+    border-radius: 40px;
+    height: 40px;
+    position: absolute;
+    top: 40px;
+    left: 300px;
+}
+
+.typebox::placeholder{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.b-cadastro{
+    background-color: #cee3c5;
+    border: none;
+    border-radius: 40px;
+    width: 250px;
+    height: 70px;
+    position: absolute;
+    top: 20px;
+    left: 1050px;
+}
+.b-cadastro:hover{
+    background-color: #acc6ac;
+    cursor: pointer;
+}
+
+.cadastro-txt{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 43px;
+    left: 1115px;
+}
+
+.icon-cadastro{
+    width: 70px;
+    height: 40px;
+    position: absolute;
+    top: 35px;
+    left: 1050px;
+
+}
+
+.b-salvos{
+    background-color:  #cee3c5;
+    border: none;
+    border-radius: 40px;
+    width: 180px;
+    height: 70px;
+    position: absolute;
+    top: 20px;
+    left: 1320px;
+    
+}
+.b-salvos:hover{
+    background-color:#acc6ac;
+    cursor: pointer;
+}
+
+.icon-salvos{
+    width: 70px;
+    height: 55px;
+    position: absolute;
+    top: 28px;
+    left: 1320px;
+}
+
+.salvos-txt{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 43px;
+    left: 1385px;
+}
+
+
+
+/*main*/
+
+
+
+
+
+.bem_vindo{
+    font-family: "Sarala", sans-serif;
+    font-size: 30px;
+    position: absolute;
+    top: 180px;
+    left: 500px;
+    color: rgb(85, 85, 85);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.box1{
+    position: absolute;
+    top: 300px;
+    left: 500px;
+    padding: 90px;
+    border: solid 2px gray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: aliceblue;
+
+}
+
+@keyframes aumentar{
+    100%{
+        padding: 100px;
+    }
+}
+.box1:hover{
+    animation: aumentar 0.1s linear forwards;
+    font-size: large;
+    
+
+}
+.box1:hover img{
+    width: 170px;
+    cursor: pointer;
+}
+.box1:hover span{
+    top: 150px;
+}
+
+
+.txtbox1{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    left: 38px;
+    top: 140px;
+
+}
+
+.medicamentos_img{
+    width: 150px;
+    position: absolute;
+    top: 1px;
+    left: 35px;
+}
+
+
+.box2{
+    position: absolute;
+    top: 300px;
+    left: 750px;
+    padding: 90px;
+    border: solid 2px gray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: aliceblue;
+
+}
+
+.box2:hover{
+    animation: aumentar 0.1s linear forwards;
+}
+
+.box2:hover img{
+    width: 280px;
+    height: 280px;
+    cursor: pointer;
+}
+
+.box2:hover span{
+    top: 160px;
+    left: 60px;
+    font-size: 20px;
+}
+
+
+.txtbox2{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 145px;
+    left: 55px;
+}
+
+.lojas_img{
+    position: absolute;
+    top: -55px;
+    left: -38px;
+    width: 260px;
+    height: 260px;
+}
+
+
+
+.box3{
+    position: absolute;
+    top: 540px;
+    left: 630px;
+    padding: 90px;
+    border: solid 2px gray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: aliceblue;
+
+}
+
+.box3:hover{
+    animation: aumentar 0.1s linear forwards;
+}
+
+.box3:hover img{
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+}
+
+.box3:hover span{
+    top: 150px;
+    left: 60px;
+    font-size: 20px;
+}
+
+
+.txtbox3{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 140px;
+    left: 59px;
+
+}
+
+
+.historico_img{
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+}
+
+
+
+.typebox2{
+    background-color: rgb(243, 250, 250);
+    padding: 10px;
+    border: none;
+    border-radius: 40px;
+    height: 50px;
+    position: absolute;
+    top: 790px;
+    left: 380px;
+}
+
+.typebox2::placeholder{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    left: 260px;
+    top: 15px;
+}
+
+.borda_tpbox{
+    padding: 30px;
+    width: 700px;
+    background: linear-gradient(to right, #4B93AD, #64c385); 
+    border-radius: 40px;
+    position: absolute;
+    top: 786px;
+    left: 360px;
+}
+
+
+
+
+
+/*main*/
+
+
+
+
+
+
+.Inicio{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 380px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0.5px 1px black;
+}
+.Inicio:hover{
+    color:khaki;
+    font-size: large;
+}
+
+.Categorias-navbar{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 500px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0.5px 1px black;
+}
+.Categorias-navbar:hover{
+    color:khaki;
+    font-size: large;
+}
+
+.Medicamentos-navbar{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 800px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0.5px 1px black;
+
+}
+.Medicamentos-navbar:hover{
+    color:khaki;
+    font-size: large;
+}
+.lojas-navbar{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 660px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0.5px 1px black;
+}
+.lojas-navbar:hover{
+    color:khaki;
+    font-size: large;
+}
+
+
+
+
+.Como-funciona-navbar{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 114px;
+    left: 980px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0.5px 1px black;
+}
+.Como-funciona-navbar2{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 980px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0.5px 1px black;
+}
+.Como-funciona-navbar3{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 980px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0.5px 1px black;
+}
+
+.Como-funciona-navbar:hover{
+    color:khaki;
+    font-size: large;
+}
+.Como-funciona-navba2:hover{
+    color:khaki;
+    font-size: large;
+}
+
+.Como-funciona-navbar3:hover{
+    color:khaki;
+    font-size: large;
+}
+
+
+.Contato-navbar{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 1100px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0.5px 1px black;
+}
+.Contato-navbar2{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 1200px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0.5px 1px black;
+}
+
+.Contato-navbar3{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 125px;
+    left: 1200px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0.5px 1px black;
+}
+.Contato-navbar:hover{
+    color:khaki;
+    font-size: large;
+}
+.Contato-navbar2:hover{
+    color:khaki;
+    font-size: large;
+}
+.Contato-navbar3:hover{
+    color:khaki;
+    font-size: large;
+}
+
+
+.trocarperfil-navbar{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 115px;
+    left: 1450px;
+    text-decoration: none;
+    color: white;
+}
+
+.trocarperfil-navbar:hover{
+    color:khaki;
+    font-size: large;
+}
+
+
+
+.fundo-navbar{
+    display: flex;
+    padding: 30px;
+    width: 1455px;
+    position: absolute;
+    top: 120px;
+    left: 1px;
+    background: linear-gradient(to right, #4B93AD, #64c385);  
+}
+
+.fundo-header{
+    display: flex;
+    padding: 65px;
+    width: 500px;
+    position: absolute;
+    top: 1px;
+    left: 1000px;
+    background-color: rgb(240, 232, 232);
+}
+
+
+
+/*tela login*/
+
+
+
+
+
+
+/*tela login*/
+
+
+
+.blur-bg-overlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    pointer-events: none;
+    backdrop-filter: blur(2px);
+    transition: 0.1s ease;
+}
+
+.form-login{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 500px;
+    width: 100%;
+    height: 400px;
+    background: white;
+    border-radius: 30px;
+    transform: translate(-50%, -100%);
+    animation: slideup 0.2s linear forwards;
+
+}
+@keyframes slideup{
+    100%{
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+.bg-login{
+    padding: 50px;
+    width: 400px;
+    position: absolute;
+    top: -1px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(197, 130, 130);
+}
+.bg-login2{
+    padding: 20px;
+    width: 460px;
+    position: absolute;
+    top: 75px;
+    border: none;
+    background-color: white;
+}
+
+
+.form-login .close-btn {
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 10px;
+    left: 470px;
+    border: none;
+    background-color:  rgb(197, 130, 130);
+    color: dimgray;
+    cursor: pointer;
+}
+
+.form-login .tela-login {
+    display: flex;
+}
+
+.tela-login h2{
+    font-family: "Gidole", sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+
+.tela-login .form-content {
+    width: 100%;
+    padding: 35px;
+
+}
+
+form .input-field{
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+form .input-field input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -20px;
+    outline: none;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.input-field input:focus{
+    border-color:rgb(0, 149, 255);
+}
+
+
+form .input-field label{
+    position: absolute;
+    top: 5%;
+    left: 15px;
+    color: darkgray;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.input-field input:is(:focus, :valid) ~ label{
+    color: rgb(0, 149, 255);
+    font-size: 0.75rem;
+    transform: translateY(-120%);
+}
+
+.tela-login a:hover {
+    text-decoration: underline;
+}
+
+.esqueceu-senha{
+    text-decoration: none;
+    position: relative;
+    top: 10px;
+
+}
+.botao-link-cadastrar{
+    position: relative;
+    top: 55px;
+    
+}
+form button {
+    width: 100%;
+    position: relative;
+    top: 35px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 0;
+    cursor: pointer;
+    color: white;
+    background: rgb(83, 155, 232);
+}
+
+
+.gerar-senha-btn{
+    position: absolute;
+    top: 230px;
+    left: 380px;
+}
+.gerar-senha-btn:hover{
+    color: rgb(110, 153, 67);
+}
+
+
+
+/*tela cadastro*/
+
+
+
+.form-cadastro{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 500px;
+    width: 100%;
+    height: 400px;
+    background: white;
+    border-radius: 30px;
+    transform: translate(-50%, -100%);
+    animation: slideup 0.2s linear forwards;
+}
+
+@keyframes slideup{
+    100%{
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.bg-login{
+    padding: 50px;
+    width: 400px;
+    position: absolute;
+    top: -1px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(197, 130, 130);
+}
+.bg-login2{
+    padding: 20px;
+    width: 460px;
+    position: absolute;
+    top: 75px;
+    border: none;
+    background-color: white;
+}
+
+
+.form-cadastro .close-btn2 {
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 10px;
+    left: 470px;
+    color: dimgray;
+    cursor: pointer;
+}
+.close-btn2{
+    border: none;
+    background-color: rgb(197, 130, 130);
+    color: dimgray;
+}
+
+.form-cadastro .tela-cadastro {
+    display: flex;
+}
+
+.tela-cadastro h2{
+    font-family: "Gidole", sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+
+.tela-cadastro .form-content {
+    width: 100%;
+    padding: 35px;
+
+}
+
+form .input-field{
+    font-family: "Sarala", sans-serif;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+form .input-field input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -20px;
+    outline: none;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.input-field input:focus{
+    border-color:rgb(0, 149, 255);
+}
+
+
+form .input-field label{
+    position: absolute;
+    top: 5%;
+    left: 15px;
+    color: darkgray;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.input-field input:is(:focus, :valid) ~ label{
+    color: rgb(0, 149, 255);
+    font-size: 0.75rem;
+    transform: translateY(-120%);
+}
+
+.tela-cadastro a:hover {
+    text-decoration: underline;
+}
+
+.botao-link-cadastrar{
+    position: relative;
+    top: 55px;
+    
+}
+
+form button {
+    width: 100%;
+    position: relative;
+    top: 35px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 0;
+    cursor: pointer;
+    color: white;
+    background: rgb(83, 155, 232);
+}
+
+
+@media (max-width> 500px){
+        .form-login{
+            width: 95%;
+        }
+        .form-box .form-content{
+            padding: 30px 20px;
+        }
+}
+
+.btn-gsenha{
+    position:absolute;
+    left: 380px;
+    top: 230px;
+}
+
+.btn-gsenha:hover{
+    color: rgb(115, 158, 72);
+}
+
+
+.senha-gerada{
+    display: flex;
+    position: absolute;
+    top: 210px;
+    left: 270px;
+}
+
+
+
+ /*aba categorias*/
+
+.form-categorias{
+    display: none;
+    position: absolute;
+    top: 180px;
+    left: 1px;
+    max-width: 150px;
+    width: 100%;
+    height: 520px;
+    background: white;
+    transform: translateX(-100%);
+    animation: slidein 0.5s forwards;
+
+}
+@keyframes slidein{
+    from{
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.form-categorias .tela-categorias {
+    display: flex;
+}
+
+
+.form-content2 a {
+    color: black;
+    position: absolute;
+
+
+}
+.form-content2 a:hover {
+    color: blue;
+
+}
+
+.Inicio2{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    text-decoration: none;
+}
+.Medicamentos-aba{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 140px;
+    left: 20px;
+    text-decoration: none;
+
+}
+.lojas-aba{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 220px;
+    left: 40px;
+    text-decoration: none
+}
+.Como-funciona-aba{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 300px;
+    left: 45px;
+    text-decoration: none; 
+}
+.Contato-aba{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 400px;
+    left: 43px;
+    text-decoration: none;
+}
+
+.trocarperfil-aba{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 470px;
+    left: 33px;
+    text-decoration: none;
+}
+
+
+
+
+/*rodapé*/
+
+
+
+
+
+
+.rodape-bg{
+    padding: 50px;
+    width: 1415px;
+    position: absolute;
+    top:900px;
+    left: -1px;
+    background: linear-gradient(to right, #4B93AD, #64c385);  
+}
+.nossa-rede-txt{
+    font-family: "Sarala", sans-serif;
+    color: white;
+    position: absolute;
+    top: 920px;
+    left: 55px;
+}
+.logo-instagram{
+    width: 60px;
+    height: 30px;
+    position: absolute;
+    top: -5px;
+    left: -55px;
+}
+.link_instagram{
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    top: 930px;
+    left: 100px;
+
+}
+
+.link_instagram:hover{
+    color: rgb(111, 0, 255);
+}
+
+.contato-txt{
+    font-family: "Sarala", sans-serif;
+    color: white;
+    position: absolute;
+    top: 920px;
+    left: 200px;
+
+}
+.email-contato{
+    font-family: "Sarala", sans-serif;
+    color: white;
+    position: absolute;
+    top: 940px;
+    left: 200px;
+
+}
+.txt-farmabusca-rodape{
+    font-family: "Sarala", sans-serif;
+    color: white;
+    position: absolute;
+    top: 945px;
+    left: 1340px;
+}
+
+.snake-decoration{
+    width: 150px;
+    height: 500px;
+    position: absolute;
+    top:  750px;
+    left: 100px;
+    transform: rotate(90deg);
+
+}
+
+
+
+/*page contato*/
+
+
+.txt-contato{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 200px;
+    left: 140px;
+    color:rgb(116, 111, 111);
+}
+
+
+.box-form{
+    display: flex;
+    position: absolute;
+    top: 280px;
+    left:380px;
+    max-width: 700px;
+    width: 100%;
+    height: 700px;
+    border: 2px solid;
+    border-color: rgb(197, 130, 130);
+    background: white;
+    
+}
+
+.typebox-nome{
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border-color:rgb(197, 130, 130);
+}
+
+.typebox-nome input:focus{
+    border-color: blue;
+}
+
+
+.nome-label{
+    font-family: "Sarala", sans-serif;
+    color:rgb(153, 147, 147);
+    position: absolute;
+    top: 40px;
+    left: 15px;
+}
+
+.typebox-email{
+    position: absolute;
+    top: 70px;
+    left: 375px;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border-color:rgb(197, 130, 130);
+}
+
+.email-label{
+    font-family: "Sarala", sans-serif;
+    color:rgb(153, 147, 147);
+    position: absolute;
+    top: 40px;
+    left: 370px;
+}
+
+.typebox-telefone{
+    position: absolute;
+    top: 200px;
+    left: 20px;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border-color:rgb(197, 130, 130);
+}
+
+.telefone-label{
+    font-family: "Sarala", sans-serif;
+    color:rgb(153, 147, 147);
+    position: absolute;
+    top: 170px;
+    left: 20px;
+}
+
+.btn-contato{
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color: rgb(81, 177, 245) ;
+    border: solid 2px black;
+    position: absolute;
+    top: 625px;
+    left: 20px;
+}
+.btn-contato:hover{
+    background-color: rgb(0, 149, 255);
+    cursor: pointer;
+}
+
+
+.typebox-feedback{
+    width: 650px;
+    height: 320px;
+    position: absolute;
+    top: 280px;
+    left: 18px;
+    border-color: rgb(171, 103, 61);
+}
+
+.typebox-feedback::placeholder{
+    position: absolute;
+    top: 1px;
+}
+
+
+
+
+/*page como-funciona*/
+
+
+
+
+.bg-decoration{
+    width: 1210px;
+    height: 50px;
+    position: absolute;
+    top: 200px;
+    left: 300px;
+    background:  rgb(40, 89, 135);
+    border: solid 3px white;
+}
+
+.bg-decoration2{
+    width: 1000px;
+    height: 50px;
+    position: absolute;
+    top: 240px;
+    left: 510px;
+    background:  rgb(137, 208, 157);
+}
+
+
+
+.titulo-pg3{
+    font-family: "Peralta", serif;
+    position: absolute;
+    top: 190px;
+    left: 350px;
+    color: white;
+    
+}
+.titulo-pg3_1{
+    font-family: "Peralta", serif;
+    position: absolute;
+    top: 192px;
+    left: 350px;
+    color:  rgb(197, 130, 130);;
+    
+}
+
+
+
+.paragrafos-pg3{
+    font-family: "Sarala", sans-serif;
+    position: absolute;
+    top: 350px;
+    left: 10px;
+}
+
+
+
+
+
+
+
+
+/* page medicamentos */
+
+
+
+
+
+.pricing-table {
+    position: absolute;
+    top: 400px;
+    left: 1px;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    overflow-y: auto;
+}
+
+.pricing-table th, .pricing-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+.pricing-table th {
+    background-color: var(--verde);
+    color: white;
+    overflow-y: auto;
+}
+
+.pricing-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+    overflow-y: auto;
+}
+
+.pricing-table tr:hover {
+    background-color: #ddd;
+}
+
+
+
+.pg4-txt{
+    font-family: "Cedarville Cursive", cursive;
+    font-size: 15px;
+    color: dimgray;
+    position: absolute;
+    top: 190px;
+    left: 500px;
+}
+
+.pg4-título{
+    font-family: "Sarala", sans-serif;
+    font-size: 40px;
+    color: rgb(102, 180, 174);
+    position: absolute;
+    top: 320px;
+    left: 470px;
+}
+
+.bg-titulo{
+    width: 500px;
+    height: 60px;
+    background-color: rgb(223, 231, 238);
+    position: absolute;
+    top: 350px;
+    left: 455px;
+}
+
+.papel{
+    width: 700px;
+    height: 100px;
+    position: absolute;
+    top: 165px;
+    left: 350px;
+}
+
+
+
+
+/* page histórico */
+
+.pg5-txt{
+    font-family: "Cedarville Cursive", cursive;
+    font-size: 15px;
+    color: dimgray;
+    position: absolute;
+    top: 190px;
+    left: 550px;
+}
+
+.pg5-título{
+    font-family: "Sarala", sans-serif;
+    font-size: 40px;
+    color: rgb(102, 180, 174);
+    position: absolute;
+    top: 320px;
+    left: 500px;
+}
+
+
+
+/* page lojas */
+
+.pg6-txt{
+    font-family: "Cedarville Cursive", cursive;
+    font-size: 15px;
+    color: dimgray;
+    position: absolute;
+    top: 190px;
+    left: 540px;
+}
+
+.pg6-título{
+    font-family: "Sarala", sans-serif;
+    font-size: 40px;
+    color: rgb(102, 180, 174);
+    position: absolute;
+    top: 320px;
+    left: 625px;
+}
+
+
+.btn-sfarmacia{
+    border-radius: 10px;
+    border-style:double;
+    border-color: #ddd;
+    position: absolute;
+    top: 270px;
+    left: 930px;
+}
+
+.btn-sfarmacia:hover{
+    cursor: pointer;
+    color: rgb(18, 174, 112);
+}
+
+.typebox3{
+    background-color: rgb(211, 219, 219);
+    padding: 10px;
+    border: none;
+    border-radius: 40px;
+    height: 40px;
+    position: absolute;
+    top: 260px;
+    left: 390px;
+}
+
+
+
+
+
+
+
+
+.pesquisar_btn{
+    border-radius: 10px;
+    border-style:double;
+    border-color: #ddd;
+    position: absolute;
+    left: 850px;
+    top: 50px;
+}
+
+.pesquisar_btn:hover{
+    cursor: pointer;
+    color: rgb(18, 174, 112);
+}
+
+.pesquisar_btn2{
+    border-radius: 10px;
+    border-style: groove;
+    border-color: #ddd;
+    position: absolute;
+    left: 1130px;
+    top: 810px;
+}
+
+.pesquisar_btn2:hover{
+    cursor: pointer;
+    color: rgb(18, 174, 112);
+}
+
+
+.menu {
+    position: absolute;
+    display: none;
+    border: solid 50px;
+    border-color: #bbc07f;
+}
+
+.grupoOpcao {
+
+    margin-bottom: 10px;
+}
+
+.grupoOpcao h4 {
+ 
+    margin: 0;
+    padding: 5px;
+    background-color: #000000;
+    font-size: 14px;
+    border: 50px solid #bc1010;
+    text-transform: uppercase;
+}
+
+.grupoOpcao div {
+    padding: 100px;
+    cursor: pointer;
+    display: block;
+}
+
+.grupoOpcao div:hover {
+    background-color: #f9f9f9;
+}
+
+
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+.receita-sim {
+  color: rgb(63, 163, 43);
+}
+
+.receita-nao {
+  color: rgb(255, 4, 0);
+}
+
+.filtroC{
+    position: absolute;
+    top: 390px;
+}
+
+.filtroMC{
+    position: absolute;
+    top: 390px;
+    left: 100px;
+}
+
+.filtroPC{
+    position: absolute;
+    top: 390px;
+    left: 205px;
+}
+
+.filtroCC{
+    position: absolute;
+    top: 390px;
+    left: 330px;
+}
+
+
+
+
+
+
+.filtretxt{
+    position: absolute;
+    top: 370px;
+}
+
+
+.todastxt{
+    position: absolute;
+    top: 370px;
+    left: 10px;
+}
+
+.marcatxt{
+    position: absolute;
+    top: 370px;
+    left: 100px;
+}
+
+.precotxt{
+    position: absolute;
+    top: 370px;
+    left: 200px;
+}
+
+.categtxt{
+    position: absolute;
+    top: 370px;
+    left: 330px;
+}
+
+
+.bg-titulo2{
+    width: 610px;
+    height: 60px;
+    background-color: rgb(223, 231, 238);
+    position: absolute;
+    top: 350px;
+    left: 455px;
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmaBusca - Contato</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="assets/logo farma busca.png" type="image/x-icon">
+
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="fundo-navbar">  
+        </div>
+        <section>
+            <!--logo principal-->
+            <img src="assets/logo farma busca.png" alt="" class="logo">
+            <div class="titulo">
+                <a href="cliente.html" class="farma"> Farma </a>
+                <a href="cliente.html" class="busca"> Busca </a>
+               <!-- <img src="assets/simbolofarmacia.png" alt="simbolo da farmacia" class="simbolo-farmacia"> -->
+            </div>
+            <!--ára de busca-->
+            <div>
+                <input type="search" class="typebox" id="txtbox" size="70" placeholder="O que está buscando?"> 
+            </div>
+            
+            <!--área dos botões cadastro e salvos-->
+            <div>
+                <input type="button" class="b-cadastro" id="botao-cadastro" size="70">
+                
+                <img src="assets/userpf.png" alt="icon de cadastro"  class="icon-cadastro">
+                
+                <div class="cadastro-txt">
+                    <label>Entre ou Cadastre-se</label>
+                </div>
+            </div>
+            <div>
+                <input type="button" class="b-salvos" id="salvos" size="70" >
+                <img src="assets/salvos-logo.png" alt="icon dos salvos" class="icon-salvos">
+                <div class="salvos-txt">
+                    <label>Seus salvos</label>
+                </div>
+            </div>
+        </section>
+        <!--área de navegação-->
+        <nav>
+            <ul class="navbar">
+                <li>
+                    <a href="cliente copy.html" class="Inicio"> Início </a>
+
+                    <a href="#" class="Categorias-navbar" id="categoria-link"> Categorias </a>
+
+                    <a href="medicamentos.html" class="Medicamentos-navbar"> Medicamentos </a>
+
+                    <a href="lojas.html" class="lojas-navbar"> Lojas </a>
+
+                    <a href="como-funciona.html" class="Como-funciona-navbar2"> Como funciona </a>
+
+                    <a href="contato.html" class="Contato-navbar2"> Contato </a>
+                </li>
+            </ul>
+           
+        </nav>
+        
+
+
+    </header>
+
+    <main>
+        
+        <section>
+            <div class="txt-contato">
+                <h2>Dê o seu feedback ou entre em contato conosco pelo nosso email: <a href="#">farameterj@gmail.com</a> ou pelo formulário:</h2>
+            </div>
+            <div class="formulario-contato">
+                <div class="box-form">
+                    <label class="nome-label">Nome *</label>
+                    <input type="text" class="typebox-nome" required>
+                    <label class="email-label">Email *</label>
+                    <input type="email" class="typebox-email" required>
+                    <label class="telefone-label"> Telefone *</label>
+                    <input type="number" class="typebox-telefone" required>
+                    <button class="btn-contato">Enviar</button>
+                    <textarea class="typebox-feedback" name="" id="feedback" placeholder="Digite aqui seu Feedback"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="blur-bg-overlay" id="blur-bg">
+            </div>
+            <div class="form-login" id="form-loginn">
+                <div class="bg-login"></div>
+                <div class="bg-login2"></div>
+                <button class="close-btn" id="close-btn">X</button>
+                <div class="tela-login">
+                    <div class="form-content">
+                        <h2>LOGIN</h2>
+                        <form action="#">
+                            <div class="input-field">
+                                <input type="text" required>
+                                <label>Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" required>
+                                <label>Senha</label>
+                            </div>
+                            <a href="#" class="esqueceu-senha">Esqueceu a senha?</a>
+                            <button type="submit">Logar</button>
+                        </form>
+                        <div class="botao-link-cadastrar">
+                            <label>Não tem uma conta?</label> 
+                            <a href="#" onclick="toggleForms()" id="cadastro-link">Cadastre-se</a>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            <div class="form-cadastro" id="form-cadastro">
+                <div class="bg-login"></div>
+                <div class="bg-login2"></div>
+                <button class="close-btn2" id="close-btn2">X</button>
+                <div class="tela-cadastro">
+                    <div class="form-content">
+                        <h2>CADASTRO</h2>
+                        <form action="#">
+                            <div class="input-field">
+                                <input type="text" required>
+                                <label>Coloque seu Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" required>
+                                <label>Criar senha</label>
+                            </div>
+                            <button type="submit">Logar</button>
+                        </form>
+                        <div class="botao-link-cadastrar">
+                            <label>Já tem uma conta?</label> 
+                            <a href="#" onclick="toggleForms()" id="login-link">Entre</a>
+                        </div>
+                    </div>
+                </div>    
+            </div>            
+
+        </section>
+
+        <section>
+            <div class="form-categorias" id="form-categoria">
+                <div class="tela-categorias">
+                    <div class="form-content2">
+                        <a href="cliente.html" class="Inicio2" id="Inicio"> Início </a>
+
+                        <a href="#" class="Medicamentos-aba"> Medicamentos </a>
+
+                        <a href="#" class="lojas-aba"> Lojas </a>
+
+                        <a href="#" class="Como-funciona-aba"> Como funciona </a>
+
+                        <a href="#" class="Contato-aba"> Contato </a>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+    
+</body>
+</html>

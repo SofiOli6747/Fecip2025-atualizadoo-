@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<!--"cabeça" do site-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmaBusca - encontre os melhores preços</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="assets/logo farma busca.png" type="image/x-icon">
+
+    <script src="script.js" defer></script>
+</head>
+<style>
+    body{
+        width: 100px;
+    }
+</style>
+<!--corpo do site--> 
+<body>  
+    
+    <div class="overlay"></div>
+    <!--cabeçalho (parte de cima do site)-->
+    <header>
+
+        <div class="fundo-navbar">  
+        </div>
+        <section>
+            <!--logo principal-->
+            <img src="assets/logo farma busca.png" alt="" class="logo">
+            <div class="titulo">
+                <a href="cliente.html" class="farma"> Farma </a>
+                <a href="cliente.html" class="busca"> Busca </a>
+               <!-- <img src="assets/simbolofarmacia.png" alt="simbolo da farmacia" class="simbolo-farmacia"> -->
+            </div>
+            <!--área de busca-->
+            <div class="borda_tpbox">
+            </div>
+            <div>
+                <input type="search" onkeyup="mostrarMenu()" class="typebox" id="searchInput" size="70" placeholder="O que está buscando?" autocomplete="off"> 
+                <input type="search" class="typebox2" id="sintomaInput" size="100" placeholder="O que está sentindo?  Digite aqui."> 
+                <datalist id="sugestoes"></datalist>
+                <div id="autocomplete-menu" class="menu"></div>
+                <button type="submit" class="pesquisar_btn" id="botaoBuscar" size="500">Buscar 🔍</button>
+                <button type="submit" class="pesquisar_btn2" id="botaoBuscar2" size="500">Buscar 🔍</button>
+                
+            </div>
+            
+            <!--<div id="resultado"></div>-->
+
+            <!--área dos botões cadastro e salvos-->
+            <div>
+                <input type="button" class="b-cadastro" id="botao-cadastro" size="70">
+                
+                <img src="assets/userpf.png" alt="icon de cadastro"  class="icon-cadastro">
+                
+                <div class="cadastro-txt">
+                    <label>Entre ou Cadastre-se</label>
+                </div>
+            </div>
+            <div>
+                <input type="button" class="b-salvos" id="salvos" size="70" >
+                <img src="assets/salvos-logo.png" alt="icon dos salvos" class="icon-salvos">
+                <div class="salvos-txt">
+                    <label>Seus salvos</label>
+                </div>
+            </div>
+        </section>
+        <!--área de navegação-->
+        <nav>
+            <ul class="navbar">
+                <li>
+                    <a href="cliente.html" class="Inicio"> Início </a>
+
+                    <a href="#" class="Categorias-navbar" id="categoria-link"> Categorias </a>
+
+                    <a href="medicamentos.html" class="Medicamentos-navbar"> Medicamentos </a>
+
+                    <a href="lojas.html" class="lojas-navbar"> Farmácias </a>
+
+                    <a href="como-funciona.html" class="Como-funciona-navbar"> Como funciona </a>
+
+                    <a href="contato.html" class="Contato-navbar"> Contato </a>
+
+                    <a href="index.html" class="trocarperfil-navbar">Trocar Perfil</a>
+                </li>
+            </ul>
+           
+        </nav>
+        
+
+
+    </header>
+
+    <!--conteúdo (parte do meio)-->
+    <main>
+         <div id="results" class="resultss"></div>
+
+        <div class="bem_vindo">
+            <h3>Bem-vindo ao FarmaBusca</h3>
+        </div>
+        <div class="box1" id="box1" onclick="selecionarMed()">
+            <span class="txtbox1" id="txtbox1">Medicamentos</span>
+            <img class="medicamentos_img" src="assets/medicamentos.png" alt="">
+        </div>
+    
+
+        <div class="box2" onclick="selecionarlojas()">
+            <span class="txtbox2" >Farmácias</span>
+            <img class="lojas_img" src="assets/shop-icon-black-white_755164-15634-removebg-preview.png" alt="">
+        </div>
+        
+            
+        <div class="box3" onclick="selecionarHist()">
+            <span class="txtbox3" >Histórico</span>
+            <img class="historico_img" src="assets/historico-removebg-preview.png" alt="">
+        </div>
+
+       
+
+        <!--tela de cadastro e login-->
+        <section>
+            <div class="blur-bg-overlay" id="blur-bg">
+                <!-- Login -->
+        <div class="form-login" id="form-loginn">
+            <div class="bg-login"></div>
+            <div class="bg-login2"></div>
+            <button class="close-btn" id="close-btn">X</button>
+            <div class="tela-login">
+                <div class="form-content">
+                    <h2>LOGIN</h2>
+                    <form id="login-form">
+                        <div class="input-field">
+                            <input type="text" id="login-email" name="email" required>
+                            <label>Email</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" id="login-senha" name="password" required>
+                            <label>Senha</label>
+                        </div>
+                        <a href="#" class="esqueceu-senha">Esqueceu a senha?</a>
+                        <button type="submit">Logar</button>
+                    </form>
+                    <div class="botao-link-cadastrar">
+                        <label>Não tem uma conta?</label>
+                        <a href="#" onclick="toggleForms()" id="cadastro-link">Cadastre-se</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Cadastro -->
+        <div class="form-cadastro" id="form-cadastro">
+            <div class="bg-login"></div>
+            <div class="bg-login2"></div>
+            <button class="close-btn2" id="close-btn2">X</button>
+            <div class="tela-cadastro">
+                <div class="form-content">
+                    <h2>CADASTRO</h2>
+                    <form id="cadastro-form">
+                        <div class="input-field" id="input-field">
+                            <input type="text" id="cadastro-nome" name="username" required>
+                            <label>Nome</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="cadastro-email" name="email" required>
+                            <label>Coloque seu Email</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" id="cadastro-senha" name="password" required>
+                            <label>Criar senha</label>
+                        </div>
+                        <button type="submit">Cadastrar</button>
+                    </form>
+                    <div class="botao-link-cadastrar">
+                        <label>Já tem uma conta?</label>
+                        <a href="#" onclick="toggleForms()" id="login-link">Entre</a>
+                    </div>
+                    <button class="btn-gsenha" id="generate-password">gerar senha</button>
+                    <div class="senha-gerada" id="generated-password">
+                        <h4></h4>
+                        <script src="script.js"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--aba categorias-->
+        <section>
+            <div class="form-categorias" id="form-categoria">
+                <div class="tela-categorias">
+                    <div class="form-content2">
+                        <a href="cliente.html" class="Inicio2" id="Inicio"> Início </a>
+
+                        <a href="medicamentos.html" class="Medicamentos-aba"> Medicamentos </a>
+
+                        <a href="lojas.html" class="lojas-aba"> Farmácias </a>
+
+                        <a href="como-funciona.html" class="Como-funciona-aba"> Como funciona </a>
+
+                        <a href="contato.html" class="Contato-aba"> Contato </a>
+
+                        <a href="primeira_tela.html" class="trocarperfil-aba"> Trocar Perfil </a>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        
+
+
+    </main>
+    <!--rodapé (parte final do site)-->
+    <footer>
+        <section>
+
+            <div class="rodape-bg">
+            </div>
+
+            <section>
+                <div class="rodape-txt">
+                    <div class="nossa-rede-txt">
+                        <span>Nossa rede:</span>
+                    </div>
+                    <div class="contato-txt">
+                        <span>Contato:</span>
+                    </div>
+                    <div class="email-contato">
+                        <span>farameterj@gmail.com</span>
+                    </div>
+                    <div class="txt-farmabusca-rodape">
+                        <label>FarmaBusca2025</label>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="#" class="link_instagram"> Instagram 
+                                <img src="assets/logo_instagram.png" alt="logo do instagram" class="logo-instagram">
+                            </a>
+                                
+                        </li>
+                    </ul>
+                </div>
+
+                </ul>  
+               <!--<img src="assets/cobra_decoracao.png" alt="" class="snake-decoration">-->
+                
+            </section>
+        </section>
+
+    </footer>
+ 
+</body>
+</html>
