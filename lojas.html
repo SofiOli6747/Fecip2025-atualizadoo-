@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div>
-                <input type="button" class="b-salvos" id="salvos" size="70" >
+                <input type="button" class="b-salvos" id="salvos" size="70" onclick="salvos()">
                 <img src="assets/salvos-logo.png" alt="icon dos salvos" class="icon-salvos">
                 <div class="salvos-txt">
                     <label>Seus salvos</label>
@@ -103,10 +103,14 @@
 
             </tbody>
 
-            
-
         </table>
 
+                
+        <section>
+           <div class="teste" id="areaSalvos" ondrop="soltarFarmacia(event)" ondragover="permitirDrop(event)">
+            <p>Arraste aqui para salvar</p>
+           </div>
+        </section>
         
         <section>
             <div class="blur-bg-overlay" id="blur-bg">

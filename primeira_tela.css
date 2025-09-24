@@ -425,3 +425,319 @@ h2 {
         transform: translateX(40px) scale(1.05) translateY(-2px);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.blur-bg-overlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    pointer-events: none;
+    backdrop-filter: blur(2px);
+    transition: 0.1s ease;
+}
+
+.form-loginM{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 500px;
+    width: 100%;
+    height: 400px;
+    background: white;
+    border-radius: 30px;
+    transform: translate(-50%, -100%);
+    animation: slideup 0.2s linear forwards;
+
+}
+@keyframes slideup{
+    100%{
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+.form-loginM .bg-login{
+    padding: 40px;
+    width: 500px;
+    position: absolute;
+    top:-10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(197, 130, 130);
+}
+.bg-login2{
+    padding: 20px;
+    width: 460px;
+    position: absolute;
+    top: 75px;
+    border: none;
+    background-color: white;
+}
+
+
+.form-loginM .close-btn {
+    font-family: "Sarala", sans-serif;
+    position: relative;
+    top: 10px;
+    left: 470px;
+    border: none;
+    background-color:  rgb(197, 130, 130);
+    color: dimgray;
+    cursor: pointer;
+}
+
+.form-loginM .tela-login {
+    display: flex;
+}
+
+.tela-login h2{
+    font-family: "Gidole", sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+
+.tela-login .form-content {
+    width: 100%;
+    padding: 40px;
+    position: absolute;
+    top: 100px;
+}
+
+form .input-field{
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+form .input-field input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -20px;
+    outline: none;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.input-field input:focus{
+    border-color:rgb(0, 149, 255);
+}
+
+
+form .input-field label{
+    position: absolute;
+    top: 5%;
+    left: 15px;
+    color: darkgray;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.input-field input:is(:focus, :valid) ~ label{
+    color: rgb(0, 149, 255);
+    font-size: 0.75rem;
+    transform: translateY(-120%);
+}
+
+.tela-login a:hover {
+    text-decoration: underline;
+}
+
+.esqueceu-senha{
+    text-decoration: none;
+    position: relative;
+    top: 10px;
+
+}
+.botao-link-cadastrar{
+    position: relative;
+    top: 55px;
+    
+}
+form button {
+    width: 100%;
+    position: relative;
+    top: 35px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 0;
+    cursor: pointer;
+    color: white;
+    background: rgb(83, 155, 232);
+}
+
+
+.gerar-senha-btn{
+    position: absolute;
+    top: 230px;
+    left: 380px;
+}
+.gerar-senha-btn:hover{
+    color: rgb(110, 153, 67);
+}
+
+
+
+/*tela cadastro*/
+
+
+
+.form-cadastroM{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 500px;
+    width: 100%;
+    height: 500px;
+    background: white;
+    border-radius: 30px;
+    transform: translate(-50%, -100%);
+    animation: slideup 0.2s linear forwards;
+}
+
+@keyframes slideup{
+    100%{
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+.form-cadastroM .bg-login2{
+    padding: 40px;
+    width: 500px;
+    position: absolute;
+    top: -1px;
+    border: none;
+    background-color:rgb(197, 130, 130);
+}
+
+
+.form-cadastroM .close-btn2 {
+    font-family: "Sarala", sans-serif;
+    position: relative;
+    top: 10px;
+    left: 470px;
+    color: dimgray;
+    cursor: pointer;
+}
+.close-btn2{
+    border: none;
+    background-color: rgb(197, 130, 130);
+    color: dimgray;
+}
+
+.form-cadastroM .tela-cadastro {
+    display: flex;
+}
+
+.tela-cadastro h2{
+    font-family: "Gidole", sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+
+.tela-cadastro .form-content {
+    width: 100%;
+    padding: 35px;
+
+}
+
+form .input-field{
+    font-family: "Sarala", sans-serif;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+    top: -40px;
+}
+
+form .input-field input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -20px;
+    outline: none;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.input-field input:focus{
+    border-color:rgb(0, 149, 255);
+}
+
+
+form .input-field label{
+    position: absolute;
+    top: 5%;
+    left: 15px;
+    color: darkgray;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.input-field input:is(:focus, :valid) ~ label{
+    color: rgb(0, 149, 255);
+    font-size: 0.75rem;
+    transform: translateY(-120%);
+}
+
+.tela-cadastro a:hover {
+    text-decoration: underline;
+}
+
+.botao-link-cadastrar{
+    position: relative;
+    top: -35px;
+    
+}
+
+form button {
+    width: 100%;
+    position: relative;
+    top: -40px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 0;
+    cursor: pointer;
+    color: white;
+    background: rgb(83, 155, 232);
+}
+
+
+@media (max-width> 500px){
+        .form-login{
+            width: 95%;
+        }
+        .form-box .form-content{
+            padding: 30px 20px;
+        }
+}

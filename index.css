@@ -60,14 +60,14 @@ ul{
 .farma{
     font-family: "Peralta", serif;
     text-decoration: none;
-    color: rgb(197, 130, 130);
+    color: rgb(46, 81, 111);
     position: absolute;
 
 }
 .busca{
     font-family: "Peralta", serif;
     text-decoration: none;
-    color: rgb(197, 130, 130);
+    color: rgb(46, 81, 111);
     position: absolute;
     top: 30px;
 }
@@ -516,7 +516,7 @@ ul{
     font-family: "Sarala", sans-serif;
     position: absolute;
     top: 115px;
-    left: 1450px;
+    left: 50px;
     text-decoration: none;
     color: white;
 }
@@ -1529,3 +1529,115 @@ form button {
     top: 350px;
     left: 455px;
 }
+
+.btn-salvos{
+    position: absolute;
+    top: px;
+    left: 1450px;
+}
+
+.btn-salvos2{
+    position: absolute;
+    top: px;
+    left: 1450px;
+}
+
+.teste{
+    position: absolute;
+    top:730px;
+    left: 1235px;
+    color: gray;
+    transform: rotate(90deg);
+    font-size: 30px;
+    width: 500px;
+}
+
+
+.favorite-table {
+    position: absolute;
+    top: 200px;
+    left: 1px;
+    width: 750px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    overflow-y: auto;
+}
+
+.favorite-table th, .favorite-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+.favorite-table th {
+    background-color: var(--verde);
+    color: white;
+    overflow-y: auto;
+}
+
+.favorite-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+    overflow-y: auto;
+}
+
+.favorite-table tr:hover {
+    background-color: #ddd;
+}
+
+
+.favorite-table2 {
+    position: absolute;
+    top: 200px;
+    left: 750px;
+    width: 780px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    overflow-y: auto;
+}
+
+.favorite-table2 th, .favorite-table2 td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+.favorite-table2 th {
+    background-color: var(--verde);
+    color: white;
+    overflow-y: auto;
+}
+
+.favorite-table2 tr:nth-child(even) {
+    background-color: #f2f2f2;
+    overflow-y: auto;
+}
+
+.favorite-table2 tr:hover {
+    background-color: #ddd;
+}
+
+
+
+.btn-sair{
+    position: absolute;
+    top: 130px;
+    left: 1420px;
+    color: white;
+    background: transparent;
+    border: transparent;
+    font-family: "Sarala", sans-serif;
+    font-size: 20px;
+}
+
+
+.btn-sair:hover{
+    color:khaki;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+

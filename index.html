@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="primeira_tela.css">
     <link rel="icon" href="assets/logo farma busca.png" type="image/x-icon">
 
-    <script src="script.js" defer></script>
+    <script src="primeira_tela.js" defer></script>
 </head>
 <body>
     <img src="assets/pilulas_fundo.png" alt="" class="pilulas_img">
@@ -19,8 +19,79 @@
             <h1 class="h1">Olá, seja bem-vindo!</h1>
             <h3 class="h3">Escolha um perfil:</h3>
             <button class="btn_cliente" onclick="selecionarCliente()">Cliente</button>
-            <button class="btn_medico" onclick="selecionarMedico()">Médico</button>
+            <button class="btn_medico" id="btn_medico">Médico</button>
         </div>
+
+
+         <section>
+            <div class="blur-bg-overlay" id="blur-bg">
+            </div>
+            <div class="form-loginM" id="form-loginM">
+                <div class="bg-login"></div>
+                <div class="bg-login2"></div>
+                <button class="close-btn" id="close-btn">X</button>
+                <h2 class="login">LOGIN</h2>
+                <div class="tela-login">
+                    <div class="form-content">
+                        <form action="#">
+                            <div class="input-field">
+                                <input type="text" id="emailM" required>
+                                <label>Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" id="senhaM" required>
+                                <label>Senha</label>
+                            </div>
+                            <a href="#" class="esqueceu-senha">Esqueceu a senha?</a>
+                            <button type="submit"  onclick="enviarLoginM()">Logar</button>
+                        </form>
+                        <div class="botao-link-cadastrar">
+                            <label>Não tem uma conta?</label> 
+                            <a href="#" onclick="toggleForms()" id="cadastro-link">Cadastre-se</a>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            <div class="form-cadastroM" id="form-cadastroM">
+                <div class="bg-login"></div>
+                <div class="bg-login2"></div>
+                <button class="close-btn2" id="close-btn2">X</button>
+                <h2 class="cadastro">CADASTRO</h2>
+                <div class="tela-cadastro">
+                    <div class="form-content">
+                        <form action="#">
+                            <div class="input-field">
+                                <input type="text" id="nomeeM" >
+                                <label>Coloque seu Nome</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="email" id="emaillM" >
+                                <label>Coloque seu Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" id="senhaaM" >
+                                <label>Criar senha</label>
+                            </div>
+                             <div class="input-field">
+                                <input type="text" id="cpf" >
+                                <label>Coloque seu CPF</label>
+                            </div>
+                            <button type="submit" onclick="enviarCadastroM()">Cadastrar</button>
+                        </form>
+                        <div class="botao-link-cadastrar">
+                            <label>Já tem uma conta?</label> 
+                            <a href="#" onclick="toggleForms()" id="login-link">Entre</a>>
+                            <h4></h4>
+                        </div>
+                    </div>
+                </div>    
+            </div>            
+
+        </section>
+
+
+
+
     </main>
 
 

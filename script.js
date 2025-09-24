@@ -1,4 +1,4 @@
-//codigo pra abrir e fechar a tela de cadastro/login
+//codigo pra abrir e fechar a tela de cadastro/login >>PÁGINA CLIENTE<<
 
 document.getElementById("botao-cadastro").addEventListener('click', function(){ //evento "click"
    
@@ -33,6 +33,104 @@ function toggleForms() {
         registerForm.style.display = 'block';
     }
 }
+
+
+
+
+
+//cadastro
+
+
+function enviarCadastro() {
+  const nome = document.getElementById("nomee").value.trim();
+  const email = document.getElementById("emaill").value.trim();
+  const senha = document.getElementById("senhaa").value.trim();
+
+  if (!nome || !email || !senha) {
+    alert("Preencha todos os campos.");
+    return;
+  }
+
+  fetch("http://localhost:3000/cliente/cadastro", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ nome, email, senha })
+  })
+  .then(response => {
+    if (!response.ok) throw new Error("Erro ao cadastrar");
+    return response.text();
+  })
+  .then(data => {
+    alert(data); // Mensagem do servidor
+  })
+  .catch(error => {
+    alert("Falha no cadastro: " + error.message);
+  });
+}
+
+
+//login
+
+
+function enviarLogin() {
+  //const nome = document.getElementById("nome").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const senha = document.getElementById("senha").value.trim();
+
+  if (!email || !senha) {
+    alert("Preencha todos os campos.");
+    return;
+  }
+
+  fetch("http://localhost:3000/cliente/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, senha })
+  })
+  .then(response => {
+    if (!response.ok) throw new Error("Credenciais inválidas");
+    return response.json();
+
+  })
+  .then(data => {
+    console.log("Token recebido:", data.token);
+    alert("login efetuado com sucesso!"); // Mensagem do servidor
+    localStorage.setItem("token", data.token);
+    console.log(localStorage.getItem("token"));
+    console.log("resposta do servidor:", data)
+
+    document.getElementById("form-loginn").style.display = "none"; //fecha a tela de login
+    document.getElementById("blur-bg").style.display = "none"; 
+    //document.getElementById("bv").textContent = "Bem-vindo ao FarmaBusca" + nome.innerText;
+
+  })
+  .catch(error => {
+    alert("Falha no login: " + error.message);
+  });
+
+  
+}
+
+//logoff 
+
+
+
+const sair = document.getElementById("sair")
+sair.addEventListener("click", () => {
+  localStorage.removeItem('token');
+  alert("Sua conta foi deslogada com sucesso.")
+  console.log("token destruido");
+
+})
+  
+
+
+
+
 
 
 
@@ -143,19 +241,6 @@ function selecionarlojas(params) {
 }
 
 
-//---------
-
-//código para encaminhar o usuário para sua respectiva tela
-
-function selecionarCliente(params) {
-  window.location.href = "cliente.html";
-}
-
-function selecionarMedico(params) {
-  window.location.href = "pagina medico/medico.html";
-}
-
-
 //----------
 function mostrarMenu(){
   document.getElementById('searchInput').addEventListener('input', async function () {
@@ -235,10 +320,11 @@ function mostrarMenu(){
 
 
 
+//botões de busca
 
 document.getElementById("botaoBuscar").addEventListener("click", () => {
   const termo = document.getElementById("searchInput").value;
-  window.location.href = `medicamentos.html?termo=${encodeURIComponent(termo)}`;
+  //window.location.href = `medicamentos.html?termo=${encodeURIComponent(termo)}`;
 });
 
 document.getElementById("botaoBuscar2").addEventListener("click", () => {
@@ -247,6 +333,20 @@ document.getElementById("botaoBuscar2").addEventListener("click", () => {
 });
 
 
+
+
+
+
+
+
+//códigos página das farmácias vv
+
+
+
+
+const farmaciasSalvas = JSON.parse(localStorage.getItem("farmaciasSalvas")) || [];
+
+const medicamentosSalvos = JSON.parse(localStorage.getItem("medicamentosSalvos")) || [];
 
 
 
@@ -272,19 +372,6 @@ async function buscarFarmaciasPorEndereco() {
     console.error("Erro na geocodificação:", erro);
   }
 }
-
-
-  function calcularDistancia(lat1, lon1, lat2, lon2) {
-    const R = 6371; // Raio da Terra em km
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = 
-    Math.sin(dLat/2) * Math.sin(dLat/2) +
-    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-    Math.sin(dLon/2) * Math.sin(dLon/2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    return R * c; // Distância em km
-  }
 
 
 function buscarFarmacias(latitude, longitude) {
@@ -317,8 +404,18 @@ function buscarFarmacias(latitude, longitude) {
             const nome = resultado.name || "Nome não disponível";
             const endereco = resultado.vicinity || "Endereço não disponível";
             const distanciaTexto = response.rows[0].elements[i].distance?.text || "Distância não disponível";
+            const farmacia = { 
+              nome: resultado.name,
+              endereco: resultado.vicinity,
+            };
+
 
             const linha = document.createElement("tr");
+            linha.draggable = true;
+            linha.ondragstart = (event) => {
+              const farmaciaJson = JSON.stringify(farmacia); // ✅ transforma em JSON
+              event.dataTransfer.setData("text/plain", farmaciaJson);
+            };
             linha.innerHTML = `
               <td>💊 <strong>Farmácia:</strong> ${nome}</td>
               <td>📍 <strong>Endereço:</strong> ${endereco}</td>
@@ -335,3 +432,278 @@ function buscarFarmacias(latitude, longitude) {
     }
   });
 }
+
+
+
+//código para salvar informações do site (página salvos)
+
+
+
+function permitirDrop(event) {
+  event.preventDefault();
+}
+
+function iniciarArraste(event, farmaciaJson) {
+  event.dataTransfer.setData("text/plain", farmaciaJson);
+}
+
+function soltarFarmacia(event) {
+  event.preventDefault();
+  const farmaciaJson = event.dataTransfer.getData("text/plain");
+  const farmacia = JSON.parse(farmaciaJson);
+  const chaveUnica = `${farmacia.nome}-${farmacia.endereco}`;
+
+  let salvos = JSON.parse(localStorage.getItem("farmaciasSalvas")) || [];
+  salvos.push(farmacia);
+  localStorage.setItem("farmaciasSalvas", JSON.stringify(salvos));
+
+  if (!salvos.some(f => `${f.nome}-${f.endereco}` === chaveUnica)) {
+    salvos.push(farmacia);
+    localStorage.setItem("farmaciasSalvas", JSON.stringify(salvos));
+  }
+  // ✅ Enviar para o banco de dados
+    const token = localStorage.getItem("token"); 
+    fetch("http://localhost:3000/cliente/farmacia", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      },
+      body: JSON.stringify(farmacia)
+    })
+    .then(res => res.text())
+    .then(msg => console.log("Farmácia salva no banco:", msg))
+    .catch(err => console.error("Erro ao salvar no banco:", err));
+}
+
+
+function salvos(params) {
+  window.location.href = "salvos.html";
+}
+
+
+
+function exibirFarmaciasSalvas() {
+  const container = document.getElementById("listaSalvos");
+  if(container){
+    container.innerHTML = "";
+    
+
+  const token = localStorage.getItem("token");
+
+  fetch("http://localhost:3000/cliente/dados", {
+    headers: {
+      "Authorization": "Bearer " + token
+    }
+  })
+  .then(res => res.json())
+  .then(data => {
+    const salvos = data.farmacias || [];
+
+    if (salvos.length === 0) {
+      container.innerHTML = "<p>Nenhuma farmácia salva ainda.</p>";
+      return;
+    }
+
+    salvos.forEach(farmacia => {
+      const chaveUnica = `${farmacia.nome}-${farmacia.endereco}`;
+      const div = document.createElement("div");
+      div.innerHTML = `
+        <strong>💊 ${farmacia.nome}</strong><br>
+        📍 ${farmacia.endereco}<br>
+        🆔 ${farmacia.placeId}<hr>
+        <button onclick="removerFarmacia('${chaveUnica}')">🗑️ Remover</button>
+      `;
+      container.appendChild(div);
+    });
+  });
+}
+
+}
+
+
+
+function removerFarmacia(chaveUnica) {
+  let salvos = JSON.parse(localStorage.getItem("farmaciasSalvas")) || [];
+
+  // Remove a farmácia com o ID correspondente
+  salvos = salvos.filter(f => `${f.nome}-${f.endereco}` !== chaveUnica);
+
+  // Atualiza o localStorage
+  localStorage.setItem("farmaciasSalvas", JSON.stringify(salvos));
+
+  // Atualiza a exibição
+  const container = document.getElementById("listaSalvos");
+
+  container.remove();
+}
+
+
+
+function exibirMedicamentosSalvos() {
+  const container = document.getElementById("listaSalvos2");
+  const salvoss = JSON.parse(localStorage.getItem("medicamentosSalvos")) || [];
+  
+  const token = localStorage.getItem("token");
+  console.log(token)
+
+  fetch("http://localhost:3000/cliente/dados", {
+    headers: {
+      "Authorization": "Bearer " + token
+    }
+  })
+  .then(res => res.json())
+  .then(data => {
+    const salvos = data.medicamentos || [];
+    if (salvos.length === 0) {
+    container.innerHTML = "<p>Nenhum medicamento salvo ainda.</p>";
+    return;
+  }
+
+  salvos.forEach(medicamento => {
+    const chaveUnica = `${medicamento.nome}-${medicamento.codigo}`;
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <strong>💊 ${medicamento.nome}</strong><br>
+      🏭 Marca: ${medicamento.marca}<br>
+      💵 Preço: ${medicamento.preco || "Não informado"}<hr>
+      <button onclick="removerMedicamento('${chaveUnica}')">🗑️ Remover</button>
+    `;
+    container.appendChild(div);
+  }) 
+})
+
+}
+
+
+
+
+
+
+function removerMedicamento(chaveUnica) {
+  let salvos = JSON.parse(localStorage.getItem("medicamentosSalvos")) || [];
+
+  salvos = salvos.filter(m => `${m.nome}-${m.codigo}` !== chaveUnica);
+
+  localStorage.setItem("medicamentosSalvos", JSON.stringify(salvos));
+
+  const token = localStorage.getItem("token");
+
+  fetch("http://localhost:3000/cliente/removerMed", {
+    headers: {
+      "Authorization": "Bearer " + token
+    }
+  })
+  .then(res => res.json())
+
+  const container = document.getElementById("listaSalvos2");
+
+  container.remove();
+
+  //exibirMedicamentosSalvos();
+}
+
+
+
+
+
+//código para o histórico 
+
+
+function registrarHistoricoPesquisa() {
+
+  const termo = document.getElementById("searchInput").value.trim();
+
+  console.log("aaa");
+
+  const agora = new Date();
+  const dataHora = agora.toLocaleString('pt-BR'); // formato: dd/mm/aaaa hh:mm:ss
+
+  const pesquisa =  {
+          termo: termo,
+          dataHora: dataHora};
+
+  let historico = JSON.parse(localStorage.getItem('historicoPesquisas')) || [];
+
+    // Adiciona novo termo (evita duplicatas)
+    // if (!historico.includes(termo)) {
+    //   historico.unshift({termo, dataHora}); // adiciona no início
+    //   if (historico.length > 10) historico.pop(); // limita a 10 termos
+    // }
+
+    // Salva no localStorage
+    localStorage.setItem('historicoPesquisas', JSON.stringify(historico));
+
+    console.log(historico);
+
+    const token = localStorage.getItem("token"); 
+    fetch("http://localhost:3000/cliente/historico", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      },
+      body: JSON.stringify(pesquisa)
+    })
+    .then(res => res.text())
+    .then(msg => console.log("busca salva no banco:", msg))
+    .catch(err => console.error("Erro ao salvar no banco:", err));
+
+    // Atualiza a lista na tela
+    exibirHistoricoPesquisas();
+}
+
+
+
+function exibirHistoricoPesquisas() {
+    const historico = JSON.parse(localStorage.getItem('historicoPesquisas')) || [];
+    const lista = document.getElementById('listaHistorico');
+
+   
+
+    if(lista){
+      lista.innerHTML = '';
+
+    const token = localStorage.getItem("token");
+
+    fetch("http://localhost:3000/cliente/dados", {
+      headers: {
+        "Authorization": "Bearer " + token
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      const historico = data.historico || [];
+      if (historico.length === 0) {
+      lista.innerHTML = "<p>Nenhuma busca salva ainda.</p>";
+      return;
+    }
+    console.log(historico);
+    historico.forEach(item => {
+      const div = document.createElement("div");
+      div.innerHTML = `
+        <p>🔍 <strong>Pesquisa:</strong> ${item.busca}<br>
+        🕒 <em>${item.data_pesquisa}</em></p>
+        <hr>
+      `;
+      lista.appendChild(div);
+    });
+})
+
+    }
+    
+  //exibirHistoricoPesquisas();
+}
+
+
+function limparHistoricoPesquisas() {
+  localStorage.removeItem("historicoPesquisas");
+  exibirHistoricoPesquisas();
+}
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  exibirFarmaciasSalvas();
+});
+

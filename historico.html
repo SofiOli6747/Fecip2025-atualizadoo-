@@ -9,7 +9,8 @@
 
     <script src="script.js" defer></script>
 </head>
-<body>
+<body onload="exibirHistoricoPesquisas()">
+    
     <header>
 
         <div class="fundo-navbar">  
@@ -81,10 +82,15 @@
                 <tr>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="listaHistorico">
 
             </tbody>
         </table>
+
+
+        <!--<button onclick="limparHistoricoPesquisas()">🧹 Limpar histórico</button>-->
+
+
         <section>
             <div class="blur-bg-overlay" id="blur-bg">
             </div>
@@ -149,41 +155,6 @@
     </main>
     
     <footer>
-        <section>
-
-            <div class="rodape-bg">
-            </div>
-
-            <section>
-                <div class="rodape-txt">
-                    <div class="nossa-rede-txt">
-                        <span>Nossa rede</span>
-                    </div>
-                    <div class="contato-txt">
-                        <span>Contato:</span>
-                    </div>
-                    <div class="email-contato">
-                        <span>farameterj@gmail.com</span>
-                    </div>
-                    <div class="txt-farmabusca-rodape">
-                        <label>FarmaBusca2025</label>
-                    </div>
-                    <ul>
-                        <li>
-                            <a href="#" class="link_instagram"> Instagram 
-                                <img src="assets/logo_instagram.png" alt="logo do instagram" class="logo-instagram">
-                            </a>
-                                
-                        </li>
-                    </ul>
-                </div>
-
-                </ul>  
-               <!--<img src="assets/cobra_decoracao.png" alt="" class="snake-decoration">-->
-                
-            </section>
-        </section>
-
     </footer>
 </body>
 </html>

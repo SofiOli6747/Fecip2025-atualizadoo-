@@ -21,7 +21,7 @@
     
     <div class="overlay"></div>
     <!--cabeçalho (parte de cima do site)-->
-    <header>
+    <header onsubmit="executarPesquisa(); return false">
 
         <div class="fundo-navbar">  
         </div>
@@ -37,11 +37,11 @@
             <div class="borda_tpbox">
             </div>
             <div>
-                <input type="search" onkeyup="mostrarMenu()" class="typebox" id="searchInput" size="70" placeholder="O que está buscando?" autocomplete="off"> 
+                <input type="search" class="typebox" id="searchInput" size="70" placeholder="O que está buscando?" autocomplete="off"> 
                 <input type="search" class="typebox2" id="sintomaInput" size="100" placeholder="O que está sentindo?  Digite aqui."> 
                 <datalist id="sugestoes"></datalist>
                 <div id="autocomplete-menu" class="menu"></div>
-                <button type="submit" class="pesquisar_btn" id="botaoBuscar" size="500">Buscar 🔍</button>
+                <button type="submit" class="pesquisar_btn" id="botaoBuscar" size="500" onclick="registrarHistoricoPesquisa()">Buscar 🔍</button>
                 <button type="submit" class="pesquisar_btn2" id="botaoBuscar2" size="500">Buscar 🔍</button>
                 
             </div>
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div>
-                <input type="button" class="b-salvos" id="salvos" size="70" >
+                <input type="button" class="b-salvos" id="salvos" size="70" onclick="salvos()">
                 <img src="assets/salvos-logo.png" alt="icon dos salvos" class="icon-salvos">
                 <div class="salvos-txt">
                     <label>Seus salvos</label>
@@ -85,6 +85,7 @@
                     <a href="index.html" class="trocarperfil-navbar">Trocar Perfil</a>
                 </li>
             </ul>
+            <button class="btn-sair" id="sair">Sair</button>
            
         </nav>
         
@@ -96,7 +97,7 @@
     <main>
          <div id="results" class="resultss"></div>
 
-        <div class="bem_vindo">
+        <div class="bem_vindo" id="bv">
             <h3>Bem-vindo ao FarmaBusca</h3>
         </div>
         <div class="box1" id="box1" onclick="selecionarMed()">
@@ -131,15 +132,15 @@
                         <h2>LOGIN</h2>
                         <form action="#">
                             <div class="input-field">
-                                <input type="text" required>
+                                <input type="text" id="email" required>
                                 <label>Email</label>
                             </div>
                             <div class="input-field">
-                                <input type="password" required>
+                                <input type="password" id="senha" required>
                                 <label>Senha</label>
                             </div>
                             <a href="#" class="esqueceu-senha">Esqueceu a senha?</a>
-                            <button type="submit">Logar</button>
+                            <button type="submit"  onclick="enviarLogin()">Logar</button>
                         </form>
                         <div class="botao-link-cadastrar">
                             <label>Não tem uma conta?</label> 
@@ -156,15 +157,19 @@
                     <div class="form-content">
                         <h2>CADASTRO</h2>
                         <form action="#">
-                            <div class="input-field" id="input-field">
-                                <input type="text" required>
+                            <div class="input-field">
+                                <input type="text" id="nomee" >
+                                <label>Coloque seu Nome</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="email" id="emaill" >
                                 <label>Coloque seu Email</label>
                             </div>
                             <div class="input-field">
-                                <input type="password" id="inputPassword" required>
+                                <input type="password" id="senhaa" >
                                 <label>Criar senha</label>
                             </div>
-                            <button type="submit">Logar</button>
+                            <button type="submit" onclick="enviarCadastro()">Cadastrar</button>
                         </form>
                         <div class="botao-link-cadastrar">
                             <label>Já tem uma conta?</label> 

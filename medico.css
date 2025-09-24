@@ -57,14 +57,14 @@ ul{
 .farma{
     font-family: "Peralta", serif;
     text-decoration: none;
-    color: rgb(197, 130, 130);
+    color: rgb(46, 81, 111);
     position: absolute;
 
 }
 .busca{
     font-family: "Peralta", serif;
     text-decoration: none;
-    color: rgb(197, 130, 130);
+    color:  rgb(46, 81, 111);
     position: absolute;
     top: 30px;
 }
@@ -104,7 +104,7 @@ ul{
     top: 10px;
 }
 
-.b-cadastro{
+.b-sair{
     background-color: #cee3c5;
     border: none;
     border-radius: 40px;
@@ -113,8 +113,10 @@ ul{
     position: absolute;
     top: 20px;
     left: 1300px;
+    font-family: "Sarala", sans-serif;
+    font-size: 20px;
 }
-.b-cadastro:hover{
+.b-sair:hover{
     background-color: #acc6ac;
     cursor: pointer;
 }

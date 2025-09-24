@@ -25,8 +25,15 @@ const url = termo
 fetch(url)
   .then(res => res.json())
   .then(dados => {
-    const tableBody = document.querySelector(".pricing-table tbody");
+    const tableBody = document.getElementById("empanada");
+     if (tableBody) {
+      console.log("achou");
+    }else{
+      console.log("não achou");
+    }
     tableBody.innerHTML = ""; // Limpa a tabela antes de adicionar novas linhas
+
+
 
     if (dados.length === 0) {
       const linha = document.createElement("tr");
@@ -35,8 +42,20 @@ fetch(url)
       return;
     }
 
+
     dados.forEach(m => {
+      const medicamentos = { 
+              nome: m.nome,
+              marca: m.marca,
+              preco: m.preco,
+              receita_medica: m.receita_medica
+            };
       const linha = document.createElement("tr");
+      linha.draggable = true;
+      linha.ondragstart = (event) => {
+              const medicamentoJson = JSON.stringify(medicamentos); // ✅ transforma em JSON
+              event.dataTransfer.setData("text/plain", medicamentoJson);
+            };
       linha.innerHTML = `
         <td>${destacarLetras(m.nome, termo)}</td>
         <td>${m.categoria}</td>
@@ -199,6 +218,56 @@ function filtrarPorPreco() {
         tableBody.innerHTML = `<tr><td colspan="4">Erro ao carregar os dados.</td></tr>`;
         });
 }
+
+
+//----------
+
+
+
+
+function permitirDrop(event) {
+  event.preventDefault();
+}
+
+function iniciarArraste(event, medicamentoJson) {
+  event.dataTransfer.setData("text/plain", medicamentoJson);
+}
+
+function soltarMedicamento(event) {
+  event.preventDefault();
+  const medicamentoJson = event.dataTransfer.getData("text/plain");
+  const medicamento = JSON.parse(medicamentoJson);
+  const chaveUnica = `${medicamento.nome}-${medicamento.codigo}`;
+
+  let salvos = JSON.parse(localStorage.getItem("medicamentosSalvos")) || [];
+
+  // Evita duplicatas
+  if (!salvos.some(m => `${m.nome}-${m.codigo}` === chaveUnica)) {
+    salvos.push(medicamento);
+    localStorage.setItem("medicamentosSalvos", JSON.stringify(salvos));
+  }
+  const token = localStorage.getItem("token"); 
+    fetch("http://localhost:3000/cliente/medicamento", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      },
+      body: JSON.stringify(medicamento)
+    })
+    .then(res => res.text())
+    .then(msg => console.log("medicamento salva no banco:", msg))
+    .catch(err => console.error("Erro ao salvar no banco:", err));
+}
+
+function irParaSalvos() {
+  window.location.href = "salvos.html";
+}
+
+
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 //codigo pra abrir e fechar a tela de Sair/Voltar
 
-document.getElementById("botao-cadastro").addEventListener('click', function(){ //evento "click"
+document.getElementById("b-sair").addEventListener('click', function(){ //evento "click"
    
     document.getElementById("form-loginn").style.display = "block"; //mostra a tela de login
     document.getElementById("blur-bg").style.display = "block";
