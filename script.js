@@ -368,6 +368,15 @@ const farmaciasSalvas = JSON.parse(localStorage.getItem("farmaciasSalvas")) || [
 
 const medicamentosSalvos = JSON.parse(localStorage.getItem("medicamentosSalvos")) || [];
 
+fetch('/api/google-key')
+  .then(res => res.json())
+  .then(data => {
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${data.key}&loading=async&libraries=places&callback=initMap`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+  });
 
 
 

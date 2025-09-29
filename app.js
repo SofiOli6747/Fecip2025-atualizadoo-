@@ -534,6 +534,14 @@ app.post("/formularios", async (req, res) =>{
   
 })
 
+
+
+app.get('/api/google-key', (req, res) => {
+  res.json({ key: process.env.GOOGLE_API_KEY });
+});
+
+
+
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
