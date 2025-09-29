@@ -35,9 +35,6 @@ function toggleForms() {
 }
 
 
-
-
-
 //cadastro
 
 
@@ -51,7 +48,7 @@ function enviarCadastro() {
     return;
   }
 
-  fetch("http://localhost:3000/cliente/cadastro", {
+  fetch("/cliente/cadastro", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -84,18 +81,14 @@ function enviarLogin() {
     return;
   }
 
-  fetch("http://localhost:3000/cliente/login", {
+  fetch("/cliente/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ email, senha })
   })
-  .then(response => {
-    if (!response.ok) throw new Error("Credenciais inválidas");
-    return response.json();
-
-  })
+  .then(response => response.json())
   .then(data => {
     console.log("Token recebido:", data.token);
     alert("login efetuado com sucesso!"); // Mensagem do servidor
@@ -112,7 +105,26 @@ function enviarLogin() {
     alert("Falha no login: " + error.message);
   });
 
-  
+}
+
+const token = localStorage.getItem("token");
+if(token){
+    fetch("/cliente/dados", {
+    headers: {
+      "Authorization": "Bearer " + token
+    },
+  })
+  .then(response => response.json())
+  .then(data => {
+      const nome = data.nome[0].nome;
+      console.log(nome);
+      document.getElementById("bv").innerHTML = `Bem-vindo ao FarmaBusca <span style="font-weight:bold; font-family:'Arial'; color:#2a2a2a;">${nome}</span>`;
+      document.getElementById("bv").style.left = "450px"
+      document.getElementById("bv").style.top = "200px"
+    
+    console.log("resposta do servidor:", data)
+  })
+
 }
 
 //logoff 
@@ -124,13 +136,13 @@ sair.addEventListener("click", () => {
   localStorage.removeItem('token');
   alert("Sua conta foi deslogada com sucesso.")
   console.log("token destruido");
-
+  document.getElementById("bv").innerHTML = "Bem vindo ao FarmaBusca"
+  document.getElementById("bv").style.fontFamily = "Sarala, sans-serif"
+  document.getElementById("bv").style.left = "523px"
+  document.getElementById("bv").style.top = "220px"
+  document.getElementById("bv").style.fontSize = "font-size: 30px;"
 })
   
-
-
-
-
 
 
 
@@ -255,7 +267,7 @@ function mostrarMenu(){
     const letraDigitada = inputTexto.value.toLowerCase();
 
   // Filtra as opções que começam com a letra digitada
-    const res = await fetch(`http://localhost:3000/autocomplete?termo=${termo}`);
+    const res = await fetch(`/autocomplete?termo=${termo}`);
     const suggestions = await res.json();
     const opcoesFiltradas = suggestions.filter(opcao => opcao.toLowerCase().startsWith(letraDigitada));
 
@@ -324,7 +336,7 @@ function mostrarMenu(){
 
 document.getElementById("botaoBuscar").addEventListener("click", () => {
   const termo = document.getElementById("searchInput").value;
-  //window.location.href = `medicamentos.html?termo=${encodeURIComponent(termo)}`;
+  window.location.href = `medicamentos.html?termo=${encodeURIComponent(termo)}`;
 });
 
 document.getElementById("botaoBuscar2").addEventListener("click", () => {
@@ -333,8 +345,16 @@ document.getElementById("botaoBuscar2").addEventListener("click", () => {
 });
 
 
+function pesquisar1(params) {
+  const sintoma = document.getElementById("sintomaInput").value;
+  window.location.href = `medicamentos-sintomas.html?sintoma=${encodeURIComponent(sintoma)}`;
+}
 
 
+function pesquisar2(params) {
+  const termo = document.getElementById("searchInput").value;
+  window.location.href = `medicamentos.html?termo=${encodeURIComponent(termo)}`;
+}
 
 
 
@@ -463,7 +483,7 @@ function soltarFarmacia(event) {
   }
   // ✅ Enviar para o banco de dados
     const token = localStorage.getItem("token"); 
-    fetch("http://localhost:3000/cliente/farmacia", {
+    fetch("/cliente/farmacia", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -474,6 +494,9 @@ function soltarFarmacia(event) {
     .then(res => res.text())
     .then(msg => console.log("Farmácia salva no banco:", msg))
     .catch(err => console.error("Erro ao salvar no banco:", err));
+   if(!token){
+      alert("Você tem que estar logado para salvas itens!");
+  } 
 }
 
 
@@ -481,6 +504,13 @@ function salvos(params) {
   window.location.href = "salvos.html";
 }
 
+function verificarLoginSalvos(params) {
+  if(!token){
+      alert("Você tem que estar logado para ver seus itens salvos!");
+      window.location.href = "cliente.html";
+  }
+  
+}
 
 
 function exibirFarmaciasSalvas() {
@@ -491,7 +521,7 @@ function exibirFarmaciasSalvas() {
 
   const token = localStorage.getItem("token");
 
-  fetch("http://localhost:3000/cliente/dados", {
+  fetch("/cliente/dados", {
     headers: {
       "Authorization": "Bearer " + token
     }
@@ -547,7 +577,7 @@ function exibirMedicamentosSalvos() {
   const token = localStorage.getItem("token");
   console.log(token)
 
-  fetch("http://localhost:3000/cliente/dados", {
+  fetch("/cliente/dados", {
     headers: {
       "Authorization": "Bearer " + token
     }
@@ -589,7 +619,7 @@ function removerMedicamento(chaveUnica) {
 
   const token = localStorage.getItem("token");
 
-  fetch("http://localhost:3000/cliente/removerMed", {
+  fetch("/cliente/removerMed", {
     headers: {
       "Authorization": "Bearer " + token
     }
@@ -637,7 +667,7 @@ function registrarHistoricoPesquisa() {
     console.log(historico);
 
     const token = localStorage.getItem("token"); 
-    fetch("http://localhost:3000/cliente/historico", {
+    fetch("/cliente/historico", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -658,7 +688,6 @@ function registrarHistoricoPesquisa() {
 function exibirHistoricoPesquisas() {
     const historico = JSON.parse(localStorage.getItem('historicoPesquisas')) || [];
     const lista = document.getElementById('listaHistorico');
-
    
 
     if(lista){
@@ -666,7 +695,7 @@ function exibirHistoricoPesquisas() {
 
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:3000/cliente/dados", {
+    fetch("/cliente/dados", {
       headers: {
         "Authorization": "Bearer " + token
       }
@@ -678,6 +707,12 @@ function exibirHistoricoPesquisas() {
       lista.innerHTML = "<p>Nenhuma busca salva ainda.</p>";
       return;
     }
+
+    if(!token){
+      const div = document.createElement("div");
+      div.innerHTML = "Faça Login para ver seu hitórico de buscas!"
+    }
+
     console.log(historico);
     historico.forEach(item => {
       const div = document.createElement("div");
@@ -707,3 +742,31 @@ document.addEventListener("DOMContentLoaded", () => {
   exibirFarmaciasSalvas();
 });
 
+function enviarFormulario(params) {
+  const email = document.getElementById("email").value.trim();
+  const nome = document.getElementById("nome").value.trim();
+  const telefone = document.getElementById("telefone").value.trim();
+  const formulario = document.getElementById("feedback").value.trim();
+
+  fetch("/formularios", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, nome, telefone, formulario})
+  })
+  .then(response => {
+    if (!response.ok) throw new Error("Erro ao enviar");
+    return response.text();
+  })
+  .then(data => {
+    alert(data); // Mensagem do servidor
+  })
+  .catch(error => {
+    alert("Falha no envio: " + error.message);
+  });
+}
+
+function destruirToken() {
+  localStorage.removeItem('token');
+}

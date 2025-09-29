@@ -4,13 +4,11 @@ const { Client } = pkg;
 console.log("Conectando ao banco de dados 2...");
 
 const client = new Client({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'farmabusca',
-  password: '6747',
-  port: 5432,
-});
-
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+}); 
 client.connect()
   .then(() => console.log("Conectado ao PostgreSQL!"))
   .catch(err => console.error("Erro de conexÃ£o", err));

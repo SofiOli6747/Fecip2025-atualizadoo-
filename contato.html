@@ -77,12 +77,12 @@
             <div class="formulario-contato">
                 <div class="box-form">
                     <label class="nome-label">Nome *</label>
-                    <input type="text" class="typebox-nome" required>
+                    <input type="text" class="typebox-nome" id="nome" required>
                     <label class="email-label">Email *</label>
-                    <input type="email" class="typebox-email" required>
+                    <input type="email" class="typebox-email" id="email" required>
                     <label class="telefone-label"> Telefone *</label>
-                    <input type="number" class="typebox-telefone" required>
-                    <button class="btn-contato">Enviar</button>
+                    <input type="tel" class="typebox-telefone" id="telefone" required>
+                    <button class="btn-contato" onclick="enviarFormulario()">Enviar</button>
                     <textarea class="typebox-feedback" name="" id="feedback" placeholder="Digite aqui seu Feedback"></textarea>
                 </div>
             </div>

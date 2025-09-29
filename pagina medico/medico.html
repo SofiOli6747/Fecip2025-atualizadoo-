@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<!--"cabeça" do site-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmaBusca - encontre os melhores preços</title>
+    <link rel="stylesheet" href="medico.css">
+    <link rel="icon" href="assets/logo farma busca.png" type="image/x-icon">
+
+    <script src="medico.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<style>
+    body{
+        width: 100px;
+    }
+</style>
+<!--corpo do site--> 
+<body>  
+    <div class="overlay"></div>
+    <!--cabeçalho (parte de cima do site)-->
+    <header>
+
+        <div class="fundo-navbar">  
+        </div>
+        <section>
+            <!--logo principal-->
+            <img src="assets/logo farma busca.png" alt="" class="logo">
+            <div class="titulo">
+                <a href="medico.html" class="farma"> Farma </a>
+                <a href="medico.html" class="busca"> Busca </a>
+               <!-- <img src="assets/simbolofarmacia.png" alt="simbolo da farmacia" class="simbolo-farmacia"> -->
+            </div>
+            <!--ára de busca-->
+            <div>
+                <input type="search" class="typebox" id="searchInput" size="70" placeholder="O que está consultando?">
+                <button type="submit" class="pesquisar_btn" id="botaoBuscar" onclick="registrarHistoricoPesquisa()" size="500" >Buscar 🔍</button>
+                <!--<button type="submit" class="pesquisar_btn2" id="botaoBuscar2" size="500">Buscar 🔍</button>--> 
+            </div>
+            
+            <!--área do botão sair-->
+            <div>
+                
+                <img src="assets/userpf.png" alt="icon de cadastro"  class="icon-cadastro">
+                
+                <button type="button" class="b-sair" id="b-sairr" size="70">Sair</button>
+                
+            </div>
+        </section>
+        <!--área de navegação-->
+        <nav>
+            <ul class="navbar">
+                <li>
+                    <a href="medico.html" class="Inicio"> Início </a>
+
+                    <!--<a href="#" class="Categorias-navbar" id="categoria-link">  </a>-->
+
+                     <!--<a href="medicamentos.html" class="Medicamentos-navbar"> Gerenciar Medicamentos </a>-->
+
+                    <a href="historico.html" class="lojas-navbar"> Histórico</a>
+
+                    <!--<a href="como-funciona.html" class="Como-funciona-navbar">  </a>-->
+
+                    <!--<a href="contato.html" class="Contato-navbar">  </a>-->
+
+                    <a href="/index.html" class="trocarperfil-navbar">Trocar Perfil</a>
+                </li>
+            </ul>
+           
+        </nav>
+        
+
+
+    </header>
+
+    <!--conteúdo (parte do meio)-->
+    <main>
+
+        <div class="bem_vindo" id="bvm">
+            <h3>Bem-vindo ao FarmaBusca</h3>
+        </div>
+        <div class="box1" id="box1" onclick="selecionarMed()">
+            <span class="txtbox1" id="txtbox1">Medicamentos</span>
+            <img class="medicamentos_img" src="assets/medicamentos.png" alt="">
+        </div>
+    
+
+        <div class="box2" onclick="selecionarlojas()">
+            <span class="txtbox2" >Farmácias</span>
+            <img class="lojas_img" src="assets/shop-icon-black-white_755164-15634-removebg-preview.png" alt="">
+        </div>
+        
+            
+        <div class="box3" onclick="selecionarSint()">
+            <span class="txtbox3" >Sintomas</span>
+            <img class="historico_img" src="assets/termometro.png" alt="">
+        </div>
+
+
+
+        <!--tela de sair/deslogar-->
+        <section>
+            <div class="blur-bg-overlay" id="blur-bg">
+            </div>
+            <div class="form-login" id="form-loginn">
+                <div class="bg-login"></div>
+                <div class="bg-login2"></div>
+                <div class="tela-login">
+                    <div class="form-content">
+                        <h2>Tem certeza que deseja sair?</h2>
+                        <form action="#">
+                            <button class="btn-voltar" id="b-voltar" type="reset">Voltar</button>
+                            <button class="btn-sair" id="btn-sair" type="submit">Sair</button>
+                        </form>
+                    </div>
+                </div>
+            </div>            
+
+        </section>
+
+
+
+        <!--aba categorias-->
+         <!--<section>
+            <div class="form-categorias" id="form-categoria">
+                <div class="tela-categorias">
+                    <div class="form-content2">
+                        <a href="cliente.html" class="Inicio2" id="Inicio"> Início </a>
+
+                        <a href="medicamentos.html" class="Medicamentos-aba"> Medicamentos </a>
+
+                        <a href="lojas.html" class="lojas-aba"> Lojas </a>
+
+                        <a href="como-funciona.html" class="Como-funciona-aba"> Como funciona </a>
+
+                        <a href="contato.html" class="Contato-aba"> Contato </a>
+
+                        <a href="primeira_tela.html" class="trocarperfil-aba"> Trocar Perfil </a>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </section>-->
+
+
+
+
+
+    </main>
+    <!--rodapé (parte final do site)-->
+    <footer>
+        <section>
+
+            <div class="rodape-bg">
+            </div>
+
+            <section>
+                <div class="rodape-txt">
+                    <div class="nossa-rede-txt">
+                        <span>Nossa rede:</span>
+                    </div>
+                    <div class="contato-txt">
+                        <span>Contato:</span>
+                    </div>
+                    <div class="email-contato">
+                        <span>farameterj@gmail.com</span>
+                    </div>
+                    <div class="txt-farmabusca-rodape">
+                        <label>FarmaBusca2025</label>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="#" class="link_instagram"> Instagram 
+                                <img src="assets/logo_instagram.png" alt="logo do instagram" class="logo-instagram">
+                            </a>
+                                
+                        </li>
+                    </ul>
+                </div>
+
+                </ul>  
+               <!--<img src="assets/cobra_decoracao.png" alt="" class="snake-decoration">-->
+                
+            </section>
+        </section>
+
+    </footer>
+ 
+</body>
+</html>

@@ -19,8 +19,8 @@ function destacarLetras(texto, termo) {
 
 //exibir todos os resultados na página de medicamentos equivalentes a letra/palavra digitada na barra de pesquisa
 const url = termo
-  ? `http://localhost:3000/medicamento/termo?termo=${encodeURIComponent(termo)}`
-  : `http://localhost:3000/medicamento/termo`;
+  ? `/medicamento/termo?termo=${encodeURIComponent(termo)}`
+  : `/medicamento/termo`;
 
 fetch(url)
   .then(res => res.json())
@@ -61,7 +61,6 @@ fetch(url)
         <td>${m.categoria}</td>
         <td>${m.marca}</td>
         <td>R$ ${parseFloat(m.preco).toFixed(2)}</td>
-        <td>${m.farmacia || ""}</td>
         <td>
         <span class="${m.receita_medica === 'sim' ? 'receita-sim' : 'receita-nao'}">
           ${m.receita_medica}
@@ -85,8 +84,8 @@ fetch(url)
   function filtrarPorMarca() {
     const marcaSelecionada = document.getElementById("select-marca").value;
     const url = marcaSelecionada
-    ? `http://localhost:3000/medicamento/marca?marca=${encodeURIComponent(marcaSelecionada)}` //se a marca selecionada for X ele retornará todos medicamentos relacionados a marca X
-    : `http://localhost:3000/medicamento/termo`; //senão ele retorna todos os medicamentos
+    ? `/medicamento/marca?marca=${encodeURIComponent(marcaSelecionada)}` //se a marca selecionada for X ele retornará todos medicamentos relacionados a marca X
+    : `/medicamento/termo`; //senão ele retorna todos os medicamentos
 
     console.log(marcaSelecionada);
     
@@ -129,8 +128,8 @@ fetch(url)
 function filtrarPorCategoria() {
     const categoriaSelecionada = document.getElementById("select-categoria").value;
     const url = categoriaSelecionada
-    ? `http://localhost:3000/medicamento/categoria?categoria=${encodeURIComponent(categoriaSelecionada)}`
-    : `http://localhost:3000/medicamento/termo`;
+    ? `/medicamento/categoria?categoria=${encodeURIComponent(categoriaSelecionada)}`
+    : `/medicamento/termo`;
     
     
     
@@ -176,10 +175,10 @@ function filtrarPorPreco() {
       let url;
     
       if (precoSelecionada === "todas") {
-        url = "http://localhost:3000/medicamento/termo"; // endpoint que retorna todos
+        url = "/medicamento/termo"; // endpoint que retorna todos
       } else {
         const [min, max] = precoSelecionada.split("-").map(Number);
-        url = `http://localhost:3000/medicamento/preco?min=${min}&max=${max}`;
+        url = `/medicamento/preco?min=${min}&max=${max}`;
       }
 
       console.log(precoSelecionada);
@@ -247,7 +246,7 @@ function soltarMedicamento(event) {
     localStorage.setItem("medicamentosSalvos", JSON.stringify(salvos));
   }
   const token = localStorage.getItem("token"); 
-    fetch("http://localhost:3000/cliente/medicamento", {
+    fetch("/cliente/medicamento", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -258,11 +257,15 @@ function soltarMedicamento(event) {
     .then(res => res.text())
     .then(msg => console.log("medicamento salva no banco:", msg))
     .catch(err => console.error("Erro ao salvar no banco:", err));
+  if(!token){
+      alert("Você tem que estar logado para salvas itens!");
+  }
 }
 
 function irParaSalvos() {
   window.location.href = "salvos.html";
 }
+
 
 
 

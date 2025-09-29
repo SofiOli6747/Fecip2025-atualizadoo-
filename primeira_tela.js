@@ -61,7 +61,7 @@ function enviarCadastroM() {
     return;
   }
 
-  fetch("http://localhost:3000/medico/cadastro", {
+  fetch("/medico/cadastro", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -94,7 +94,7 @@ function enviarLoginM() {
     return;
   }
 
-  fetch("http://localhost:3000/medico/login", {
+  fetch("/medico/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -116,7 +116,7 @@ function enviarLoginM() {
     document.getElementById("form-loginM").style.display = "none"; //fecha a tela de login
     document.getElementById("blur-bg").style.display = "none"; 
     //document.getElementById("bv").textContent = "Bem-vindo ao FarmaBusca" + nome.innerText;
-    window.location.href = "medico.html";
+    window.location.href = "pagina medico/medico.html";
 
   })
   .catch(error => {

@@ -4,19 +4,37 @@ import client from "./db.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 
+
+// import electron from 'electron';
+// const { app, BrowserWindow } = electron;
+
+// app.whenReady().then(() => {
+//   const win = new BrowserWindow({ width: 1900, height: 1000 });
+//   win.loadFile('index.html');
+// });
 
 const app = express();
 import path from 'path';
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static(__dirname));
+
+
+
 
 
 //import authRoutes from './auth.js'; 
 //app.use('/auth.js', authRoutes);
+
+
 
 
 //cadastro
@@ -155,11 +173,16 @@ app.get('/cliente/dados', autenticarToken, async (req, res) => {
       'SELECT busca, data_pesquisa FROM historico_pesquisas WHERE id_cliente = $1 ORDER BY data_pesquisa DESC',
       [usuarioId]
     );
+    const nome = await client.query(
+      'SELECT nome FROM cliente WHERE id_cliente = $1',
+      [usuarioId]
+    )
 
     res.json({
       medicamentos: medicamentos.rows,
       farmacias: farmacias.rows,
-      historico: historico.rows
+      historico: historico.rows,
+      nome: nome.rows
     });
   } catch (err) {
     console.error("Erro ao buscar dados do cliente:", err);
@@ -227,6 +250,112 @@ app.post("/medico/login", async (req, res) => {
 });
 
 
+
+
+app.put("/medicamento/atualizar", async (req, res) => {
+  const { nome, categoria, marca, preco, receita_medica, id_medicamento } = req.body;
+
+  try {
+    const resultado = await client.query(
+      `UPDATE medicamento
+       SET nome = $1,
+           categoria = $2,
+           marca = $3,
+           preco = $4,
+           receita_medica = $5
+       WHERE id_medicamento = $6`,
+      [nome, categoria, marca, preco, receita_medica, id_medicamento]
+    );
+
+    res.json({ 
+      medicamentos: resultado.rows,
+      mensagem: "Medicamento atualizado com sucesso" });
+  } catch (err) {
+    console.error("Erro ao atualizar medicamento:", err);
+    res.status(500).send("Erro ao atualizar medicamento");
+  }
+});
+
+
+
+app.put("/sintomas_medicamentos/atualizar", async (req, res) => {
+  const  {sintoma, sintoma_id, causa, causa_id} = req.body;
+  //console.log(id_sintomaa);
+
+  try {
+//      const res_sintoma = await client.query(
+//    'SELECT id_sintoma FROM sintomas WHERE nome = $1',
+//    [id_sintomaa]
+//  );
+
+    //const id_sintoma = res_sintoma[0];
+    const sintoma2 = await client.query(
+      `UPDATE sintomas SET nome = $1 WHERE id_sintoma = $2
+`,
+      [sintoma, sintoma_id]
+   );
+   const causa2 = await client.query(
+      `UPDATE causas_comuns SET nome_causa = $1 WHERE id_causa = $2
+`,
+      [causa, causa_id]
+   );
+    res.json({ 
+      sintomas: sintoma2.rows,
+      causas: causa2.rows,
+      mensagem: "Medicamento-sintomas atualizado com sucesso" });
+  } catch (err) {
+    console.error("Erro ao atualizar sintomas:", err);
+    res.status(500).send("Erro ao atualizar sintomas");
+  }
+});
+
+
+
+
+app.post('/medico/historico', autenticarToken, async (req, res) => {
+  const { termo, dataHora} = req.body;
+  console.log(termo);
+  console.log(req.body);
+  const usuarioId = req.usuario.id;
+
+
+  try {
+    await client.query(
+      'INSERT INTO hist_pesquisasm (busca, data_pesquisam, id_medico) VALUES ($1, $2, $3)',
+      [ termo, dataHora ,usuarioId] 
+    );
+    res.send("busca salva com sucesso!");
+  } catch (err) {
+    console.error("Erro ao salvar busca:", err);
+    res.status(500).send("Erro interno ao salvar busca.");
+  }
+});
+
+
+
+
+app.get('/medico/dados', autenticarToken, async (req, res) => {
+  const usuarioId = req.usuario.id;
+
+  try {
+    const historico = await client.query(
+      'SELECT busca, data_pesquisam FROM hist_pesquisasm WHERE id_medico = $1 ORDER BY data_pesquisam DESC',
+      [usuarioId]
+    );
+    const nome = await client.query(
+      'SELECT nome FROM medico WHERE id_medico = $1',
+      [usuarioId]
+    )
+
+    res.json({
+      historico: historico.rows,
+      nome: nome.rows
+    });
+  } catch (err) {
+    console.error("Erro ao buscar dados do cliente:", err);
+    res.status(500).send("Erro interno ao buscar dados.");
+  }
+});
 
 
 
@@ -311,11 +440,42 @@ app.get("/autocomplete", async (req, res) => {
 });
 
 
+app.get("/sintomas", async (req, res) => {
+  const nome  = req.query;
+
+  try{
+    const resultado = await client.query(
+      "SELECT id_sintoma FROM sintomas ORDER BY id_sintoma ASC;",
+    );
+    res.json(resultado.rows);
+    //console.log(resultado);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Erro ao buscar dados");
+  }
+});
+
+app.get("/causas_comuns", async (req, res) => {
+  const nome  = req.query;
+
+  try{
+    const resultado = await client.query(
+      "SELECT id_causa FROM causas_comuns ORDER BY id_causa ASC;",
+    );
+    res.json(resultado.rows);
+    //console.log(resultado);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Erro ao buscar dados");
+  }
+});
+
 
 app.get("/sintomas_medicamentos/sintoma", async (req, res) => {
   const sintoma = req.query.sintoma;
   try {
-    const resultados = await client.query(
+    if(sintoma){
+      const resultados = await client.query(
       `SELECT 
   s.nome AS sintoma,
   STRING_AGG(DISTINCT c.nome_causa, ', ') AS causas_comuns,
@@ -326,10 +486,29 @@ LEFT JOIN medicamento m ON sm.id_medicamento = m.id_medicamento
 LEFT JOIN sintomas_causas sc ON s.id_sintoma = sc.id_sintoma
 LEFT JOIN causas_comuns c ON sc.id_causa = c.id_causa
 WHERE LOWER(s.nome) LIKE LOWER($1)
-GROUP BY s.nome`,
+GROUP BY s.id_sintoma, s.nome
+`,
       [`%${sintoma}%`]
     ); 
     res.json(resultados.rows);
+    }
+    else{
+      const resultados = await client.query(
+      `SELECT 
+  s.nome AS sintoma,
+  STRING_AGG(DISTINCT c.nome_causa, ', ') AS causas_comuns,
+  STRING_AGG(DISTINCT m.nome, ', ') AS medicamentos
+FROM sintomas_medicamentos sm
+LEFT JOIN sintomas s ON sm.id_sintoma = s.id_sintoma
+LEFT JOIN medicamento m ON sm.id_medicamento = m.id_medicamento
+LEFT JOIN sintomas_causas sc ON s.id_sintoma = sc.id_sintoma
+LEFT JOIN causas_comuns c ON sc.id_causa = c.id_causa
+GROUP BY s.id_sintoma, s.nome
+`,
+    ); 
+    res.json(resultados.rows);
+    }
+    
   }catch (err) {
     console.error('Erro ao buscar dados:', err.message);
     res.status(500).send('Erro interno no servidor');
@@ -338,8 +517,31 @@ GROUP BY s.nome`,
 
 
 
-app.listen(3000, () => {
-  console.log('Servidor rodando na porta 3000');
+
+app.post("/formularios", async (req, res) =>{
+  const {id_form, email, nome, telefone, formulario} = req.body;
+
+  try{
+    const resultados = await client.query(
+      'INSERT INTO formularios (email, nome, telefone, forms) VALUES ($1, $2, $3, $4)',
+       [email, nome, telefone, formulario]
+    )
+    res.json(resultados.rows);
+  } catch (err) {
+    console.error('Erro ao enviar dados:', err.message);
+    res.status(500).send('Erro interno no servidor')
+  }
+  
+})
+
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
 
+
+// app.listen(3000, () => {
+//   console.log('Servidor rodando na porta 3000');
+// });
 

@@ -5,6 +5,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,8 +20,10 @@
   },
   "homepage": "https://github.com/SofiOli6747/Fecip2025#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.16.3"
   }
 }

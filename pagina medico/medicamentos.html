@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="assets/logo farma busca.png" type="image/x-icon">
 
-    <script src="script.js" defer></script>
+    <script src="medico.js" defer></script>
+    <script src="resultados_med.js" defer></script>
 </head>
 <body>
     <header>
@@ -24,42 +25,24 @@
             </div>
             <!--ára de busca-->
             <div>
-                <input type="search" class="typebox" id="txtbox" size="70" placeholder="O que está buscando?"> 
+                <input type="search" class="typebox" id="searchInput" size="70" placeholder="O que está consultando?">
+                <button type="submit" class="pesquisar_btn" id="botaoBuscar" size="500">Buscar 🔍</button>
+
+                <button type="button" class="b-sair" id="b-sairr" size="70">Sair</button>
             </div>
             
             <!--área dos botões cadastro e salvos-->
-            <div>
-                <input type="button" class="b-cadastro" id="botao-cadastro" size="70">
-                
-                <img src="assets/userpf.png" alt="icon de cadastro"  class="icon-cadastro">
-                
-                <div class="cadastro-txt">
-                    <label>Entre ou Cadastre-se</label>
-                </div>
-            </div>
-            <div>
-                <input type="button" class="b-salvos" id="salvos" size="70" >
-                <img src="assets/salvos-logo.png" alt="icon dos salvos" class="icon-salvos">
-                <div class="salvos-txt">
-                    <label>Seus salvos</label>
-                </div>
+    
             </div>
         </section>
         <!--área de navegação-->
         <nav>
             <ul class="navbar">
                 <li>
-                    <a href="cliente copy.html" class="Inicio"> Início </a>
+                    <a href="medico.html" class="Inicio"> Início </a>
 
-                    <a href="#" class="Categorias-navbar" id="categoria-link"> Categorias </a>
+                    <a href="lojas.html" class="lojas-navbar"> Histórico </a>
 
-                    <a href="medicamentos.html" class="Medicamentos-navbar"> Medicamentos </a>
-
-                    <a href="lojas.html" class="lojas-navbar"> Lojas </a>
-
-                    <a href="como-funciona.html" class="Como-funciona-navbar3"> Como funciona </a>
-
-                    <a href="contato.html" class="Contato-navbar3"> Contato </a>
                 </li>
             </ul>
            
@@ -75,6 +58,45 @@
         <!--<h2 class="pg4-txt">Aqui você verá a lista de medicamentos com todas as informações.</h2>-->
         <h1 class="pg4-título">Tabela de Medicamentos</h1>
 
+         <div>
+            <label class="filtretxt">Filtre por:</label>
+            <label class="precotxt">Preço</label>
+            <label class="marcatxt">Marca</label>
+            <label class="categtxt">Categoria</label>
+
+             <select name="filtromarca" id="select-marca" class="filtroMC" onchange="filtrarPorMarca()">
+                <option value="">Todas</option>
+                <option value="Sanofi">Sanofi</option>
+                <option value="GSK">GSK</option>
+                <option value="EMS">EMS</option>
+                <option value="Eurofarma">Eurofarma</option>
+                <option value="Bayer">Bayer</option>
+                <option value="Neo Química">Neo Química</option>
+                <option value="Teuto">Teuto</option>
+            </select>
+            <select name="filtropreco" id="select-preco" class="filtroPC" onchange="filtrarPorPreco()">
+                <option value="todas">Todas</option>
+                <option value=0-10>0-10,00</option>
+                <option value=10-20>10,00-20,00</option>
+                <option value=20-30>20,00-30,00</option>
+                <option value=50-80>50,00-80,00</option>
+                <option value=100-200>100,00-200,00</option>
+                <option value=500-1000>500,00-1000,00</option>
+            </select>
+            <select name="filtrocateg" id="select-categoria" class="filtroCC" onchange="filtrarPorCategoria()">
+                <option value="">Todas</option>
+                <option value="Analgésico">Analgésico</option>
+                <option value="Hormonal">Hormonal</option>
+                <option value="Antialérgico">Antialérgico</option>
+                <option value="Ansiolítico">Ansiolítico</option>
+                <option value="Antiviral">Antiviral</option>
+                <option value="Antibacteriano">Antibacteriano</option>
+                <option value="Antidepressivo">Antidepressivo</option>
+            </select>
+            
+        </div>
+        
+
         
         <table class="pricing-table">
             <thead>
@@ -83,112 +105,39 @@
                     <th>Categoria</th>
                     <th>Marca</th>
                     <th>Preço</th>
-                    <th>Farmácia</th>
                     <th>Prescrição médica</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="emponoda">
 
             </tbody>
         </table>
+
+        <button type="button" class="b-editar" id="b-editar">Editar</button>
+        <button type="button" class="b-salvarM" id="b-salvarM">Salvar Mudanças</button>
+
         <section>
             <div class="blur-bg-overlay" id="blur-bg">
             </div>
             <div class="form-login" id="form-loginn">
                 <div class="bg-login"></div>
                 <div class="bg-login2"></div>
-                <button class="close-btn" id="close-btn">X</button>
                 <div class="tela-login">
                     <div class="form-content">
-                        <h2>LOGIN</h2>
+                        <h2>Tem certeza que deseja sair?</h2>
                         <form action="#">
-                            <div class="input-field">
-                                <input type="text" required>
-                                <label>Email</label>
-                            </div>
-                            <div class="input-field">
-                                <input type="password" required>
-                                <label>Senha</label>
-                            </div>
-                            <a href="#" class="esqueceu-senha">Esqueceu a senha?</a>
-                            <button type="submit">Logar</button>
+                            <button class="btn-voltar" id="b-voltar" type="reset">Voltar</button>
+                            <button class="btn-sair" id="btn-sair" type="submit">Sair</button>
                         </form>
-                        <div class="botao-link-cadastrar">
-                            <label>Não tem uma conta?</label> 
-                            <a href="#" onclick="toggleForms()" id="cadastro-link">Cadastre-se</a>
-                        </div>
                     </div>
                 </div>
-            </div>    
-            <div class="form-cadastro" id="form-cadastro">
-                <div class="bg-login"></div>
-                <div class="bg-login2"></div>
-                <button class="close-btn2" id="close-btn2">X</button>
-                <div class="tela-cadastro">
-                    <div class="form-content">
-                        <h2>CADASTRO</h2>
-                        <form action="#">
-                            <div class="input-field" id="input-field">
-                                <input type="text" required>
-                                <label>Coloque seu Email</label>
-                            </div>
-                            <div class="input-field">
-                                <input type="password" id="inputPassword" required>
-                                <label>Criar senha</label>
-                            </div>
-                            <button type="submit">Logar</button>
-                        </form>
-                        <div class="botao-link-cadastrar">
-                            <label>Já tem uma conta?</label> 
-                            <a href="#" onclick="toggleForms()" id="login-link">Entre</a>
-                        </div>
-                        <button class="btn-gsenha" id="generate-password">gerar senha</button>
-                        <div class="senha-gerada" id="generated-password">
-                            <h4></h4>
-                        </div>
-                    </div>
-                </div>    
             </div>            
 
         </section>
-
+  
     </main>
     
     <footer>
-        <section>
-
-            <div class="rodape-bg">
-            </div>
-
-            <section>
-                <div class="rodape-txt">
-                    <div class="nossa-rede-txt">
-                        <span>Nossa rede</span>
-                    </div>
-                    <div class="contato-txt">
-                        <span>Contato:</span>
-                    </div>
-                    <div class="email-contato">
-                        <span>farameterj@gmail.com</span>
-                    </div>
-                    <div class="txt-farmabusca-rodape">
-                        <label>FarmaBusca2025</label>
-                    </div>
-                    <ul>
-                        <li>
-                            <a href="#" class="link_instagram"> Instagram 
-                                <img src="assets/logo_instagram.png" alt="logo do instagram" class="logo-instagram">
-                            </a>
-                                
-                        </li>
-                    </ul>
-                </div>
-
-                </ul>  
-               <!--<img src="assets/cobra_decoracao.png" alt="" class="snake-decoration">-->
-                
-            </section>
-        </section>
 
     </footer>
 </body>

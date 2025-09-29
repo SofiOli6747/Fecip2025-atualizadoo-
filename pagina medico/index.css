@@ -59,14 +59,14 @@ ul{
 .farma{
     font-family: "Peralta", serif;
     text-decoration: none;
-    color: rgb(197, 130, 130);
+    color: rgb(46, 81, 111);
     position: absolute;
 
 }
 .busca{
     font-family: "Peralta", serif;
     text-decoration: none;
-    color: rgb(197, 130, 130);
+    color: rgb(46, 81, 111);
     position: absolute;
     top: 30px;
 }
@@ -267,7 +267,7 @@ ul{
     font-family: "Sarala", sans-serif;
     position: absolute;
     top: 145px;
-    left: 73px;
+    left: 63px;
 }
 
 .lojas_img{
@@ -371,7 +371,7 @@ ul{
     font-family: "Sarala", sans-serif;
     position: absolute;
     top: 125px;
-    left: 380px;
+    left: 610px;
     text-decoration: none;
     color: white;
     text-shadow: 0.5px 1px black;
@@ -413,7 +413,7 @@ ul{
     font-family: "Sarala", sans-serif;
     position: absolute;
     top: 125px;
-    left: 680px;
+    left: 770px;
     text-decoration: none;
     color: white;
     text-shadow: 0.5px 1px black;
@@ -1346,8 +1346,10 @@ form button {
     color: rgb(102, 180, 174);
     position: absolute;
     top: 320px;
-    left: 650px;
+    left: 620px;
 }
+
+
 
 .pesquisar_btn{
     border-radius: 10px;
@@ -1364,6 +1366,67 @@ form button {
 }
 
 
+.btn-sfarmacia{
+    border-radius: 10px;
+    border-style:double;
+    border-color: #ddd;
+    position: absolute;
+    top: 270px;
+    left: 930px;
+}
+
+.btn-sfarmacia:hover{
+    cursor: pointer;
+    color: rgb(18, 174, 112);
+}
+
+.typebox3{
+    background-color: rgb(211, 219, 219);
+    padding: 10px;
+    border: none;
+    border-radius: 40px;
+    height: 40px;
+    position: absolute;
+    top: 260px;
+    left: 390px;
+}
+
+
+
+
+
+
+menu {
+    position: absolute;
+    display: none;
+    border: solid 50px;
+    border-color: #bbc07f;
+}
+
+.grupoOpcao {
+
+    margin-bottom: 10px;
+}
+
+.grupoOpcao h4 {
+ 
+    margin: 0;
+    padding: 5px;
+    background-color: #000000;
+    font-size: 14px;
+    border: 50px solid #bc1010;
+    text-transform: uppercase;
+}
+
+.grupoOpcao div {
+    padding: 100px;
+    cursor: pointer;
+    display: block;
+}
+
+.grupoOpcao div:hover {
+    background-color: #f9f9f9;
+}
 
 
 .highlight {
@@ -1377,4 +1440,245 @@ form button {
 
 .receita-nao {
   color: rgb(255, 4, 0);
+}
+
+.filtroC{
+    position: absolute;
+    top: 390px;
+}
+
+.filtroMC{
+    position: absolute;
+    top: 390px;
+    left: 100px;
+}
+
+.filtroPC{
+    position: absolute;
+    top: 390px;
+    left: 205px;
+}
+
+.filtroCC{
+    position: absolute;
+    top: 390px;
+    left: 330px;
+}
+
+
+
+
+
+
+.filtretxt{
+    position: absolute;
+    top: 370px;
+}
+
+
+.todastxt{
+    position: absolute;
+    top: 370px;
+    left: 10px;
+}
+
+.marcatxt{
+    position: absolute;
+    top: 370px;
+    left: 100px;
+}
+
+.precotxt{
+    position: absolute;
+    top: 370px;
+    left: 200px;
+}
+
+.categtxt{
+    position: absolute;
+    top: 370px;
+    left: 330px;
+}
+
+
+.bg-titulo2{
+    width: 610px;
+    height: 60px;
+    background-color: rgb(223, 231, 238);
+    position: absolute;
+    top: 350px;
+    left: 455px;
+}
+
+.btn-salvos{
+    position: absolute;
+    top: px;
+    left: 1450px;
+}
+
+.btn-salvos2{
+    position: absolute;
+    top: px;
+    left: 1450px;
+}
+
+.teste{
+    position: absolute;
+    top:730px;
+    left: 1235px;
+    color: gray;
+    transform: rotate(90deg);
+    font-size: 30px;
+    width: 500px;
+}
+
+
+.favorite-table {
+    position: absolute;
+    top: 200px;
+    left: 1px;
+    width: 750px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    overflow-y: auto;
+}
+
+.favorite-table th, .favorite-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+.favorite-table th {
+    background-color: var(--verde);
+    color: white;
+    overflow-y: auto;
+}
+
+.favorite-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+    overflow-y: auto;
+}
+
+.favorite-table tr:hover {
+    background-color: #ddd;
+}
+
+
+.favorite-table2 {
+    position: absolute;
+    top: 200px;
+    left: 750px;
+    width: 780px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    overflow-y: auto;
+}
+
+.favorite-table2 th, .favorite-table2 td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+.favorite-table2 th {
+    background-color: var(--verde);
+    color: white;
+    overflow-y: auto;
+}
+
+.favorite-table2 tr:nth-child(even) {
+    background-color: #f2f2f2;
+    overflow-y: auto;
+}
+
+.favorite-table2 tr:hover {
+    background-color: #ddd;
+}
+
+
+
+
+.b-sair{
+    background-color: #cee3c5;
+    border: none;
+    border-radius: 40px;
+    width: 150px;
+    height: 70px;
+    position: absolute;
+    top: 20px;
+    left: 1300px;
+    font-family: "Sarala", sans-serif;
+    font-size: 20px;
+}
+.b-sair:hover{
+    background-color: #acc6ac;
+    cursor: pointer;
+}
+
+
+.b-editar{
+    padding: 8px;
+    width: 100px;
+    border-color: #ddd;
+    position: absolute;
+    left: 1000px;
+    top: 365px;
+}
+
+.b-editar:hover{
+    cursor: pointer;
+    color: rgb(174, 18, 18);
+}
+
+
+.b-salvarM{
+    display: none;
+    padding: 8px;
+    width: 150px;
+    border-color: #ddd;
+    position: absolute;
+    left: 1150px;
+    top: 365px;
+}
+
+.b-salvarM:hover{
+    cursor: pointer;
+    color: rgb(174, 18, 18);
+}
+
+
+
+.b-editarF{
+    padding: 8px;
+    width: 100px;
+    border-color: #ddd;
+    position: absolute;
+    left: 1100px;
+    top: 365px;
+}
+
+.b-editarF:hover{
+    cursor: pointer;
+    color: rgb(174, 18, 18);
+}
+
+
+.b-salvarF{
+    display: none;
+    padding: 8px;
+    width: 150px;
+    border-color: #ddd;
+    position: absolute;
+    left: 1250px;
+    top: 365px;
+}
+
+.b-salvarF:hover{
+    cursor: pointer;
+    color: rgb(174, 18, 18);
 }

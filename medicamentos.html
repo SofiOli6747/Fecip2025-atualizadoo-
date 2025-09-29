@@ -27,7 +27,7 @@
             <!--ára de busca-->
             <div>
                 <input type="search" class="typebox" id="searchInput" size="70" placeholder="O que está buscando?"> 
-                <button type="submit" class="pesquisar_btn" id="botaoBuscar" size="500">Buscar🔍</button>
+                <button type="submit" class="pesquisar_btn" id="botaoBuscar" size="500" onclick="registrarHistoricoPesquisa(), pesquisar2()">Buscar🔍</button>
             </div>
             
             <!--área dos botões cadastro e salvos-->
@@ -36,7 +36,7 @@
                 
                 <img src="assets/userpf.png" alt="icon de cadastro"  class="icon-cadastro">
                 
-                <div class="cadastro-txt">
+                <div class="cadastro-txt"> 
                     <label>Entre ou Cadastre-se</label>
                 </div>
             </div>
@@ -124,7 +124,6 @@
                     <th>Categoria</th>
                     <th>Marca</th>
                     <th>Preço Médio</th>
-                    <th>Farmácia</th>
                     <th>Prescrição médica</th>
                     <th>Salvos</th>
                 </tr>
@@ -138,7 +137,7 @@
 
         <section>
            <div class="teste" id="areaSalvos" ondrop="soltarMedicamento(event)" ondragover="permitirDrop(event)">
-            <p>Arraste aqui para salvar</p>
+            <p class="arraste">Arraste aqui para salvar</p>
            </div>
         </section>
 

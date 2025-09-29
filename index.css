@@ -842,14 +842,14 @@ form .input-field label{
 
 .botao-link-cadastrar{
     position: relative;
-    top: 55px;
+    top: 25px;
     
 }
 
 form button {
     width: 100%;
     position: relative;
-    top: 35px;
+    top: 10px;
     outline: none;
     border: none;
     font-size: 1rem;
@@ -1276,11 +1276,11 @@ form button {
 
 .pg4-txt{
     font-family: "Cedarville Cursive", cursive;
-    font-size: 15px;
+    font-size: 20px;
     color: dimgray;
     position: absolute;
-    top: 190px;
-    left: 500px;
+    top: 210px;
+    left: 430px;
 }
 
 .pg4-título{
@@ -1294,7 +1294,7 @@ form button {
 
 .bg-titulo{
     width: 500px;
-    height: 60px;
+    height: 70px;
     background-color: rgb(223, 231, 238);
     position: absolute;
     top: 350px;
@@ -1302,10 +1302,10 @@ form button {
 }
 
 .papel{
-    width: 700px;
-    height: 100px;
+    width: 710px;
+    height: 155px;
     position: absolute;
-    top: 165px;
+    top: 170px;
     left: 350px;
 }
 
@@ -1316,11 +1316,11 @@ form button {
 
 .pg5-txt{
     font-family: "Cedarville Cursive", cursive;
-    font-size: 15px;
+    font-size: 20px;
     color: dimgray;
     position: absolute;
-    top: 190px;
-    left: 550px;
+    top: 215px;
+    left: 510px;
 }
 
 .pg5-título{
@@ -1338,11 +1338,11 @@ form button {
 
 .pg6-txt{
     font-family: "Cedarville Cursive", cursive;
-    font-size: 15px;
+    font-size: 20px;
     color: dimgray;
     position: absolute;
-    top: 190px;
-    left: 540px;
+    top: 210px;
+    left: 465px;
 }
 
 .pg6-título{
@@ -1360,7 +1360,7 @@ form button {
     border-style:double;
     border-color: #ddd;
     position: absolute;
-    top: 270px;
+    top: 300px;
     left: 930px;
 }
 
@@ -1376,7 +1376,7 @@ form button {
     border-radius: 40px;
     height: 40px;
     position: absolute;
-    top: 260px;
+    top: 290px;
     left: 390px;
 }
 
@@ -1641,3 +1641,8 @@ form button {
 }
 
 
+.arraste{
+    position: absolute;
+    top: 10px;
+    left: 80px;
+}

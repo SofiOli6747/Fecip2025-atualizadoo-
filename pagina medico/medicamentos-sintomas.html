@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmaBusca - Medicamentos-sintomas</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="assets/logo farma busca.png" type="image/x-icon">
+
+    <script src="script.js" defer></script>
+    <script type="module" src="resultados_sintomas.js" defer></script>
+    
+</head>
+<body>
+    <div id="resultadoContainer"></div>
+    <header>
+
+        <div class="fundo-navbar">  
+        </div>
+        <section>
+            <!--logo principal-->
+            <img src="assets/logo farma busca.png" alt="" class="logo">
+            <div class="titulo">
+                <a href="cliente.html" class="farma"> Farma </a>
+                <a href="cliente.html" class="busca"> Busca </a>
+               <!-- <img src="assets/simbolofarmacia.png" alt="simbolo da farmacia" class="simbolo-farmacia"> -->
+            </div>
+            <!--ára de busca-->
+            <div>
+                <input type="search" class="typebox" id="searchInput" size="70" placeholder="O que está buscando?"> 
+                <button type="submit" class="pesquisar_btn" id="botaoBuscar2" size="500">Buscar</button>
+            </div>
+        
+
+        </section>
+        <!--área de navegação-->
+        <nav>
+            <ul class="navbar">
+                <li>
+                    <a href="medico.html" class="Inicio"> Início </a>
+
+                    <a href="lojas.html" class="lojas-navbar"> Histórico </a>
+                </li>
+            </ul>
+           
+        </nav>
+        
+
+    </header>
+
+    <main>
+
+        <div class="bg-titulo2"></div>
+        <h1 class="pg4-título">Medicamentos Recomendados:</h1>
+
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Sintoma</th>
+                    <th>Possíveis Causas</th>
+                    <th>Medicamento(s) Recomendado(s)</th>
+                </tr>
+            </thead>
+            <tbody id="empanada">
+
+            </tbody>
+
+        </table>
+
+        
+        <button type="button" class="b-editarF" id="b-editarF">Editar</button>
+        <button type="button" class="b-salvarF" id="b-salvarF">Salvar Mudanças</button>
+
+        <section>
+            <div class="blur-bg-overlay" id="blur-bg">
+            </div>
+            <div class="form-login" id="form-loginn">
+                <div class="bg-login"></div>
+                <div class="bg-login2"></div>
+                <button class="close-btn" id="close-btn">X</button>
+                <div class="tela-login">
+                    <div class="form-content">
+                        <h2>LOGIN</h2>
+                        <form action="#">
+                            <div class="input-field">
+                                <input type="text" required>
+                                <label>Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" required>
+                                <label>Senha</label>
+                            </div>
+                            <a href="#" class="esqueceu-senha">Esqueceu a senha?</a>
+                            <button type="submit">Logar</button>
+                        </form>
+                        <div class="botao-link-cadastrar">
+                            <label>Não tem uma conta?</label> 
+                            <a href="#" onclick="toggleForms()" id="cadastro-link">Cadastre-se</a>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            <div class="form-cadastro" id="form-cadastro">
+                <div class="bg-login"></div>
+                <div class="bg-login2"></div>
+                <button class="close-btn2" id="close-btn2">X</button>
+                <div class="tela-cadastro">
+                    <div class="form-content">
+                        <h2>CADASTRO</h2>
+                        <form action="#">
+                            <div class="input-field" id="input-field">
+                                <input type="text" required>
+                                <label>Coloque seu Email</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" id="inputPassword" required>
+                                <label>Criar senha</label>
+                            </div>
+                            <button type="submit">Logar</button>
+                        </form>
+                        <div class="botao-link-cadastrar">
+                            <label>Já tem uma conta?</label> 
+                            <a href="#" onclick="toggleForms()" id="login-link">Entre</a>
+                        </div>
+                        <button class="btn-gsenha" id="generate-password">gerar senha</button>
+                        <div class="senha-gerada" id="generated-password">
+                            <h4></h4>
+                        </div>
+                    </div>
+                </div>    
+            </div>            
+
+        </section>
+
+    </main>
+    
+    <footer>        
+
+    </footer>
+   <script src="resultados_sintomas.js" defer></script>
+</body>
+</html>
