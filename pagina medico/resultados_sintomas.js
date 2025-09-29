@@ -14,7 +14,7 @@ let id_causaa = [];
             id_sintomaa = item.id_sintoma
             console.log(id_sintomaa);
           })
-           fetch(`http://localhost:3000/causas_comuns`, {
+           fetch(`/causas_comuns`, {
           headers: { "Content-Type": "application/json" }
         })
         .then(res => res.json())

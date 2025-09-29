@@ -9,11 +9,24 @@
 
     <script src="script.js" async defer></script>
     <script>
+        let map
+        let statusok
+        let localizacao
+        let mapa
+        let service
+        let distanceService
         function initMap() {
-            const map = new google.maps.Map(document.getElementById("map"), {
+            map = new google.maps.Map(document.getElementById("map"), {
                 center: { lat: -22.9068, lng: -43.1729 },
                 zoom: 14,
             });
+            statusok = google.maps.places.PlacesServiceStatus.OK;
+            metrico = google.maps.UnitSystem.METRIC;
+            modoviagem = google.maps.TravelMode.DRIVING;
+            localizacao = new google.maps.LatLng(latitude, longitude);
+            mapa = new google.maps.Map(document.createElement("div")); 
+            service = new google.maps.places.PlacesService(mapa);
+            distanceService = new google.maps.DistanceMatrixService();
         }
     </script>
 </head>

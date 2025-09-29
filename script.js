@@ -388,8 +388,7 @@ async function buscarFarmaciasPorEndereco() {
   }
 
   try {
-    const geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ address: endereco }, (resultados, status) => {
+    map.geocode({ address: endereco }, (resultados, status) => {
       if (status === "OK" && resultados[0]) {
         const localizacao = resultados[0].geometry.location;
         buscarFarmacias(localizacao.lat(), localizacao.lng());
@@ -407,9 +406,6 @@ function buscarFarmacias(latitude, longitude) {
   const tableBody = document.querySelector(".pricing-table tbody");
   tableBody.innerHTML = "";
 
-  const localizacao = new google.maps.LatLng(latitude, longitude);
-  const mapa = new google.maps.Map(document.createElement("div")); // mapa invisível
-  const service = new google.maps.places.PlacesService(mapa);
 
   const request = {
     location: localizacao,
@@ -418,15 +414,14 @@ function buscarFarmacias(latitude, longitude) {
   };
 
   service.nearbySearch(request, (resultados, status) => {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
+    if (status === statusok) {
       const destinos = resultados.map(r => r.geometry.location);
 
-      const distanceService = new google.maps.DistanceMatrixService();
       distanceService.getDistanceMatrix({
         origins: [localizacao],
         destinations: destinos,
-        travelMode: google.maps.TravelMode.DRIVING,
-        unitSystem: google.maps.UnitSystem.METRIC
+        travelMode: modoviagem,
+        unitSystem: metrico
       }, (response, statusDistancia) => {
         if (statusDistancia === "OK") {
           resultados.forEach((resultado, i) => {
