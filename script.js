@@ -368,15 +368,15 @@ const farmaciasSalvas = JSON.parse(localStorage.getItem("farmaciasSalvas")) || [
 
 const medicamentosSalvos = JSON.parse(localStorage.getItem("medicamentosSalvos")) || [];
 
-fetch('/api/google-key')
-  .then(res => res.json())
-  .then(data => {
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${data.key}&loading=async&libraries=places&callback=initMap`;
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
-  });
+// fetch('/api/google-key')
+//   .then(res => res.json())
+//   .then(data => {
+//     const script = document.createElement('script');
+//     script.src = `https://maps.googleapis.com/maps/api/js?key=${data.key}&loading=async&libraries=places&callback=initMap`;
+//     script.async = true;
+//     script.defer = true;
+//     document.head.appendChild(script);
+//   });
 
 
 
@@ -388,7 +388,8 @@ async function buscarFarmaciasPorEndereco() {
   }
 
   try {
-    map.geocode({ address: endereco }, (resultados, status) => {
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ address: endereco }, (resultados, status) => {
       if (status === "OK" && resultados[0]) {
         const localizacao = resultados[0].geometry.location;
         buscarFarmacias(localizacao.lat(), localizacao.lng());
@@ -406,6 +407,9 @@ function buscarFarmacias(latitude, longitude) {
   const tableBody = document.querySelector(".pricing-table tbody");
   tableBody.innerHTML = "";
 
+  const localizacao = new google.maps.LatLng(latitude, longitude);
+  const mapa = new google.maps.Map(document.createElement("div")); // mapa invisível
+  const service = new google.maps.places.PlacesService(mapa);
 
   const request = {
     location: localizacao,
@@ -414,14 +418,15 @@ function buscarFarmacias(latitude, longitude) {
   };
 
   service.nearbySearch(request, (resultados, status) => {
-    if (status === statusok) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
       const destinos = resultados.map(r => r.geometry.location);
 
+      const distanceService = new google.maps.DistanceMatrixService();
       distanceService.getDistanceMatrix({
         origins: [localizacao],
         destinations: destinos,
-        travelMode: modoviagem,
-        unitSystem: metrico
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC
       }, (response, statusDistancia) => {
         if (statusDistancia === "OK") {
           resultados.forEach((resultado, i) => {
