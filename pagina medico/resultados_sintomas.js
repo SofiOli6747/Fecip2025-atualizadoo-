@@ -54,7 +54,7 @@ fetch(url)
         const linha = document.createElement('tr');
         linha.innerHTML = `
         <td contenteditable="false" id = ${dados2[i]}>${item.sintoma}</td> 
-        <td contenteditable="false"id = ${dados3[i]}>${item.causas_comuns}</td> 
+        <td contenteditable="false">${item.causas_comuns}</td> 
         <td contenteditable="false">${item.medicamentos}</td>
          `;
         tableBody.appendChild(linha);
@@ -67,7 +67,6 @@ fetch(url)
             document.getElementById("b-salvarF").style.display = "block";
         linha.innerHTML = `
         <td contenteditable="true" id = ${dados2[i].id_sintoma}>${item.sintoma}</td>
-         <td contenteditable="true" id = ${dados3[i].id_causa}>${item.causas_comuns}</td>
       `
         })
        
@@ -81,8 +80,8 @@ fetch(url)
             const dadosEditados = {
               sintoma: celulas[0].texto,
               sintoma_id: celulas[0].id,
-              causa: celulas[0].texto,
-              causa_id: celulas[0].id
+              //causa: celulas[0].texto,
+              //causa_id: celulas[0].id
               //sintoma_antigo: celulasantigas[0].texto,
               //id_sintomaa: id_sintomaa
             };

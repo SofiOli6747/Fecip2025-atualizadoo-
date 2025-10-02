@@ -121,6 +121,7 @@ if(token){
       document.getElementById("bv").innerHTML = `Bem-vindo ao FarmaBusca <span style="font-weight:bold; font-family:'Arial'; color:#2a2a2a;">${nome}</span>`;
       document.getElementById("bv").style.left = "450px"
       document.getElementById("bv").style.top = "200px"
+      document.getElementById("cadastro-txt").innerHTML = `<span style="font-weight:bold; font-family:'Arial'; color:#2a2a2a;">${nome}</span>`;
     
     console.log("resposta do servidor:", data)
   })

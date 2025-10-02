@@ -279,7 +279,7 @@ app.put("/medicamento/atualizar", async (req, res) => {
 
 
 app.put("/sintomas_medicamentos/atualizar", async (req, res) => {
-  const  {sintoma, sintoma_id, causa, causa_id} = req.body;
+  const  {sintoma, sintoma_id} = req.body;
   //console.log(id_sintomaa);
 
   try {
@@ -294,14 +294,13 @@ app.put("/sintomas_medicamentos/atualizar", async (req, res) => {
 `,
       [sintoma, sintoma_id]
    );
-   const causa2 = await client.query(
-      `UPDATE causas_comuns SET nome_causa = $1 WHERE id_causa = $2
-`,
-      [causa, causa_id]
-   );
+//    const causa2 = await client.query(
+//       `UPDATE causas_comuns SET nome_causa = $1 WHERE id_causa = $2
+// `,
+//       [causa, causa_id]
+//    );
     res.json({ 
       sintomas: sintoma2.rows,
-      causas: causa2.rows,
       mensagem: "Medicamento-sintomas atualizado com sucesso" });
   } catch (err) {
     console.error("Erro ao atualizar sintomas:", err);
